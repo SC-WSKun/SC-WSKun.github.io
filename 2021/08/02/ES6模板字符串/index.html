@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>Archive</title>
+  <title>ES6模板字符串</title>
   
     
       <meta 
         property="og:title" 
-        content="Archive">
+        content="ES6模板字符串">
     
     
       <meta 
         property="og:url" 
-        content="http://example.com/archives/2021/07/index.html">
+        content="http://example.com/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
     
     
       <meta 
@@ -36,6 +36,30 @@
         content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png">
     
     
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2021-08-02">
+      <meta 
+        property="og:article:modified_time" 
+        content="2021-08-02">
+      <meta 
+        property="og:article:author" 
+        content="SC-WSKun">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="JavaScript">
+        
+          <meta 
+            property="og:article:tag" 
+            content="ES6">
+        
+      
     
   
   <script>
@@ -140,6 +164,8 @@
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
   
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
   <body>
@@ -237,161 +263,137 @@
         <div class="container">
           <div class="columns">
             <main class="main-column">
-<div class="card card-content">
-  <h1 class="widget-title">Archive</h1>
-</div>
-<div class="archive-timeline">
-  
-  
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      ES6模板字符串
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-08-02T07:36:44.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2021-08-02</span>
+    </time>
     
-      <div class="archive-timeline-tag"><span>2021</span></div>
-      
     
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-31</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/31/ES6%E7%9A%84let%E5%92%8Cconst%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"
-              class="archive-timeline-post-item">
-              ES6的let和const变量
-            </a>
-          </div>
-        </div>
+      <span class="dot"></span>
+      <span>92 words</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/JavaScript/" 
+            class="post-meta-link">
+            JavaScript
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/ES6/" 
+            class="post-meta-link">
+            ES6
+          </a>
+        
       </div>
     </div>
   
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h1 id="ES6模板字符串"><a href="#ES6模板字符串" class="headerlink" title="ES6模板字符串"></a>ES6模板字符串</h1><h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>ES6中新增了一种字符串的书写方式，除了使用双引号(“”)，单引号(‘’)，添加了使用反引号书写的方式(``)。</p>
+<h2 id="模板字符串特性："><a href="#模板字符串特性：" class="headerlink" title="模板字符串特性："></a>模板字符串特性：</h2><ol>
+<li>保留换行</li>
+<li>可以使用$引入变量，不需要进行字符串拼接</li>
+</ol>
+<pre class="highlight"><span class="line">const type = &quot;模板字符串&quot;</span><br><span class="line">const temp = `我是一个$&#123;type&#125;`</span><br></pre>
+
+  </div>
+  <div>
     
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-30</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/30/%E8%A7%A3%E5%86%B3src%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%90%8C%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%86%E6%98%AF%E5%AF%B9%E5%BA%94%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87%E6%97%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E4%B8%8D%E5%88%B7%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"
-              class="archive-timeline-post-item">
-              解决src属性使用相同图片地址但是对应不同图片时浏览器缓存不刷新的问题
-            </a>
-          </div>
-        </div>
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            SC-WSKun
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="http://example.com/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+            http://example.com/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
       </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2021/08/02/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">ES6箭头函数 </div>
+          
+        </div>
+      </a>
     </div>
   
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-29</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/29/%E8%8D%A7%E5%85%89%E8%BE%B9%E6%A1%86css%E6%A0%B7%E5%BC%8F/"
-              class="archive-timeline-post-item">
-              荧光边框css样式
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
   
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-20</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/20/uniapp%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95/"
-              class="archive-timeline-post-item">
-              uni-app实现微信授权登录
-            </a>
-          </div>
+    <div class="nav-item-next">
+      <a 
+        href="/2021/07/31/ES6%E7%9A%84let%E5%92%8Cconst%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">ES6的let和const变量 </div>
+          
         </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-19</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/19/React%E5%85%A5%E9%97%A8/"
-              class="archive-timeline-post-item">
-              React入门
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-16</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/16/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%AB%AF%E5%8F%A3%E8%BF%9E%E4%B8%8A%E8%87%AA%E5%B7%B1%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8/"
-              class="archive-timeline-post-item">
-              如何使用校园网端口连上自己的服务器
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-16</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/16/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%81%9A%E6%97%81%E8%B7%AF%E7%94%B1%E7%AA%81%E7%84%B6%E5%B4%A9%E6%BA%83%EF%BC%8CSSH%E4%B9%9F%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86/"
-              class="archive-timeline-post-item">
-              树莓派做旁路由突然崩溃，SSH也无法登陆
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-16</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/16/%E8%A7%A3%E5%86%B3git-clone%E5%87%BA%E7%8E%B0fatal-unable-to-access-https-%E7%9A%84%E9%97%AE%E9%A2%98/"
-              class="archive-timeline-post-item">
-              解决git clone出现fatal: unable to access &#39;https://...&#39;的问题
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-07-16</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/07/16/%E5%85%B3%E4%BA%8EVue%E4%B8%AD%E4%BD%BF%E7%94%A8props%E8%AE%A9%E9%A1%B5%E9%9D%A2%E5%90%91%E7%BB%84%E4%BB%B6%E5%8A%A8%E6%80%81%E4%BC%A0%E5%80%BC/"
-              class="archive-timeline-post-item">
-              关于Vue中使用props让页面向组件动态传值
-            </a>
-          </div>
-        </div>
-      </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
     </div>
   
 </div>
-</main>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">ES6模板字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">模板字符串特性：</span></a></li></ol></li></ol>
+</div></main>
             <aside class="left-column">
               
               <div class="card card-author">
@@ -427,6 +429,18 @@
               </div>
                <div class="sticky-tablet">
   
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">ES6模板字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">模板字符串特性：</span></a></li></ol></li></ol>
+      </div>
+    </article>
   
   
   <article class="card card-content categories-widget">
@@ -524,81 +538,21 @@
   </article>
   
   
-    <article class="card card-content widescreen-archive archive-widget">
-      <div class="archive-card">
-  <div class="archive-card-header">
-    <i 
-      class="iconfont icon-wodebaobiao" 
-      style="padding-right: 2px;">
-    </i>Archive
-  </div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-    
-      <a 
-        href="/archives/2021" 
-        class="archive-card-list-item">
-        2021
-        <span class="archive-card-list-item-badge">11</span>
-      </a>
-    
-  </div>
-</div>
-    </article>
-  
 </div>
             </aside>
             <aside class="right-column">
               <div class="sticky-widescreen">
   
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">ES6模板字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="toc-text">模板字符串特性：</span></a></li></ol></li></ol>
+    </article>
   
   
   <article class="card card-content">
@@ -635,76 +589,6 @@
 </div>
   </article>
   
-  
-    <article class="card card-content">
-      <div class="archive-card">
-  <div class="archive-card-header">
-    <i 
-      class="iconfont icon-wodebaobiao" 
-      style="padding-right: 2px;">
-    </i>Archive
-  </div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-    
-      <a 
-        href="/archives/2021" 
-        class="archive-card-list-item">
-        2021
-        <span class="archive-card-list-item-badge">11</span>
-      </a>
-    
-  </div>
-</div>
-    </article>
   
 </div>
             </aside>
@@ -802,6 +686,36 @@
 </a> 
      
      
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
      
      
     <script src="/js/main.js"></script> 

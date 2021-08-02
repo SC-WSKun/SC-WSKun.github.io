@@ -45,7 +45,7 @@
         content="2021-07-19">
       <meta 
         property="og:article:modified_time" 
-        content="2021-07-31">
+        content="2021-08-01">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -276,7 +276,7 @@
     
     
       <span class="dot"></span>
-      <span>977 words</span>
+      <span>1k words</span>
     
   </div>
   
@@ -309,7 +309,7 @@
 <ol>
 <li>首先以管理员身份打开cmd，用cd指令跳转到想要创建React项目的文件夹，运行下面的指令安装babel<pre class="highlight"><span class="line">npm install --save react react-dom webpack webpack-dev-server html-webpack-plugin</span><br><span class="line">npm install --save --dev babel-loader babel-core babel-preset-react babel-preset-env@next</span><br></pre></li>
 <li>用npm安装create-react-app脚手架<pre class="highlight"><span class="line">npm install -g create-react-app</span><br></pre></li>
-<li>用create-react-app创建项目并进入界面，如果能出现react界面就说明配置成功<pre class="highlight"><span class="line">create-react-app myapp</span><br><span class="line">cd myapp</span><br><span class="line">npm start</span><br></pre></li>
+<li>用create-react-app创建项目并进入界面，如果能出现react界面就说明配置成功，如果显示create-react-app not found，可以使用npx命令<pre class="highlight"><span class="line">create-react-app myapp</span><br><span class="line">npx create-react-app myapp //备用</span><br><span class="line">cd myapp</span><br><span class="line">npm start</span><br></pre></li>
 <li>用create-react-app指令的时候可能会报错，如果是command not found，则需要重新进行步骤2。如果是出现提醒babel版本问题，可以将项目文件夹里的node_modules跟package-lock.json删掉,再运行npm install即可<h1 id="React怎么写（简单写法）"><a href="#React怎么写（简单写法）" class="headerlink" title="React怎么写（简单写法）"></a>React怎么写（简单写法）</h1><pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;示例&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    // 定义虚拟DOM</span><br><span class="line">      const VDOM = &lt;h1&gt;标题&lt;/h1&gt;</span><br><span class="line">      // 渲染</span><br><span class="line">      ReactDOM.rend(VDOM,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
 <h1 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h1><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2>使用function定义，组件名首字母必须大写，小写开头会被浏览器解析为html自带的标签而不会去查找自定义标签<pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;示例&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">      function MyCompontent()&#123;</span><br><span class="line">        return &lt;h1&gt;我是函数式组件&lt;/h1&gt;</span><br><span class="line">      &#125;</span><br><span class="line">      // 渲染,注意jsx要求标签闭合，React组件首字母大写</span><br><span class="line">      ReactDOM.rend(&lt;Mycompontent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
 <h2 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h2>使用class定义，必须继承React.Component<pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;/&gt;</span><br><span class="line">        &lt;title&gt;</span><br><span class="line">            类组件</span><br><span class="line">        &lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">         &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class MyComponent extern React.Component&#123;</span><br><span class="line">      // 必须要有render函数,必须要有返回值，可以不写构造器</span><br><span class="line">        render()&#123;</span><br><span class="line">            return &lt;h1&gt;我是类组件&lt;/h1&gt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
@@ -404,7 +404,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>9</span>
+    <span>11</span>
     <span>Posts</span>
   </a>
   <a 
@@ -416,7 +416,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>8</span>
+    <span>11</span>
     <span>Tags</span>
   </a>
 </div>
@@ -463,9 +463,27 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/JavaScript-%E6%B5%8F%E8%A7%88%E5%99%A8/" 
-        title="JavaScript,浏览器">
-        <div class="tags-list-item">JavaScript,浏览器</div>
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
+      </a>
+    
+      <a 
+        href="/tags/ES6/" 
+        title="ES6">
+        <div class="tags-list-item">ES6</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
+        title="浏览器">
+        <div class="tags-list-item">浏览器</div>
       </a>
     
       <a 
@@ -481,21 +499,15 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE%EF%BC%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
-        title="树莓派，计算机网络">
-        <div class="tags-list-item">树莓派，计算机网络</div>
+        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
+        title="服务器">
+        <div class="tags-list-item">服务器</div>
       </a>
     
       <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
-        title="服务器，计算机网络">
-        <div class="tags-list-item">服务器，计算机网络</div>
-      </a>
-    
-      <a 
-        href="/tags/uni-app/" 
-        title="uni-app">
-        <div class="tags-list-item">uni-app</div>
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
@@ -505,9 +517,15 @@
       </a>
     
       <a 
-        href="/tags/JavaScript-ES6/" 
-        title="JavaScript,ES6">
-        <div class="tags-list-item">JavaScript,ES6</div>
+        href="/tags/Vue/" 
+        title="Vue">
+        <div class="tags-list-item">Vue</div>
+      </a>
+    
+      <a 
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
       </a>
     
   </div>
@@ -543,6 +561,16 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-02</div>
+        <a href="/2021/08/02/ES6%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/"><div class="recent-posts-item-content">ES6箭头函数</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-02</div>
+        <a href="/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/"><div class="recent-posts-item-content">ES6模板字符串</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-07-31</div>
         <a href="/2021/07/31/ES6%E7%9A%84let%E5%92%8Cconst%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"><div class="recent-posts-item-content">ES6的let和const变量</div></a>
       </div>
@@ -550,16 +578,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-07-30</div>
         <a href="/2021/07/30/%E8%A7%A3%E5%86%B3src%E5%B1%9E%E6%80%A7%E4%BD%BF%E7%94%A8%E7%9B%B8%E5%90%8C%E5%9B%BE%E7%89%87%E5%9C%B0%E5%9D%80%E4%BD%86%E6%98%AF%E5%AF%B9%E5%BA%94%E4%B8%8D%E5%90%8C%E5%9B%BE%E7%89%87%E6%97%B6%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%E4%B8%8D%E5%88%B7%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">解决src属性使用相同图片地址但是对应不同图片时浏览器缓存不刷新的问题</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-07-29</div>
-        <a href="/2021/07/29/%E8%8D%A7%E5%85%89%E8%BE%B9%E6%A1%86css%E6%A0%B7%E5%BC%8F/"><div class="recent-posts-item-content">荧光边框css样式</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-07-20</div>
-        <a href="/2021/07/20/uniapp%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95/"><div class="recent-posts-item-content">uni-app实现微信授权登录</div></a>
       </div>
     
   </div>
