@@ -180,7 +180,7 @@
           src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png" 
           alt="blog logo">
       
-      <span class="navbar-logo-dsc">一个记录WSK踩过的坑的Blog</span>
+      <span class="navbar-logo-dsc">KunKun的博客小屋</span>
     </span>
   </div>
   <div class="navbar-menu">
@@ -417,7 +417,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>12</span>
+    <span>13</span>
     <span>Posts</span>
   </a>
   <a 
@@ -494,6 +494,12 @@
       </a>
     
       <a 
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
+      </a>
+    
+      <a 
         href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
         title="浏览器">
         <div class="tags-list-item">浏览器</div>
@@ -512,15 +518,15 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
-      </a>
-    
-      <a 
         href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
         title="服务器">
         <div class="tags-list-item">服务器</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
@@ -533,12 +539,6 @@
         href="/tags/uni-app/" 
         title="uni-app">
         <div class="tags-list-item">uni-app</div>
-      </a>
-    
-      <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
       </a>
     
       <a 
@@ -580,6 +580,11 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-03</div>
+        <a href="/2021/08/03/React%E7%BB%84%E4%BB%B6/"><div class="recent-posts-item-content">React组件</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-02</div>
         <a href="/2021/08/02/AJAX/"><div class="recent-posts-item-content">AJAX</div></a>
       </div>
@@ -592,11 +597,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-02</div>
         <a href="/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/"><div class="recent-posts-item-content">ES6模板字符串</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-07-31</div>
-        <a href="/2021/07/31/ES6%E7%9A%84let%E5%92%8Cconst%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"><div class="recent-posts-item-content">ES6的let和const变量</div></a>
       </div>
     
   </div>
@@ -626,7 +626,7 @@
         <a 
           href="/" 
           class="footer-link">
-          一个记录WSK踩过的坑的Blog
+          KunKun的博客小屋
         </a>
       </div>
     </div>
@@ -660,6 +660,19 @@
     
     
     
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
     
 </footer> 
     
@@ -733,6 +746,10 @@
      
      
     <script src="/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/js/lib/busuanzi.min.js') 
+      </script>
      
     
       <script>

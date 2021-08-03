@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>React入门</title>
+  <title>VScode的React环境配置</title>
   
     
       <meta 
         property="og:title" 
-        content="React入门">
+        content="VScode的React环境配置">
     
     
       <meta 
         property="og:url" 
-        content="https://sc-wskun.github.io/2021/07/19/React%E5%85%A5%E9%97%A8/index.html">
+        content="https://sc-wskun.github.io/2021/07/19/VScode%E7%9A%84React%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
     
     
       <meta 
@@ -45,7 +45,7 @@
         content="2021-07-19">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-01">
+        content="2021-08-03">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -176,7 +176,7 @@
           src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png" 
           alt="blog logo">
       
-      <span class="navbar-logo-dsc">一个记录WSK踩过的坑的Blog</span>
+      <span class="navbar-logo-dsc">KunKun的博客小屋</span>
     </span>
   </div>
   <div class="navbar-menu">
@@ -262,7 +262,7 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      React入门
+      VScode的React环境配置
     </h1>
   </header>
   <div class="post-meta post-show-meta">
@@ -276,7 +276,7 @@
     
     
       <span class="dot"></span>
-      <span>1k words</span>
+      <span>462 words</span>
     
   </div>
   
@@ -304,19 +304,13 @@
     id="section" 
     class="post-content">
     <h1 id="React是什么"><a href="#React是什么" class="headerlink" title="React是什么"></a>React是什么</h1><p>React是一个JavaScript框架<br>使用虚拟DOM来管理页面，比起原生的JS可以更多地进行资源复用，节省空间时间</p>
-<h1 id="搭建VSCode-React环境"><a href="#搭建VSCode-React环境" class="headerlink" title="搭建VSCode+React环境"></a>搭建VSCode+React环境</h1><pre><code>参考链接：https://zhengkai.blog.csdn.net/article/details/91970581?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.control&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.control
-</code></pre>
+<h1 id="搭建VSCode-React环境"><a href="#搭建VSCode-React环境" class="headerlink" title="搭建VSCode+React环境"></a>搭建VSCode+React环境</h1><pre class="highlight"><span class="line">参考链接：https://zhengkai.blog.csdn.net/article/details/91970581?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.control&amp;depth_1-utm_source=distribute.pc_relevant.</span><br><span class="line">none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-9.control</span><br></pre>
 <ol>
 <li>首先以管理员身份打开cmd，用cd指令跳转到想要创建React项目的文件夹，运行下面的指令安装babel<pre class="highlight"><span class="line">npm install --save react react-dom webpack webpack-dev-server html-webpack-plugin</span><br><span class="line">npm install --save --dev babel-loader babel-core babel-preset-react babel-preset-env@next</span><br></pre></li>
 <li>用npm安装create-react-app脚手架<pre class="highlight"><span class="line">npm install -g create-react-app</span><br></pre></li>
 <li>用create-react-app创建项目并进入界面，如果能出现react界面就说明配置成功，如果显示create-react-app not found，可以使用npx命令<pre class="highlight"><span class="line">create-react-app myapp</span><br><span class="line">npx create-react-app myapp //备用</span><br><span class="line">cd myapp</span><br><span class="line">npm start</span><br></pre></li>
-<li>用create-react-app指令的时候可能会报错，如果是command not found，则需要重新进行步骤2。如果是出现提醒babel版本问题，可以将项目文件夹里的node_modules跟package-lock.json删掉,再运行npm install即可<h1 id="React怎么写（简单写法）"><a href="#React怎么写（简单写法）" class="headerlink" title="React怎么写（简单写法）"></a>React怎么写（简单写法）</h1><pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;示例&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    // 定义虚拟DOM</span><br><span class="line">      const VDOM = &lt;h1&gt;标题&lt;/h1&gt;</span><br><span class="line">      // 渲染</span><br><span class="line">      ReactDOM.rend(VDOM,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
-<h1 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h1><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2>使用function定义，组件名首字母必须大写，小写开头会被浏览器解析为html自带的标签而不会去查找自定义标签<pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;示例&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">      function MyCompontent()&#123;</span><br><span class="line">        return &lt;h1&gt;我是函数式组件&lt;/h1&gt;</span><br><span class="line">      &#125;</span><br><span class="line">      // 渲染,注意jsx要求标签闭合，React组件首字母大写</span><br><span class="line">      ReactDOM.rend(&lt;Mycompontent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
-<h2 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h2>使用class定义，必须继承React.Component<pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">    &lt;head&gt;</span><br><span class="line">        &lt;meta charset=&quot;UTF-8&quot;/&gt;</span><br><span class="line">        &lt;title&gt;</span><br><span class="line">            类组件</span><br><span class="line">        &lt;/title&gt;</span><br><span class="line">    &lt;/head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">         &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    class MyComponent extern React.Component&#123;</span><br><span class="line">      // 必须要有render函数,必须要有返回值，可以不写构造器</span><br><span class="line">        render()&#123;</span><br><span class="line">            return &lt;h1&gt;我是类组件&lt;/h1&gt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre>
-<h1 id="组件三大属性"><a href="#组件三大属性" class="headerlink" title="组件三大属性"></a>组件三大属性</h1><h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2>state有点像C++里面类的成员变量的集合，可以存储这个组件的所有变量，而且有一些特殊的调用方法的封装，比如setstate( )</li>
+<li>用create-react-app指令的时候可能会报错，如果是command not found，则需要重新进行步骤2。如果是出现提醒babel版本问题，可以将项目文件夹里的node_modules跟package-lock.json删掉,再运行npm install即可<h1 id="React怎么写（简单写法）"><a href="#React怎么写（简单写法）" class="headerlink" title="React怎么写（简单写法）"></a>React怎么写（简单写法）</h1><pre class="highlight"><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot; /&gt;</span><br><span class="line">    &lt;title&gt;示例&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;!-- 定义容器 --&gt;</span><br><span class="line">    &lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;!-- 引入核心包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/react.development.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入核心拓展包 --&gt;</span><br><span class="line">    &lt;script</span><br><span class="line">      type=&quot;text/javascript&quot;</span><br><span class="line">      src=&quot;../js/react-dom.development.js&quot;</span><br><span class="line">    &gt;&lt;/script&gt;</span><br><span class="line">    &lt;!-- 引入babel包 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/babel.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    // 定义虚拟DOM</span><br><span class="line">      const VDOM = &lt;h1&gt;标题&lt;/h1&gt;</span><br><span class="line">      // 渲染</span><br><span class="line">      ReactDOM.rend(VDOM,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></li>
 </ol>
-<h3 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h3><pre class="highlight"><span class="line">constructor(props)&#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.state = &#123;</span><br><span class="line">    ishot: false,</span><br><span class="line">    iswind: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>Props用于组件之间的传参</p>
 
   </div>
   <div>
@@ -336,8 +330,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sc-wskun.github.io/2021/07/19/React%E5%85%A5%E9%97%A8/">
-            https://sc-wskun.github.io/2021/07/19/React%E5%85%A5%E9%97%A8/
+            href="https://sc-wskun.github.io/2021/07/19/VScode%E7%9A%84React%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+            https://sc-wskun.github.io/2021/07/19/VScode%E7%9A%84React%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -387,7 +381,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -404,7 +398,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>12</span>
+    <span>13</span>
     <span>Posts</span>
   </a>
   <a 
@@ -433,7 +427,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li></ol>
       </div>
     </article>
   
@@ -481,6 +475,12 @@
       </a>
     
       <a 
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
+      </a>
+    
+      <a 
         href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
         title="浏览器">
         <div class="tags-list-item">浏览器</div>
@@ -499,15 +499,15 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
-      </a>
-    
-      <a 
         href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
         title="服务器">
         <div class="tags-list-item">服务器</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
@@ -520,12 +520,6 @@
         href="/tags/uni-app/" 
         title="uni-app">
         <div class="tags-list-item">uni-app</div>
-      </a>
-    
-      <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
       </a>
     
       <a 
@@ -552,7 +546,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">React是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%AD%E5%BB%BAVSCode-React%E7%8E%AF%E5%A2%83"><span class="toc-text">搭建VSCode+React环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E6%80%8E%E4%B9%88%E5%86%99%EF%BC%88%E7%AE%80%E5%8D%95%E5%86%99%E6%B3%95%EF%BC%89"><span class="toc-text">React怎么写（简单写法）</span></a></li></ol>
     </article>
   
   
@@ -567,6 +561,11 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-03</div>
+        <a href="/2021/08/03/React%E7%BB%84%E4%BB%B6/"><div class="recent-posts-item-content">React组件</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-02</div>
         <a href="/2021/08/02/AJAX/"><div class="recent-posts-item-content">AJAX</div></a>
       </div>
@@ -579,11 +578,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-02</div>
         <a href="/2021/08/02/ES6%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/"><div class="recent-posts-item-content">ES6模板字符串</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-07-31</div>
-        <a href="/2021/07/31/ES6%E7%9A%84let%E5%92%8Cconst%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B/"><div class="recent-posts-item-content">ES6的let和const变量</div></a>
       </div>
     
   </div>
@@ -613,7 +607,7 @@
         <a 
           href="/" 
           class="footer-link">
-          一个记录WSK踩过的坑的Blog
+          KunKun的博客小屋
         </a>
       </div>
     </div>
@@ -647,6 +641,19 @@
     
     
     
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
     
 </footer> 
     
@@ -720,6 +727,10 @@
      
      
     <script src="/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/js/lib/busuanzi.min.js') 
+      </script>
      
     
       <script>
