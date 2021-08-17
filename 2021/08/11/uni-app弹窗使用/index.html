@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>归档</title>
+  <title>uni-app弹窗使用</title>
   
     
       <meta 
         property="og:title" 
-        content="归档">
+        content="uni-app弹窗使用">
     
     
       <meta 
         property="og:url" 
-        content="https://sc-wskun.github.io/archives/2021/08/index.html">
+        content="https://sc-wskun.github.io/2021/08/11/uni-app%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8/index.html">
     
     
       <meta 
@@ -36,6 +36,26 @@
         content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png">
     
     
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2021-08-11">
+      <meta 
+        property="og:article:modified_time" 
+        content="2021-08-12">
+      <meta 
+        property="og:article:author" 
+        content="SC-WSKun">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="uni-app">
+        
+      
     
   
   <script>
@@ -140,6 +160,8 @@
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
   
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
 <meta name="generator" content="Hexo 5.4.0"></head>
 
   <body>
@@ -237,186 +259,108 @@
         <div class="container">
           <div class="columns">
             <main class="main-column">
-<div class="card card-content">
-  <h1 class="widget-title">归档</h1>
-</div>
-<div class="archive-timeline">
-  
-  
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      uni-app弹窗使用
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-08-11T15:27:20.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2021-08-11</span>
+    </time>
     
-      <div class="archive-timeline-tag"><span>2021</span></div>
-      
     
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-18</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/18/uni-app%E6%94%AF%E4%BB%98%E5%8F%82%E8%80%83/"
-              class="archive-timeline-post-item">
-              uni-app支付参考
-            </a>
-          </div>
-        </div>
+      <span class="dot"></span>
+      <span>189 字</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/uni-app/" 
+            class="post-meta-link">
+            uni-app
+          </a>
+        
       </div>
     </div>
   
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h1 id="uni-app弹窗简述"><a href="#uni-app弹窗简述" class="headerlink" title="uni-app弹窗简述"></a>uni-app弹窗简述</h1><p>在写前端交互的时候经常需要用到弹窗来实现二次确认，操作确认，完成确认。可以给用户带来一个良好的反馈，同时某种程度上也方便了程序的调试</p>
+<h1 id="uni-app弹窗种类"><a href="#uni-app弹窗种类" class="headerlink" title="uni-app弹窗种类"></a>uni-app弹窗种类</h1><h2 id="可编辑icon弹窗"><a href="#可编辑icon弹窗" class="headerlink" title="可编辑icon弹窗"></a>可编辑icon弹窗</h2><p>使用uni.Toast()来设计可编辑icon弹窗，这个弹窗会自动关闭</p>
+<pre class="highlight"><span class="line">uni.showToast(&#123;</span><br><span class="line">    title:&quot;&quot;,  //弹窗文字</span><br><span class="line">    icon:&quot;&quot;,    //弹窗图标，可以是&quot;success&quot;,&quot;error&quot;,&quot;loading&quot;，&quot;loading&quot;可以使用另一个api</span><br><span class="line">&#125;)</span><br></pre>
+<h2 id="加载弹窗"><a href="#加载弹窗" class="headerlink" title="加载弹窗"></a>加载弹窗</h2><p>使用uni.showLoading()来弹出加载框，可以设置mask属性来设置模态加载框.<br>注意加载框</p>
+<pre class="highlight"><span class="line">uni.showLoading(&#123;</span><br><span class="line">    title:&quot; //弹窗文字</span><br><span class="line">&#125;)</span><br></pre>
+<h2 id="选择弹窗"><a href="#选择弹窗" class="headerlink" title="选择弹窗"></a>选择弹窗</h2>
+  </div>
+  <div>
     
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-18</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/18/DCloud%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%8F%82%E8%80%83/"
-              class="archive-timeline-post-item">
-              DCloud短信服务参考
-            </a>
-          </div>
-        </div>
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            SC-WSKun
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://sc-wskun.github.io/2021/08/11/uni-app%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8/">
+            https://sc-wskun.github.io/2021/08/11/uni-app%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
       </div>
-    </div>
-  
     
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-18</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/18/unicloud%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E5%8F%82%E8%80%83/"
-              class="archive-timeline-post-item">
-              unicloud增删查改参考
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+</article>
+<div class="nav">
   
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-13</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/13/Another-git-process-seems-to-be-running-in-this-repository-e-g-an-editor-opened-by-git-commit-Please-make-sure-all-processes-are-terminated-then-try-again%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"
-              class="archive-timeline-post-item">
-              没有index.lock但是git commit的时候还是报错File Exist的解决方法
-            </a>
-          </div>
+    <div class="nav-item-prev">
+      <a 
+        href="/2021/08/13/Another-git-process-seems-to-be-running-in-this-repository-e-g-an-editor-opened-by-git-commit-Please-make-sure-all-processes-are-terminated-then-try-again%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">没有index.lock但是git commit的时候还是报错File Exist的解决方法 </div>
+          
         </div>
-      </div>
+      </a>
     </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-11</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/11/uni-app%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8/"
-              class="archive-timeline-post-item">
-              uni-app弹窗使用
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-05</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"
-              class="archive-timeline-post-item">
-              async和await:解决异步编程
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-04</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/04/ES6%E7%9A%84Promise%E5%9B%9E%E8%B0%83/"
-              class="archive-timeline-post-item">
-              ES6的Promise回调
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-04</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/04/ES6%E8%BF%AD%E4%BB%A3%E5%99%A8/"
-              class="archive-timeline-post-item">
-              ES6迭代器
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-03</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/03/React%E7%BB%84%E4%BB%B6/"
-              class="archive-timeline-post-item">
-              React组件
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    
-    <div class="archive-timeline-item">
-      <div class="archive-timeline-post">
-        <div class="card card-content">
-          <div class="archive-timeline-post-date">2021-08-02</div>
-          <div class="archive-timeline-post-content">
-            <a 
-              href="/2021/08/02/AJAX/"
-              class="archive-timeline-post-item">
-              AJAX
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-</div>
-
-  <div class="nav">
   
   
     <div class="nav-item-next">
       <a 
-        href="/archives/2021/08/page/2/" 
+        href="/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/" 
         class="nav-link">
         <div>
-          <div class="nav-label">下一页</div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">async和await:解决异步编程 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -424,7 +368,18 @@
     </div>
   
 </div>
-</main>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%AE%80%E8%BF%B0"><span class="toc-text">uni-app弹窗简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%A7%8D%E7%B1%BB"><span class="toc-text">uni-app弹窗种类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E8%BE%91icon%E5%BC%B9%E7%AA%97"><span class="toc-text">可编辑icon弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E5%BC%B9%E7%AA%97"><span class="toc-text">加载弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%BC%B9%E7%AA%97"><span class="toc-text">选择弹窗</span></a></li></ol></li></ol>
+</div></main>
             <aside class="left-column">
               
               <div class="card card-author">
@@ -460,6 +415,18 @@
               </div>
                <div class="sticky-tablet">
   
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%AE%80%E8%BF%B0"><span class="toc-text">uni-app弹窗简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%A7%8D%E7%B1%BB"><span class="toc-text">uni-app弹窗种类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E8%BE%91icon%E5%BC%B9%E7%AA%97"><span class="toc-text">可编辑icon弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E5%BC%B9%E7%AA%97"><span class="toc-text">加载弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%BC%B9%E7%AA%97"><span class="toc-text">选择弹窗</span></a></li></ol></li></ol>
+      </div>
+    </article>
   
   
   <article class="card card-content categories-widget">
@@ -563,121 +530,21 @@
   </article>
   
   
-    <article class="card card-content widescreen-archive archive-widget">
-      <div class="archive-card">
-  <div class="archive-card-header">
-    <i 
-      class="iconfont icon-wodebaobiao" 
-      style="padding-right: 2px;">
-    </i>归档
-  </div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-    
-      <a 
-        href="/archives/2021" 
-        class="archive-card-list-item">
-        2021
-        <span class="archive-card-list-item-badge">21</span>
-      </a>
-    
-  </div>
-</div>
-    </article>
-  
 </div>
             </aside>
             <aside class="right-column">
               <div class="sticky-widescreen">
   
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%AE%80%E8%BF%B0"><span class="toc-text">uni-app弹窗简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#uni-app%E5%BC%B9%E7%AA%97%E7%A7%8D%E7%B1%BB"><span class="toc-text">uni-app弹窗种类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E7%BC%96%E8%BE%91icon%E5%BC%B9%E7%AA%97"><span class="toc-text">可编辑icon弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E8%BD%BD%E5%BC%B9%E7%AA%97"><span class="toc-text">加载弹窗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%BC%B9%E7%AA%97"><span class="toc-text">选择弹窗</span></a></li></ol></li></ol>
+    </article>
   
   
   <article class="card card-content">
@@ -714,116 +581,6 @@
 </div>
   </article>
   
-  
-    <article class="card card-content">
-      <div class="archive-card">
-  <div class="archive-card-header">
-    <i 
-      class="iconfont icon-wodebaobiao" 
-      style="padding-right: 2px;">
-    </i>归档
-  </div>
-  <div class="archive-card-list">
-    
-    
-    
-      
-        
-        
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-    
-      <a 
-        href="/archives/2021" 
-        class="archive-card-list-item">
-        2021
-        <span class="archive-card-list-item-badge">21</span>
-      </a>
-    
-  </div>
-</div>
-    </article>
   
 </div>
             </aside>
@@ -934,6 +691,36 @@
 </a> 
      
      
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
      
      
     <script src="/js/main.js"></script> 

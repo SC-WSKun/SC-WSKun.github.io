@@ -45,7 +45,7 @@
         content="2021-08-03">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-03">
+        content="2021-08-09">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -185,7 +185,7 @@
         href="/" 
         class="navbar-menu-item">
         
-          Home
+          首页
         
       </a>
     
@@ -193,7 +193,7 @@
         href="/archives" 
         class="navbar-menu-item">
         
-          Archive
+          归档
         
       </a>
     
@@ -201,7 +201,7 @@
         href="/tags" 
         class="navbar-menu-item">
         
-          Tags
+          标签
         
       </a>
     
@@ -209,7 +209,7 @@
         href="/categories" 
         class="navbar-menu-item">
         
-          Categories
+          分类
         
       </a>
     
@@ -217,7 +217,7 @@
         href="/about" 
         class="navbar-menu-item">
         
-          About
+          关于
         
       </a>
     
@@ -225,7 +225,7 @@
         href="/links" 
         class="navbar-menu-item">
         
-          Friends
+          友链
         
       </a>
     
@@ -276,7 +276,7 @@
     
     
       <span class="dot"></span>
-      <span>206 words</span>
+      <span>350 字</span>
     
   </div>
   
@@ -303,14 +303,24 @@
   <div 
     id="section" 
     class="post-content">
-    <h1 id="React组件"><a href="#React组件" class="headerlink" title="React组件"></a>React组件</h1><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2><p>使用function定义，组件名首字母必须大写，小写开头会被浏览器解析为html自带的标签而不会去查找自定义标签</p>
+    <h1 id="React-组件"><a href="#React-组件" class="headerlink" title="React 组件"></a>React 组件</h1><h2 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h2><p>使用 function 定义，组件名首字母必须大写，小写开头会被浏览器解析为 html 自带的标签而不会去查找自定义标签</p>
 <pre class="highlight"><span class="line">function MyCompontent()&#123;</span><br><span class="line">  return &lt;h1&gt;我是函数式组件&lt;/h1&gt;</span><br><span class="line">&#125;</span><br></pre>
-<h2 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h2><p>使用class定义，必须继承React.Component</p>
-<pre class="highlight"><span class="line">class MyComponent extern React.Component&#123;</span><br><span class="line">  // 必须要有render函数,必须要有返回值，可以不写构造器</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;我是类组件&lt;/h1&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
-<h1 id="React组件三大属性"><a href="#React组件三大属性" class="headerlink" title="React组件三大属性"></a>React组件三大属性</h1><h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>state有点像C++里面类的成员变量的集合，可以存储这个组件的所有变量，而且有一些特殊的调用方法的封装，比如setstate( )</p>
-<h3 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h3><pre class="highlight"><span class="line">constructor(props)&#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.state = &#123;</span><br><span class="line">    ishot: false,</span><br><span class="line">    iswind: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>Props用于组件之间的传参</p>
 
+<h2 id="类组件"><a href="#类组件" class="headerlink" title="类组件"></a>类组件</h2><p>使用 class 定义，必须继承 React.Component</p>
+<pre class="highlight"><span class="line">class MyComponent extern React.Component&#123;</span><br><span class="line">  // 必须要有render函数,必须要有返回值，可以不写构造器</span><br><span class="line">    render()&#123;</span><br><span class="line">        return &lt;h1&gt;我是类组件&lt;/h1&gt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<h1 id="React-组件三大属性"><a href="#React-组件三大属性" class="headerlink" title="React 组件三大属性"></a>React 组件三大属性</h1><h2 id="State"><a href="#State" class="headerlink" title="State"></a>State</h2><p>state 有点像 C++里面类的成员变量的集合，可以存储这个组件的所有变量，而且有一些特殊的调用方法的封装，比如 setstate( )</p>
+<h3 id="使用示例："><a href="#使用示例：" class="headerlink" title="使用示例："></a>使用示例：</h3><pre class="highlight"><span class="line">constructor(props)&#123;</span><br><span class="line">  super(props);</span><br><span class="line">  this.state = &#123;</span><br><span class="line">    ishot: false,</span><br><span class="line">    iswind: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props"></a>Props</h2><p>Props 用于组件之间的传参</p>
+<h3 id="基本使用："><a href="#基本使用：" class="headerlink" title="基本使用："></a>基本使用：</h3><p>在标签中传入参数</p>
+<pre class="highlight"><span class="line">&lt;Mycomponent name=&quot;kunkun&quot;&gt;&lt;Mycomponent/&gt;</span><br><span class="line">//此时会在这个dom元素的props中加上 name:&quot;kunkun&quot;，这个键值对</span><br><span class="line">//在Mycomponent组件中可以用this.props.name来获取&quot;kunkun&quot;</span><br></pre>
+
+<h3 id="批量传入"><a href="#批量传入" class="headerlink" title="批量传入"></a>批量传入</h3><p>使用扩展运算符批量传入参数</p>
+<pre class="highlight"><span class="line">const p = &#123; name: &quot;kunkun&quot;, sex: &quot;man&quot; &#125;;</span><br><span class="line">&lt;Mycomponent &#123;...p&#125;&gt;&lt;Mycomponent/&gt;</span><br></pre>
+
+<h2 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h2><p>用于绑定结点，对结点进行操作</p>
+<h3 id="字符串形式的ref"><a href="#字符串形式的ref" class="headerlink" title="字符串形式的ref"></a>字符串形式的ref</h3><h3 id="内联函数形式的ref"><a href="#内联函数形式的ref" class="headerlink" title="内联函数形式的ref"></a>内联函数形式的ref</h3><h3 id="外联函数形式的ref"><a href="#外联函数形式的ref" class="headerlink" title="外联函数形式的ref"></a>外联函数形式的ref</h3><h3 id="使用CreateRef函数定义容器"><a href="#使用CreateRef函数定义容器" class="headerlink" title="使用CreateRef函数定义容器"></a>使用CreateRef函数定义容器</h3>
   </div>
   <div>
     
@@ -346,7 +356,7 @@
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
-          <div class="nav-label">Prev</div>
+          <div class="nav-label">上一篇</div>
           
             <div class="nav-title">ES6迭代器 </div>
           
@@ -360,7 +370,7 @@
         href="/2021/08/02/AJAX/" 
         class="nav-link">
         <div>
-          <div class="nav-label">Next</div>
+          <div class="nav-label">下一篇</div>
           
             <div class="nav-title">AJAX </div>
           
@@ -378,9 +388,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6"><span class="toc-text">React 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React 组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">基本使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E4%BC%A0%E5%85%A5"><span class="toc-text">批量传入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-text">Ref</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">字符串形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">内联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">外联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CreateRef%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8"><span class="toc-text">使用CreateRef函数定义容器</span></a></li></ol></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -397,20 +407,20 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>16</span>
-    <span>Posts</span>
+    <span>21</span>
+    <span>文章</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
     <span>0</span>
-    <span>Categories</span>
+    <span>分类</span>
   </a>
   <a 
     class="author-tags-count" 
     href="/tags">
     <span>12</span>
-    <span>Tags</span>
+    <span>标签</span>
   </a>
 </div>
 
@@ -424,9 +434,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6"><span class="toc-text">React 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React 组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">基本使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E4%BC%A0%E5%85%A5"><span class="toc-text">批量传入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-text">Ref</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">字符串形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">内联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">外联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CreateRef%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8"><span class="toc-text">使用CreateRef函数定义容器</span></a></li></ol></li></ol></li></ol>
       </div>
     </article>
   
@@ -437,7 +447,7 @@
     <i 
       class="iconfont icon-fenlei" 
       style="padding-right: 2px;">
-    </i>Categories
+    </i>分类
   </div>
   <div class="categories-list">
     
@@ -451,15 +461,9 @@
     <i 
       class="iconfont icon-biaoqian" 
       style="padding-right: 2px;">
-    </i>hot tags
+    </i>热门标签
   </div>
   <div class="tags-list">
-    
-      <a 
-        href="/tags/AJAX/" 
-        title="AJAX">
-        <div class="tags-list-item">AJAX</div>
-      </a>
     
       <a 
         href="/tags/JavaScript/" 
@@ -474,27 +478,9 @@
       </a>
     
       <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
-      </a>
-    
-      <a 
         href="/tags/uni-app/" 
         title="uni-app">
         <div class="tags-list-item">uni-app</div>
-      </a>
-    
-      <a 
-        href="/tags/Vue/" 
-        title="Vue">
-        <div class="tags-list-item">Vue</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
-        title="服务器">
-        <div class="tags-list-item">服务器</div>
       </a>
     
       <a 
@@ -504,15 +490,9 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
-      </a>
-    
-      <a 
-        href="/tags/CSS/" 
-        title="CSS">
-        <div class="tags-list-item">CSS</div>
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
       </a>
     
       <a 
@@ -525,6 +505,36 @@
         href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
         title="浏览器">
         <div class="tags-list-item">浏览器</div>
+      </a>
+    
+      <a 
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
+        title="服务器">
+        <div class="tags-list-item">服务器</div>
+      </a>
+    
+      <a 
+        href="/tags/Vue/" 
+        title="Vue">
+        <div class="tags-list-item">Vue</div>
+      </a>
+    
+      <a 
+        href="/tags/AJAX/" 
+        title="AJAX">
+        <div class="tags-list-item">AJAX</div>
       </a>
     
   </div>
@@ -543,9 +553,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6"><span class="toc-text">React组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6"><span class="toc-text">React 组件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6"><span class="toc-text">函数式组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6"><span class="toc-text">类组件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#React-%E7%BB%84%E4%BB%B6%E4%B8%89%E5%A4%A7%E5%B1%9E%E6%80%A7"><span class="toc-text">React 组件三大属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#State"><span class="toc-text">State</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-text">使用示例：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Props"><span class="toc-text">Props</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%EF%BC%9A"><span class="toc-text">基本使用：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E9%87%8F%E4%BC%A0%E5%85%A5"><span class="toc-text">批量传入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Ref"><span class="toc-text">Ref</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">字符串形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">内联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%96%E8%81%94%E5%87%BD%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84ref"><span class="toc-text">外联函数形式的ref</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CreateRef%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E5%AE%B9%E5%99%A8"><span class="toc-text">使用CreateRef函数定义容器</span></a></li></ol></li></ol></li></ol>
     </article>
   
   
@@ -555,28 +565,28 @@
     <i 
       class="iconfont icon-wenzhang_huaban" 
       style="padding-right: 2px;">
-    </i>Recent Posts
+    </i>最近文章
   </div>
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-05</div>
-        <a href="/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"><div class="recent-posts-item-content">async和await:解决异步编程</div></a>
+        <div class="recent-posts-item-title">2021-08-18</div>
+        <a href="/2021/08/18/uni-app%E6%94%AF%E4%BB%98%E5%8F%82%E8%80%83/"><div class="recent-posts-item-content">uni-app支付参考</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-04</div>
-        <a href="/2021/08/04/ES6%E7%9A%84Promise%E5%9B%9E%E8%B0%83/"><div class="recent-posts-item-content">ES6的Promise回调</div></a>
+        <div class="recent-posts-item-title">2021-08-18</div>
+        <a href="/2021/08/18/DCloud%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%8F%82%E8%80%83/"><div class="recent-posts-item-content">DCloud短信服务参考</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-04</div>
-        <a href="/2021/08/04/ES6%E8%BF%AD%E4%BB%A3%E5%99%A8/"><div class="recent-posts-item-content">ES6迭代器</div></a>
+        <div class="recent-posts-item-title">2021-08-18</div>
+        <a href="/2021/08/18/unicloud%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E5%8F%82%E8%80%83/"><div class="recent-posts-item-content">unicloud增删查改参考</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-03</div>
-        <a href="/2021/08/03/React%E7%BB%84%E4%BB%B6/"><div class="recent-posts-item-content">React组件</div></a>
+        <div class="recent-posts-item-title">2021-08-13</div>
+        <a href="/2021/08/13/Another-git-process-seems-to-be-running-in-this-repository-e-g-an-editor-opened-by-git-commit-Please-make-sure-all-processes-are-terminated-then-try-again%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"><div class="recent-posts-item-content">没有index.lock但是git commit的时候还是报错File Exist的解决方法</div></a>
       </div>
     
   </div>

@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>async和await:解决异步编程</title>
+  <title>unicloud增删查改参考</title>
   
     
       <meta 
         property="og:title" 
-        content="async和await:解决异步编程">
+        content="unicloud增删查改参考">
     
     
       <meta 
         property="og:url" 
-        content="https://sc-wskun.github.io/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/index.html">
+        content="https://sc-wskun.github.io/2021/08/18/unicloud%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E5%8F%82%E8%80%83/index.html">
     
     
       <meta 
@@ -42,14 +42,18 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2021-08-05">
+        content="2021-08-18">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-05">
+        content="2021-08-18">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
       
+        
+          <meta 
+            property="og:article:tag" 
+            content="uni-app">
         
       
     
@@ -258,29 +262,99 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      async和await:解决异步编程
+      unicloud增删查改参考
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-08-05T04:02:28.000Z">
+    <time datetime="2021-08-17T16:47:27.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2021-08-05</span>
+      <span>2021-08-18</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>0 字</span>
+      <span>887 字</span>
     
   </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/uni-app/" 
+            class="post-meta-link">
+            uni-app
+          </a>
+        
+      </div>
+    </div>
   
   </header>
   <div 
     id="section" 
     class="post-content">
-    
+    <h1 id="增删查改操作指南"><a href="#增删查改操作指南" class="headerlink" title="增删查改操作指南"></a>增删查改操作指南</h1><h2 id="增"><a href="#增" class="headerlink" title="增"></a>增</h2><ol>
+<li>使用云函数 add（）在数据库里增加新的用户，并作校验检查是否原来已经注册，是否提交了必须的数据</li>
+</ol>
+<pre class="highlight"><span class="line">//为了方便,下面的代码统一用db、dbCmd、testdb、testdata简写</span><br><span class="line">const db = uniCloud.database()</span><br><span class="line">const dbCmd = db.command()</span><br><span class="line">const testdb = db.collection(&#x27;testdb&#x27;)</span><br><span class="line">const &#123;testdata&#125; = event;//解析对象写法</span><br><span class="line"></span><br><span class="line">if(testdata==&quot;&quot;&#125;&#123;</span><br><span class="line">    return &quot;缺少关键数据&quot;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    result = await testdb.where.(&#123;_id:testdata&#125;).get()</span><br><span class="line">    if(result._id==&quot;&quot;)&#123;</span><br><span class="line">        testdb.add(&#123;...&#125;)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //这里可以选择直接更新，或者返回一个状态询问是否更新</span><br><span class="line">        testdb.update(&#123;...&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<ol start="2">
+<li>使用模态弹窗防止用户多次触发添加操作（模态，指是否能点击窗口外的地方）</li>
+</ol>
+<pre class="highlight"><span class="line">//前端代码</span><br><span class="line">uni.showLoading(&#123; //打开模态加载弹窗</span><br><span class="line">    title:&quot;&quot;,</span><br><span class="line">    mask:true//是否开启遮罩</span><br><span class="line">)&#125;</span><br><span class="line">uni.hideLoading(); //关闭加载弹窗</span><br></pre>
+
+<ol start="3">
+<li>如果需要存储图片使用 uniCloud.uploadFile（），在客户端上传</li>
+</ol>
+<pre class="highlight"><span class="line">//前端代码</span><br><span class="line">cosnt that = this;</span><br><span class="line">uni.chooseImage(&#123; //选择图片</span><br><span class="line">	count: 1, //上传数量</span><br><span class="line">	sizeType: [&#x27;compressed&#x27;],</span><br><span class="line">	sourceType: [&#x27;album&#x27;],</span><br><span class="line">	success: (res) =&gt; &#123;</span><br><span class="line">	    that.idcard_path = res.tempFilePaths[0]</span><br><span class="line">	    uniCloud.uploadFile(&#123;//上传图片到云端</span><br><span class="line">			filePath: that.idcard_path,//本地路径</span><br><span class="line">			cloudPath: &#x27;&#x27;, //自定义云端路径</span><br><span class="line">			fileType: &quot;image&quot;, //上传类型</span><br><span class="line">            //实时上传进度弹窗显示</span><br><span class="line">			onUploadProgress: function(progressEvent) &#123;</span><br><span class="line">			    var percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);</span><br><span class="line">				uni.showToast(&#123;</span><br><span class="line">					title: percentCompleted + &quot;%&quot;,</span><br><span class="line">					icon: &quot;loading&quot;</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;,</span><br><span class="line">			success: (res1) =&gt; &#123;</span><br><span class="line">				console.log(&quot;存储成功&quot;, res1)</span><br><span class="line">				uniCloud.getTempFileURL(&#123;//获取http下载链接</span><br><span class="line">					fileList: [res1.fileID]</span><br><span class="line">				&#125;).then(res =&gt; &#123;</span><br><span class="line">					console.log(&quot;http连接&quot;,res.fileList[0].download_url)</span><br><span class="line">				&#125;)</span><br><span class="line">			&#125;,</span><br><span class="line">			fail: (res) =&gt; &#123;</span><br><span class="line">				console.log(&quot;存储失败&quot;, res)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre>
+
+<h2 id="删"><a href="#删" class="headerlink" title="删"></a>删</h2><ol>
+<li>使用 remove()函数删除云端数据</li>
+</ol>
+<pre class="highlight"><span class="line">//云函数代码</span><br><span class="line">testdb.where(&#123;_id:testdata&#125;).remove()</span><br></pre>
+
+<ol start="2">
+<li>使用选择弹窗让用户进行二次确认再删除</li>
+</ol>
+<pre class="highlight"><span class="line">//前端代码</span><br><span class="line">uni.showModal(&#123;</span><br><span class="line">    content:&quot;&quot;,//弹窗内容</span><br><span class="line">    success:(res)=&gt;&#123;</span><br><span class="line">        console.log(res.confirm); //点击确定会返回true</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre>
+
+<ol start="3">
+<li>如果该用户有云存储数据记得使用 uniCloud.deleteFile（）删除，注意这个删除操作要写在云函数里</li>
+</ol>
+<h2 id="查"><a href="#查" class="headerlink" title="查"></a>查</h2><ol>
+<li>使用 get（）函数查找数据库数据，配合 field（），where（）筛选数据</li>
+</ol>
+<pre class="highlight"><span class="line">//云函数代码</span><br><span class="line">testdb.where(&#123;_id:testdata&#125;).field(&#123;data1:true&#125;).get()</span><br></pre>
+
+<ol start="2">
+<li> 使用 limit（），skip（）控制返回数据的数量与起点（有换页的时候要用到，比如 Web 换页控件或无限滚动列表，这里以 limit 为 10 举例）</li>
+</ol>
+<pre class="highlight"><span class="line">//云函数代码</span><br><span class="line">    let p = await testdb.skip(Number(event.skip)*10)//返回起点</span><br><span class="line">                    .limit(10)//返回数量</span><br><span class="line">                    .get()</span><br><span class="line">                    .then(res =&gt; &#123;</span><br><span class="line">			            console.log(res)</span><br><span class="line">			            return res</span><br><span class="line">                    &#125;)</span><br><span class="line">    return p;</span><br><span class="line"></span><br><span class="line">//前端代码</span><br><span class="line">    change_page(e) &#123;//e.current为返回页面组件的页号</span><br><span class="line">	    console.log(e.current)</span><br><span class="line">	    let that = this</span><br><span class="line">	    uniCloud.callFunction(&#123;</span><br><span class="line">	    	name: &quot;test_function&quot;,</span><br><span class="line">	    		data: &#123;</span><br><span class="line">	    		action: &quot;get_data&quot;,</span><br><span class="line">	    		skip: (e.current - 1)</span><br><span class="line">	    	    &#125;</span><br><span class="line">	    &#125;).then(res =&gt; &#123;</span><br><span class="line">	    	console.log(res.result.data)</span><br><span class="line">	    &#125;)</span><br><span class="line">    &#125;</span><br></pre>
+
+<ol start="3">
+<li>多属性搜索（搜索框可以使用，如果要支持模糊搜索请自己写正则表达式，这里是实现了_id、username、mobile 三个属性的搜索合并，但可能重复）</li>
+</ol>
+<pre class="highlight"><span class="line">//云函数代码</span><br><span class="line">const &#123;</span><br><span class="line">    keyword</span><br><span class="line">&#125; = event;</span><br><span class="line">let temp1 = await testdb.where(&#123;</span><br><span class="line">	_id:keyword</span><br><span class="line">&#125;).get()</span><br><span class="line">let temp2 = await testdb.where(&#123;</span><br><span class="line">	username:keyword</span><br><span class="line">&#125;).get()</span><br><span class="line">let temp3 = await testdb.where(&#123;</span><br><span class="line">	mobile:keyword</span><br><span class="line">&#125;).get()</span><br><span class="line">//使用了拓展运算符的写法，将数组合并</span><br><span class="line">let result = [...temp1.data,...temp2.data,...temp3.data]</span><br><span class="line">return result;</span><br></pre>
+
+<h2 id="改"><a href="#改" class="headerlink" title="改"></a>改</h2><ol>
+<li>使用 update（）函数更新数据</li>
+</ol>
+<pre class="highlight"><span class="line">//云函数</span><br><span class="line">const &#123;//使用了解析对象的写法，相当于 const _id = event._id ...</span><br><span class="line">    _id,</span><br><span class="line">	mobile,</span><br><span class="line">	username,</span><br><span class="line">    ...</span><br><span class="line">&#125; = event;</span><br><span class="line">testdb.where(&#123;</span><br><span class="line">	_id: _id</span><br><span class="line">&#125;).update(&#123;</span><br><span class="line">	mobile: dbCmd.set(mobile),</span><br><span class="line">	username: dbCmd.set(username),</span><br><span class="line">	...</span><br><span class="line">&#125;)</span><br></pre>
+
+<ol start="2">
+<li>更新前对新数据进行校验</li>
+</ol>
+
   </div>
   <div>
     
@@ -299,8 +373,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sc-wskun.github.io/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/">
-            https://sc-wskun.github.io/2021/08/05/async%E5%92%8Cawait-%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/
+            href="https://sc-wskun.github.io/2021/08/18/unicloud%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E5%8F%82%E8%80%83/">
+            https://sc-wskun.github.io/2021/08/18/unicloud%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E5%8F%82%E8%80%83/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -312,13 +386,13 @@
   
     <div class="nav-item-prev">
       <a 
-        href="/2021/08/11/uni-app%E5%BC%B9%E7%AA%97%E4%BD%BF%E7%94%A8/" 
+        href="/2021/08/18/DCloud%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%8F%82%E8%80%83/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
           <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">uni-app弹窗使用 </div>
+            <div class="nav-title">DCloud短信服务参考 </div>
           
         </div>
       </a>
@@ -327,12 +401,12 @@
   
     <div class="nav-item-next">
       <a 
-        href="/2021/08/04/ES6%E7%9A%84Promise%E5%9B%9E%E8%B0%83/" 
+        href="/2021/08/13/Another-git-process-seems-to-be-running-in-this-repository-e-g-an-editor-opened-by-git-commit-Please-make-sure-all-processes-are-terminated-then-try-again%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">ES6的Promise回调 </div>
+            <div class="nav-title">没有index.lock但是git commit的时候还是报错File Exist的解决方法 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -350,7 +424,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97"><span class="toc-text">增删查改操作指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E"><span class="toc-text">增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0"><span class="toc-text">删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5"><span class="toc-text">查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9"><span class="toc-text">改</span></a></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -396,7 +470,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97"><span class="toc-text">增删查改操作指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E"><span class="toc-text">增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0"><span class="toc-text">删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5"><span class="toc-text">查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9"><span class="toc-text">改</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -515,7 +589,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97"><span class="toc-text">增删查改操作指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E"><span class="toc-text">增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0"><span class="toc-text">删</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5"><span class="toc-text">查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9"><span class="toc-text">改</span></a></li></ol></li></ol>
     </article>
   
   
