@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>uni-app实现微信授权登录</title>
+  <title>微信小程序生命周期</title>
   
     
       <meta 
         property="og:title" 
-        content="uni-app实现微信授权登录">
+        content="微信小程序生命周期">
     
     
       <meta 
         property="og:url" 
-        content="https://sc-wskun.github.io/2021/07/20/uniapp%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95/index.html">
+        content="https://sc-wskun.github.io/2021/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2021-07-20">
+        content="2021-08-23">
       <meta 
         property="og:article:modified_time" 
-        content="2021-07-20">
+        content="2021-08-23">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -53,7 +53,7 @@
         
           <meta 
             property="og:article:tag" 
-            content="uni-app">
+            content="微信小程序">
         
       
     
@@ -185,7 +185,7 @@
         href="/" 
         class="navbar-menu-item">
         
-          首页
+          Home
         
       </a>
     
@@ -193,7 +193,7 @@
         href="/archives" 
         class="navbar-menu-item">
         
-          归档
+          Archive
         
       </a>
     
@@ -201,7 +201,7 @@
         href="/tags" 
         class="navbar-menu-item">
         
-          标签
+          Tags
         
       </a>
     
@@ -209,7 +209,7 @@
         href="/categories" 
         class="navbar-menu-item">
         
-          分类
+          Categories
         
       </a>
     
@@ -217,7 +217,7 @@
         href="/about" 
         class="navbar-menu-item">
         
-          关于
+          About
         
       </a>
     
@@ -225,7 +225,7 @@
         href="/links" 
         class="navbar-menu-item">
         
-          友链
+          Friends
         
       </a>
     
@@ -262,21 +262,21 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      uni-app实现微信授权登录
+      微信小程序生命周期
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-07-20T05:10:21.000Z">
+    <time datetime="2021-08-22T17:30:09.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2021-07-20</span>
+      <span>2021-08-23</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>286 字</span>
+      <span>122 words</span>
     
   </div>
   
@@ -291,9 +291,9 @@
         
           
           <a 
-            href="/tags/uni-app/" 
+            href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
             class="post-meta-link">
-            uni-app
+            微信小程序
           </a>
         
       </div>
@@ -303,16 +303,11 @@
   <div 
     id="section" 
     class="post-content">
-    <pre><code>参考链接：https://juejin.cn/post/6909701740111609869
-</code></pre>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>博主在写uni-app时遇到这种情况，使用uni-id实例模板进行微信登录的时候，如果没有配置Appid跟AppSeret的时候是可以弹出微信授权界面的，但是按下授权登录后会显示授权失败。</p>
-<p>查阅官方文档后发现要在manifest跟uni-id公共模块里的config.json里配置Appid跟AppSecret。</p>
-<p>但是配置后连授权界面都不弹出了，在Dcloud社区找不到这个问题相关帖子，最后在授权登录插件下的评论区找到了参考链接才解决了问题。</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>百度后可以找到一些blog说要配置应用签名跟应用包名，但是详细的路径都不给，公众平台找半天找不到，后来才发现要在微信开放平台配置。以下是解决方案：</p>
-<ol>
-<li>注册微信开放平台账号（注意不是微信公众平台），使用企业资质认证，个人认证的话无法进行第二步</li>
-<li>进行开发者资质认证（需要300rmb）</li>
-<li></li>
+    <h1 id="声明页面周期位置"><a href="#声明页面周期位置" class="headerlink" title="声明页面周期位置"></a>声明页面周期位置</h1><ol>
+<li>method里面</li>
+<li>Page里面<h1 id="页面声明周期函数"><a href="#页面声明周期函数" class="headerlink" title="页面声明周期函数"></a>页面声明周期函数</h1><h2 id="onLoad"><a href="#onLoad" class="headerlink" title="onLoad"></a>onLoad</h2>可以加个props参数接受url传过来的参数<h2 id="onShow"><a href="#onShow" class="headerlink" title="onShow"></a>onShow</h2><h2 id="onReady"><a href="#onReady" class="headerlink" title="onReady"></a>onReady</h2><h2 id="onHide"><a href="#onHide" class="headerlink" title="onHide"></a>onHide</h2><h2 id="onUpload"><a href="#onUpload" class="headerlink" title="onUpload"></a>onUpload</h2><h1 id="声明组件周期位置"><a href="#声明组件周期位置" class="headerlink" title="声明组件周期位置"></a>声明组件周期位置</h1></li>
+<li>在lifetime函数中定义（高优先级）</li>
+<li>直接写在Component里定义<h1 id="组件生命周期函数"><a href="#组件生命周期函数" class="headerlink" title="组件生命周期函数"></a>组件生命周期函数</h1><h2 id="created"><a href="#created" class="headerlink" title="created"></a>created</h2>组件创建好时触发<h2 id="attached"><a href="#attached" class="headerlink" title="attached"></a>attached</h2>在组件完全初始化完毕、进入页面节点树后触发<h2 id="ready"><a href="#ready" class="headerlink" title="ready"></a>ready</h2>组件渲染完成时触发<h2 id="detached"><a href="#detached" class="headerlink" title="detached"></a>detached</h2>在组件离开页面节点树后触发</li>
 </ol>
 
   </div>
@@ -333,8 +328,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sc-wskun.github.io/2021/07/20/uniapp%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95/">
-            https://sc-wskun.github.io/2021/07/20/uniapp%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95/
+            href="https://sc-wskun.github.io/2021/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+            https://sc-wskun.github.io/2021/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -344,29 +339,15 @@
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2021/07/29/%E8%8D%A7%E5%85%89%E8%BE%B9%E6%A1%86css%E6%A0%B7%E5%BC%8F/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">荧光边框css样式 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2021/07/19/VScode%E7%9A%84React%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" 
+        href="/2021/08/22/Web%E6%80%A7%E8%83%BD%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E7%AC%94%E8%AE%B0/" 
         class="nav-link">
         <div>
-          <div class="nav-label">下一篇</div>
+          <div class="nav-label">Next</div>
           
-            <div class="nav-title">VScode的React环境配置 </div>
+            <div class="nav-title">Web性能权威指南笔记 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -382,9 +363,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>目录
+  </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E9%A1%B5%E9%9D%A2%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明页面周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">页面声明周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#onLoad"><span class="toc-text">onLoad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onShow"><span class="toc-text">onShow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onReady"><span class="toc-text">onReady</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onHide"><span class="toc-text">onHide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onUpload"><span class="toc-text">onUpload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E7%BB%84%E4%BB%B6%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明组件周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">组件生命周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#created"><span class="toc-text">created</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attached"><span class="toc-text">attached</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ready"><span class="toc-text">ready</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#detached"><span class="toc-text">detached</span></a></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -401,20 +382,20 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>25</span>
-    <span>文章</span>
+    <span>26</span>
+    <span>Posts</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
     <span>0</span>
-    <span>分类</span>
+    <span>Categories</span>
   </a>
   <a 
     class="author-tags-count" 
     href="/tags">
     <span>14</span>
-    <span>标签</span>
+    <span>Tags</span>
   </a>
 </div>
 
@@ -428,9 +409,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>目录
+  </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E9%A1%B5%E9%9D%A2%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明页面周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">页面声明周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#onLoad"><span class="toc-text">onLoad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onShow"><span class="toc-text">onShow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onReady"><span class="toc-text">onReady</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onHide"><span class="toc-text">onHide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onUpload"><span class="toc-text">onUpload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E7%BB%84%E4%BB%B6%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明组件周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">组件生命周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#created"><span class="toc-text">created</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attached"><span class="toc-text">attached</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ready"><span class="toc-text">ready</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#detached"><span class="toc-text">detached</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -441,7 +422,7 @@
     <i 
       class="iconfont icon-fenlei" 
       style="padding-right: 2px;">
-    </i>分类
+    </i>Categories
   </div>
   <div class="categories-list">
     
@@ -455,27 +436,9 @@
     <i 
       class="iconfont icon-biaoqian" 
       style="padding-right: 2px;">
-    </i>热门标签
+    </i>hot tags
   </div>
   <div class="tags-list">
-    
-      <a 
-        href="/tags/AJAX/" 
-        title="AJAX">
-        <div class="tags-list-item">AJAX</div>
-      </a>
-    
-      <a 
-        href="/tags/uni-app/" 
-        title="uni-app">
-        <div class="tags-list-item">uni-app</div>
-      </a>
-    
-      <a 
-        href="/tags/Git/" 
-        title="Git">
-        <div class="tags-list-item">Git</div>
-      </a>
     
       <a 
         href="/tags/JavaScript/" 
@@ -490,9 +453,15 @@
       </a>
     
       <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
       </a>
     
       <a 
@@ -502,27 +471,21 @@
       </a>
     
       <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
-        title="服务器">
-        <div class="tags-list-item">服务器</div>
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
       </a>
     
       <a 
-        href="/tags/Vue/" 
-        title="Vue">
-        <div class="tags-list-item">Vue</div>
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
       </a>
     
       <a 
-        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
-        title="偷懒用">
-        <div class="tags-list-item">偷懒用</div>
-      </a>
-    
-      <a 
-        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-        title="微信小程序">
-        <div class="tags-list-item">微信小程序</div>
+        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
+        title="浏览器">
+        <div class="tags-list-item">浏览器</div>
       </a>
     
       <a 
@@ -538,9 +501,27 @@
       </a>
     
       <a 
-        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
-        title="浏览器">
-        <div class="tags-list-item">浏览器</div>
+        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
+        title="偷懒用">
+        <div class="tags-list-item">偷懒用</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
+        title="服务器">
+        <div class="tags-list-item">服务器</div>
+      </a>
+    
+      <a 
+        href="/tags/Vue/" 
+        title="Vue">
+        <div class="tags-list-item">Vue</div>
+      </a>
+    
+      <a 
+        href="/tags/AJAX/" 
+        title="AJAX">
+        <div class="tags-list-item">AJAX</div>
       </a>
     
   </div>
@@ -559,9 +540,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>目录
+  </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E9%A1%B5%E9%9D%A2%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明页面周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">页面声明周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#onLoad"><span class="toc-text">onLoad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onShow"><span class="toc-text">onShow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onReady"><span class="toc-text">onReady</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onHide"><span class="toc-text">onHide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#onUpload"><span class="toc-text">onUpload</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E7%BB%84%E4%BB%B6%E5%91%A8%E6%9C%9F%E4%BD%8D%E7%BD%AE"><span class="toc-text">声明组件周期位置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="toc-text">组件生命周期函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#created"><span class="toc-text">created</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#attached"><span class="toc-text">attached</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ready"><span class="toc-text">ready</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#detached"><span class="toc-text">detached</span></a></li></ol></li></ol>
     </article>
   
   
@@ -571,9 +552,14 @@
     <i 
       class="iconfont icon-wenzhang_huaban" 
       style="padding-right: 2px;">
-    </i>最近文章
+    </i>Recent Posts
   </div>
   <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-23</div>
+        <a href="/2021/08/23/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"><div class="recent-posts-item-content">微信小程序生命周期</div></a>
+      </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-22</div>
@@ -588,11 +574,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-20</div>
         <a href="/2021/08/20/%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8/"><div class="recent-posts-item-content">常用数组存储</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-18</div>
-        <a href="/2021/08/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fnpm%E6%9E%84%E5%BB%BA/"><div class="recent-posts-item-content">微信小程序npm构建</div></a>
       </div>
     
   </div>
