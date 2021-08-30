@@ -45,11 +45,19 @@
         content="2021-08-05">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-05">
+        content="2021-08-30">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
       
+        
+          <meta 
+            property="og:article:tag" 
+            content="JavaScript">
+        
+          <meta 
+            property="og:article:tag" 
+            content="ES6">
         
       
     
@@ -181,7 +189,7 @@
         href="/" 
         class="navbar-menu-item">
         
-          Home
+          首页
         
       </a>
     
@@ -189,7 +197,7 @@
         href="/archives" 
         class="navbar-menu-item">
         
-          Archive
+          归档
         
       </a>
     
@@ -197,7 +205,7 @@
         href="/tags" 
         class="navbar-menu-item">
         
-          Tags
+          标签
         
       </a>
     
@@ -205,7 +213,7 @@
         href="/categories" 
         class="navbar-menu-item">
         
-          Categories
+          分类
         
       </a>
     
@@ -213,7 +221,7 @@
         href="/about" 
         class="navbar-menu-item">
         
-          About
+          关于
         
       </a>
     
@@ -221,7 +229,7 @@
         href="/links" 
         class="navbar-menu-item">
         
-          Friends
+          友链
         
       </a>
     
@@ -272,15 +280,51 @@
     
     
       <span class="dot"></span>
-      <span>0 words</span>
+      <span>348 字</span>
     
   </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/JavaScript/" 
+            class="post-meta-link">
+            JavaScript
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/ES6/" 
+            class="post-meta-link">
+            ES6
+          </a>
+        
+      </div>
+    </div>
   
   </header>
   <div 
     id="section" 
     class="post-content">
-    
+    <h1 id="问题引入：如何获得-promise-链中的值"><a href="#问题引入：如何获得-promise-链中的值" class="headerlink" title="问题引入：如何获得 promise 链中的值"></a>问题引入：如何获得 promise 链中的值</h1><p>在写云函数的时候，经常会遇到这么一个问题。当我使用了官方提供的一个 API，它默认是 Promise 回调，这时候当我们想要将回调得到的值作为函数结果返回前端，会发现 return 不起作用了。</p>
+<pre class="highlight"><span class="line">fn()&#123;</span><br><span class="line">...</span><br><span class="line">    .then(res=&gt;&#123;</span><br><span class="line">        return res.data //并不能作为函数结果返回</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">return result //真正的返回在then回调函数外面</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre>
+
+<p>因为 Promise 链里面直接 return 是无法将回调结果传递到外面的。这时候我们需要 ES6 的一个新特性来打断 Promise 链式传递，也就是 async 跟 await。</p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>async 指的是定义一个异步函数，表明这个函数里面有异步操作。</p>
+<p>async 特点是使这个函数返回类型变成一个 Promise 对象，因此可以使用 then 方法添加回调函数。</p>
+<p>async 跟 await 是相辅相成的存在，await 必须在有 async 定义的函数里面才可以使用。当函数执行时，遇到 await 会先等待 await 绑定的异步操作完成后再进行下一步。</p>
+<pre class="highlight"><span class="line">async fn()&#123;</span><br><span class="line"></span><br><span class="line">    //定义一个普通函数</span><br><span class="line">    let fn2 = ()=&gt;&#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //使用await获取fn2的promise回调的值</span><br><span class="line">    let result = await fn2.then(res=&gt;&#123;</span><br><span class="line">        return res.data //这时函数会把res.data赋给result</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    return result</span><br><span class="line">&#125;</span><br></pre>
+
   </div>
   <div>
     
@@ -316,7 +360,7 @@
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
-          <div class="nav-label">Prev</div>
+          <div class="nav-label">上一篇</div>
           
             <div class="nav-title">uni-app弹窗使用 </div>
           
@@ -330,7 +374,7 @@
         href="/2021/08/04/ES6%E7%9A%84Promise%E5%9B%9E%E8%B0%83/" 
         class="nav-link">
         <div>
-          <div class="nav-label">Next</div>
+          <div class="nav-label">下一篇</div>
           
             <div class="nav-title">ES6的Promise回调 </div>
           
@@ -348,9 +392,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97-promise-%E9%93%BE%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-text">问题引入：如何获得 promise 链中的值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -367,20 +411,20 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>26</span>
-    <span>Posts</span>
+    <span>27</span>
+    <span>文章</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
     <span>0</span>
-    <span>Categories</span>
+    <span>分类</span>
   </a>
   <a 
     class="author-tags-count" 
     href="/tags">
     <span>14</span>
-    <span>Tags</span>
+    <span>标签</span>
   </a>
 </div>
 
@@ -394,9 +438,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97-promise-%E9%93%BE%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-text">问题引入：如何获得 promise 链中的值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol>
       </div>
     </article>
   
@@ -407,7 +451,7 @@
     <i 
       class="iconfont icon-fenlei" 
       style="padding-right: 2px;">
-    </i>Categories
+    </i>分类
   </div>
   <div class="categories-list">
     
@@ -421,7 +465,7 @@
     <i 
       class="iconfont icon-biaoqian" 
       style="padding-right: 2px;">
-    </i>hot tags
+    </i>热门标签
   </div>
   <div class="tags-list">
     
@@ -444,15 +488,15 @@
       </a>
     
       <a 
-        href="/tags/ES6/" 
-        title="ES6">
-        <div class="tags-list-item">ES6</div>
-      </a>
-    
-      <a 
         href="/tags/JavaScript/" 
         title="JavaScript">
         <div class="tags-list-item">JavaScript</div>
+      </a>
+    
+      <a 
+        href="/tags/ES6/" 
+        title="ES6">
+        <div class="tags-list-item">ES6</div>
       </a>
     
       <a 
@@ -465,6 +509,12 @@
         href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
         title="计算机网络">
         <div class="tags-list-item">计算机网络</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
       </a>
     
       <a 
@@ -483,12 +533,6 @@
         href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
         title="偷懒用">
         <div class="tags-list-item">偷懒用</div>
-      </a>
-    
-      <a 
-        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-        title="微信小程序">
-        <div class="tags-list-item">微信小程序</div>
       </a>
     
       <a 
@@ -525,9 +569,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%BC%95%E5%85%A5%EF%BC%9A%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97-promise-%E9%93%BE%E4%B8%AD%E7%9A%84%E5%80%BC"><span class="toc-text">问题引入：如何获得 promise 链中的值</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-text">使用方法</span></a></li></ol>
     </article>
   
   
@@ -537,9 +581,14 @@
     <i 
       class="iconfont icon-wenzhang_huaban" 
       style="padding-right: 2px;">
-    </i>Recent Posts
+    </i>最近文章
   </div>
   <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-08-23</div>
+        <a href="/2021/08/23/Git-pull%E6%8A%A5%E9%94%99%E2%80%98The-following-untracked-working-tree-files-would-be-overwritten-by-merge%E2%80%99/"><div class="recent-posts-item-content">Git pull报错‘The following untracked working tree files would be overwritten by merge’</div></a>
+      </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-23</div>
@@ -554,11 +603,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-08-20</div>
         <a href="/2021/08/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95%E5%99%A8%E7%A9%BA%E7%99%BD/"><div class="recent-posts-item-content">微信小程序调试器空白</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-08-20</div>
-        <a href="/2021/08/20/%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%98%E5%82%A8/"><div class="recent-posts-item-content">常用数组存储</div></a>
       </div>
     
   </div>
