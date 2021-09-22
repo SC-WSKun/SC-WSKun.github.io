@@ -45,7 +45,7 @@
         content="2021-08-02">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-30">
+        content="2021-09-13">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -233,7 +233,7 @@
       </a>
     
       <a 
-        href="/shuoshuo" 
+        href="/null" 
         class="navbar-menu-item">
         
           artitalk
@@ -316,37 +316,55 @@
     class="post-content">
     <h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h1><h2 id="AJAX-简介"><a href="#AJAX-简介" class="headerlink" title="AJAX 简介"></a>AJAX 简介</h2><p>AJAX(Asynchronous JavaScript and XML)，是一种用于创建快速动态网页的技术。AJAX 是在不重新加载页面的情况下更新部分网页的技术。</p>
 <h2 id="XHR"><a href="#XHR" class="headerlink" title="XHR"></a>XHR</h2><h3 id="XHR-对象"><a href="#XHR-对象" class="headerlink" title="XHR 对象"></a>XHR 对象</h3><p>XHR(XMLHttpRequest)用于在后台与服务器交换数据</p>
-<h3 id="创建-XHR-对象"><a href="#创建-XHR-对象" class="headerlink" title="创建 XHR 对象"></a>创建 XHR 对象</h3><p>目前版本：</p>
+<h3 id="创建-XHR-对象"><a href="#创建-XHR-对象" class="headerlink" title="创建 XHR 对象"></a>创建 XHR 对象</h3><ul>
+<li>目前版本：</li>
+</ul>
 <pre class="highlight"><span class="line">variable = new XMLHttpRequest();</span><br></pre>
 
-<p>老版本(IE5 和 IE6)：</p>
+<ul>
+<li>老版本(IE5 和 IE6)：</li>
+</ul>
 <pre class="highlight"><span class="line">variable = new AvtiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br></pre>
 
-<p>兼容写法：</p>
+<ul>
+<li>兼容写法：</li>
+</ul>
 <pre class="highlight"><span class="line">var xmlhttp;</span><br><span class="line">if(window.XMLHttpRequest)&#123;</span><br><span class="line">    xmlhttp = new XMLHttpRequest();</span><br><span class="line">&#125;</span><br><span class="line">else&#123;</span><br><span class="line">    xmlhttp = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);</span><br><span class="line">&#125;</span><br></pre>
 
-<h3 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h3><p>向服务器发送请求，使用 XHR 的 open()和 send()方法：</p>
+<h3 id="XHR-请求"><a href="#XHR-请求" class="headerlink" title="XHR 请求"></a>XHR 请求</h3><ul>
+<li>向服务器发送请求，使用 XHR 的 open()和 send()方法：</li>
+</ul>
 <pre class="highlight"><span class="line">open(method,url,async)</span><br><span class="line">method:请求的类型，GET or POST</span><br><span class="line">url:文件在服务器上的位置</span><br><span class="line">async:是否异步，true(异步),false(同步)，如果想让XHR用于AJAX，则必须为true。</span><br></pre>
 
 <pre class="highlight"><span class="line">send(string)</span><br><span class="line">string:仅用于POST请求</span><br></pre>
 
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;test1.txt&quot;,true);</span><br><span class="line"></span><br><span class="line">xmlhttp.send();</span><br></pre>
 
-<h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><p>简单的 GET 请求：</p>
+<h3 id="GET-请求"><a href="#GET-请求" class="headerlink" title="GET 请求"></a>GET 请求</h3><ul>
+<li>简单的 GET 请求：</li>
+</ul>
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;demo_get.asp&quot;,true);</span><br><span class="line">xmlhttp.send();</span><br></pre>
 
-<p>带参数的 GET 请求：</p>
+<ul>
+<li>带参数的 GET 请求：</li>
+</ul>
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;demo_get.asp?param1=test1&amp;param2=test2&quot;,true);</span><br><span class="line">xmlhttp.send();</span><br></pre>
 
-<p>上面的写法可能得到缓存的结果，可以通过给请求增加一个随机参数让浏览器重新请求：</p>
+<ul>
+<li>上面的写法可能得到缓存的结果，可以通过给请求增加一个随机参数让浏览器重新请求：</li>
+</ul>
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;GET&quot;,&quot;demo_get.asp?t=&quot;+Math.random(),true);</span><br><span class="line">xmlhttp.send();</span><br></pre>
 
 <h3 id="POST-请求"><a href="#POST-请求" class="headerlink" title="POST 请求"></a>POST 请求</h3><pre class="highlight"><span class="line">给请求添加HTTP头的方法</span><br><span class="line">setRequestHeader(header,value)</span><br><span class="line">header:规定头的名称</span><br><span class="line">value:规定头的值</span><br></pre>
 
-<p>简单的 POST 请求：</p>
+<ul>
+<li>简单的 POST 请求：</li>
+</ul>
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;POST&quot;,&quot;demo_post.asp&quot;,true);</span><br><span class="line">xmlhttp.send();</span><br></pre>
 
-<p>带参数的 POST 请求</p>
+<ul>
+<li>带参数的 POST 请求</li>
+</ul>
 <pre class="highlight"><span class="line">xmlhttp.open(&quot;POST&quot;,&quot;demo.txt&quot;,true);</span><br><span class="line">xmlhttp.setRequestHeader(&quot;HeaderName&quot;,&quot;Header/HeaderValue&quot;);</span><br><span class="line">xmlhttp.send(&quot;param1=test1&amp;param2=test2&quot;);</span><br></pre>
 
 <h3 id="GET-和-POST-的区别"><a href="#GET-和-POST-的区别" class="headerlink" title="GET 和 POST 的区别"></a>GET 和 POST 的区别</h3><p>正常情况下，使用 GET 请求会更快，而且更简单</p>
@@ -487,7 +505,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>39</span>
+    <span>48</span>
     <span>Posts</span>
   </a>
   <a 
@@ -499,7 +517,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>19</span>
+    <span>25</span>
     <span>Tags</span>
   </a>
 </div>
@@ -546,27 +564,9 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/AJAX/" 
-        title="AJAX">
-        <div class="tags-list-item">AJAX</div>
-      </a>
-    
-      <a 
-        href="/tags/Git/" 
-        title="Git">
-        <div class="tags-list-item">Git</div>
-      </a>
-    
-      <a 
-        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
-        title="计算机网络">
-        <div class="tags-list-item">计算机网络</div>
-      </a>
-    
-      <a 
-        href="/tags/CSS/" 
-        title="CSS">
-        <div class="tags-list-item">CSS</div>
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
       </a>
     
       <a 
@@ -576,39 +576,27 @@
       </a>
     
       <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
+      </a>
+    
+      <a 
         href="/tags/ES6/" 
         title="ES6">
         <div class="tags-list-item">ES6</div>
       </a>
     
       <a 
-        href="/tags/JavaScript/" 
-        title="JavaScript">
-        <div class="tags-list-item">JavaScript</div>
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
       </a>
     
       <a 
-        href="/tags/JSON/" 
-        title="JSON">
-        <div class="tags-list-item">JSON</div>
-      </a>
-    
-      <a 
-        href="/tags/Nodejs/" 
-        title="Nodejs">
-        <div class="tags-list-item">Nodejs</div>
-      </a>
-    
-      <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
-      </a>
-    
-      <a 
-        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-        title="微信小程序">
-        <div class="tags-list-item">微信小程序</div>
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
       </a>
     
       <a 
@@ -618,15 +606,45 @@
       </a>
     
       <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
-        title="服务器">
-        <div class="tags-list-item">服务器</div>
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
       </a>
     
       <a 
-        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
-        title="偷懒用">
-        <div class="tags-list-item">偷懒用</div>
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" 
+        title="软件设计">
+        <div class="tags-list-item">软件设计</div>
+      </a>
+    
+      <a 
+        href="/tags/UML/" 
+        title="UML">
+        <div class="tags-list-item">UML</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
+        title="计算机图形学">
+        <div class="tags-list-item">计算机图形学</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
+        title="浏览器">
+        <div class="tags-list-item">浏览器</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
@@ -636,9 +654,9 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
+        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
+        title="偷懒用">
+        <div class="tags-list-item">偷懒用</div>
       </a>
     
   </div>
@@ -674,23 +692,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/JS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnormalize%E7%AE%97%E6%B3%95/"><div class="recent-posts-item-content">实现一个normalize算法</div></a>
+        <div class="recent-posts-item-title">2021-09-22</div>
+        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"><div class="recent-posts-item-content">软件设计</div></a>
+        <div class="recent-posts-item-title">2021-09-21</div>
+        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/uni-app-unicloud%E8%BD%AC%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%97%B6%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><div class="recent-posts-item-content">uni-app+unicloud转微信小程序时跨域配置注意事项</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-03</div>
-        <a href="/2021/09/03/%E8%A7%A3%E5%86%B3MangoDB%E6%8A%A5%E9%94%99-errMsg-FailedOperation-multiple-write-errors-write-errors-is-empty-You-must-specify-a-field-like-so-set-field-nil/"><div class="recent-posts-item-content">解决MangoDB报错 errMsg: [FailedOperation] multiple write errors: [{write errors: [{ is empty. You must specify a field like so: {$set: {&lt;field&gt;: ...}}}]}, {&lt;nil&gt;}];</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
       </div>
     
   </div>

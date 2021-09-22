@@ -45,7 +45,7 @@
         content="2021-07-16">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-30">
+        content="2021-09-09">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -237,7 +237,7 @@
       </a>
     
       <a 
-        href="/shuoshuo" 
+        href="/null" 
         class="navbar-menu-item">
         
           artitalk
@@ -291,7 +291,7 @@
     
     
       <span class="dot"></span>
-      <span>385 words</span>
+      <span>391 words</span>
     
   </div>
   
@@ -327,19 +327,22 @@
   <div 
     id="section" 
     class="post-content">
-    <p>今天突然宿舍的wifi断了，看了下wifi的指示灯是红色的。</p>
+    <p>今天突然宿舍的 wifi 断了，看了下 wifi 的指示灯是红色的。</p>
 <h3 id="首先排除故障原因："><a href="#首先排除故障原因：" class="headerlink" title="首先排除故障原因："></a>首先排除故障原因：</h3><ol>
-<li>ping一下网关，看看wifi有没有问题</li>
-<li>把wifi网线取下来，让树莓派直连电脑。ping一下树莓派，看看树莓派有没有问题，笔者到这一步就卡住了，所以是树莓派的问题</li>
-<li>由于树莓派ping不通，那肯定也不能SSH登录。</li>
-<li>考虑了下可能是电脑的ip配置问题。</li>
-<li>打开控制面板，网络连接状态，在以太网里查看详细信息，果然是ipv4地址不知道为啥变成了一个169开头的IP。<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3>大概率是树莓派的DHCP出了问题</li>
-<li>重启解决一切问题，重启后看下自己的ipv4地址是否变成内网地址，一般这一步就够了</li>
-<li>如果一直不能自动配置，则在网络的属性里双击ipv4协议，手动设置ip为子网中除了网关跟树莓派之外的一个ip，比如192.168.1.3，子网掩码为255.255.255.0，网关设置为树莓派的登录IP（此时还是直连）</li>
-<li>设置完后应该就能用SSH登录上树莓派了</li>
-<li>进入图形界面的DHCP/DNS，在高级设置里面找到DNS缓存改为0再改回来，手动释放缓存</li>
-<li>重新配置iptable跟运行xray，可以看到网络又回来了</li>
-<li>把电脑的Ipv4重新改回DHCP，再看看是否变成内网地址</li>
+<li>ping 一下网关，看看 wifi 有没有问题</li>
+<li>把 wifi 网线取下来，让树莓派直连电脑。ping 一下树莓派，看看树莓派有没有问题，笔者到这一步就卡住了，所以是树莓派的问题</li>
+<li>由于树莓派 ping 不通，那肯定也不能 SSH 登录。</li>
+<li>考虑了下可能是电脑的 ip 配置问题。</li>
+<li>打开控制面板，网络连接状态，在以太网里查看详细信息，果然是 ipv4 地址不知道为啥变成了一个 169 开头的 IP。</li>
+</ol>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>大概率是树莓派的 DHCP 出了问题</p>
+<ol>
+<li>重启解决一切问题，重启后看下自己的 ipv4 地址是否变成内网地址，一般这一步就够了</li>
+<li>如果一直不能自动配置，则在网络的属性里双击 ipv4 协议，手动设置 ip 为子网中除了网关跟树莓派之外的一个 ip，比如 192.168.1.3，子网掩码为 255.255.255.0，网关设置为树莓派的登录 IP（此时还是直连）</li>
+<li>设置完后应该就能用 SSH 登录上树莓派了</li>
+<li>进入图形界面的 DHCP/DNS，在高级设置里面找到 DNS 缓存改为 0 再改回来，手动释放缓存</li>
+<li>重新配置 iptable 跟运行 xray，可以看到网络又回来了</li>
+<li>把电脑的 Ipv4 重新改回 DHCP，再看看是否变成内网地址</li>
 </ol>
 
   </div>
@@ -464,7 +467,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>39</span>
+    <span>48</span>
     <span>Posts</span>
   </a>
   <a 
@@ -476,7 +479,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>19</span>
+    <span>25</span>
     <span>Tags</span>
   </a>
 </div>
@@ -523,27 +526,9 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/AJAX/" 
-        title="AJAX">
-        <div class="tags-list-item">AJAX</div>
-      </a>
-    
-      <a 
-        href="/tags/Git/" 
-        title="Git">
-        <div class="tags-list-item">Git</div>
-      </a>
-    
-      <a 
-        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
-        title="计算机网络">
-        <div class="tags-list-item">计算机网络</div>
-      </a>
-    
-      <a 
-        href="/tags/CSS/" 
-        title="CSS">
-        <div class="tags-list-item">CSS</div>
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
       </a>
     
       <a 
@@ -553,39 +538,27 @@
       </a>
     
       <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
+      </a>
+    
+      <a 
         href="/tags/ES6/" 
         title="ES6">
         <div class="tags-list-item">ES6</div>
       </a>
     
       <a 
-        href="/tags/JavaScript/" 
-        title="JavaScript">
-        <div class="tags-list-item">JavaScript</div>
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
       </a>
     
       <a 
-        href="/tags/JSON/" 
-        title="JSON">
-        <div class="tags-list-item">JSON</div>
-      </a>
-    
-      <a 
-        href="/tags/Nodejs/" 
-        title="Nodejs">
-        <div class="tags-list-item">Nodejs</div>
-      </a>
-    
-      <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
-      </a>
-    
-      <a 
-        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-        title="微信小程序">
-        <div class="tags-list-item">微信小程序</div>
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
       </a>
     
       <a 
@@ -595,15 +568,45 @@
       </a>
     
       <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
-        title="服务器">
-        <div class="tags-list-item">服务器</div>
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
       </a>
     
       <a 
-        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
-        title="偷懒用">
-        <div class="tags-list-item">偷懒用</div>
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" 
+        title="软件设计">
+        <div class="tags-list-item">软件设计</div>
+      </a>
+    
+      <a 
+        href="/tags/UML/" 
+        title="UML">
+        <div class="tags-list-item">UML</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
+        title="计算机图形学">
+        <div class="tags-list-item">计算机图形学</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
+        title="浏览器">
+        <div class="tags-list-item">浏览器</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
@@ -613,9 +616,9 @@
       </a>
     
       <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
+        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
+        title="偷懒用">
+        <div class="tags-list-item">偷懒用</div>
       </a>
     
   </div>
@@ -651,23 +654,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/JS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnormalize%E7%AE%97%E6%B3%95/"><div class="recent-posts-item-content">实现一个normalize算法</div></a>
+        <div class="recent-posts-item-title">2021-09-22</div>
+        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"><div class="recent-posts-item-content">软件设计</div></a>
+        <div class="recent-posts-item-title">2021-09-21</div>
+        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/uni-app-unicloud%E8%BD%AC%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%97%B6%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><div class="recent-posts-item-content">uni-app+unicloud转微信小程序时跨域配置注意事项</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-03</div>
-        <a href="/2021/09/03/%E8%A7%A3%E5%86%B3MangoDB%E6%8A%A5%E9%94%99-errMsg-FailedOperation-multiple-write-errors-write-errors-is-empty-You-must-specify-a-field-like-so-set-field-nil/"><div class="recent-posts-item-content">解决MangoDB报错 errMsg: [FailedOperation] multiple write errors: [{write errors: [{ is empty. You must specify a field like so: {$set: {&lt;field&gt;: ...}}}]}, {&lt;nil&gt;}];</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
       </div>
     
   </div>

@@ -45,7 +45,7 @@
         content="2021-09-06">
       <meta 
         property="og:article:modified_time" 
-        content="2021-09-06">
+        content="2021-09-18">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -233,7 +233,7 @@
       </a>
     
       <a 
-        href="/shuoshuo" 
+        href="/null" 
         class="navbar-menu-item">
         
           artitalk
@@ -287,7 +287,7 @@
     
     
       <span class="dot"></span>
-      <span>166 words</span>
+      <span>659 words</span>
     
   </div>
   
@@ -314,22 +314,106 @@
   <div 
     id="section" 
     class="post-content">
-    <h1 id="软件架构系统成员"><a href="#软件架构系统成员" class="headerlink" title="软件架构系统成员"></a>软件架构系统成员</h1><ol>
+    <h1 id="Chapter1"><a href="#Chapter1" class="headerlink" title="Chapter1"></a><em>Chapter1</em></h1><h2 id="软件架构系统成员"><a href="#软件架构系统成员" class="headerlink" title="软件架构系统成员"></a>软件架构系统成员</h2><ol>
 <li>软件开发工程师</li>
 <li>软件测试工程师</li>
 <li>系统分析师</li>
 <li>软件开发（优化）顾问</li>
 <li>系统架构师</li>
 </ol>
-<h1 id="架构考虑"><a href="#架构考虑" class="headerlink" title="架构考虑"></a>架构考虑</h1><ol>
+<h2 id="架构考虑"><a href="#架构考虑" class="headerlink" title="架构考虑"></a>架构考虑</h2><ol>
 <li>协调开发团队与甲方需求</li>
 <li>架构设计不注重功能性，注重质量属性</li>
 <li>思考功能性、需求变化、容量、主流生态、模块化、产品化、系统安全性</li>
 </ol>
-<h1 id="SA-VS-SE"><a href="#SA-VS-SE" class="headerlink" title="SA VS SE"></a>SA VS SE</h1><p>软件架构设计需要考虑需求和设计</p>
+<h2 id="SA-VS-SE"><a href="#SA-VS-SE" class="headerlink" title="SA VS SE"></a>SA VS SE</h2><p>软件架构设计需要考虑需求和设计</p>
 <p>软件工程定义系统的需求、设计、测试、发布，角度是软件的生命周期</p>
 <p>软件架构是软件工程的子集，注重资源</p>
 <p>软件工程注重功能</p>
+<h1 id="Chapter2"><a href="#Chapter2" class="headerlink" title="Chapter2"></a><em>Chapter2</em></h1><h2 id="软件架构的基本属性"><a href="#软件架构的基本属性" class="headerlink" title="软件架构的基本属性"></a>软件架构的基本属性</h2><ul>
+<li>功能属性</li>
+<li>质量属性</li>
+<li></li>
+</ul>
+<h2 id="质量属性详解"><a href="#质量属性详解" class="headerlink" title="质量属性详解"></a>质量属性详解</h2><ol>
+<li>系统质量属性</li>
+</ol>
+<ul>
+<li><strong>可用性</strong></li>
+<li><strong>容易修改</strong></li>
+<li><strong>性能</strong>（高并发）</li>
+<li><strong>安全性</strong>（信息隐藏不被攻击）</li>
+<li><strong>可测性</strong></li>
+<li><strong>容易使用</strong>（用户向导）</li>
+</ul>
+<ol start="2">
+<li>商业属性</li>
+<li>结构属性</li>
+</ol>
+<h2 id="衡量质量"><a href="#衡量质量" class="headerlink" title="衡量质量"></a>衡量质量</h2><ol>
+<li>可用性策略</li>
+</ol>
+<ul>
+<li>错误检测</li>
+<li>错误修复</li>
+</ul>
+<ol start="2">
+<li>可修改性策略</li>
+</ol>
+<ul>
+<li>本地化修改</li>
+<li>防止波纹效应</li>
+</ul>
+<ol start="3">
+<li>性能策略</li>
+</ol>
+<ul>
+<li>资源需求</li>
+<li>资源管理</li>
+</ul>
+<ol start="4">
+<li>安全性策略</li>
+</ol>
+<ul>
+<li>抵抗攻击</li>
+<li>检测攻击</li>
+<li>被攻击后恢复</li>
+</ul>
+<ol start="5">
+<li>可测性策略</li>
+</ol>
+<ul>
+<li>输入输出</li>
+<li>间歇性监视</li>
+</ul>
+<ol start="6">
+<li>易用性策略</li>
+</ol>
+<ul>
+<li>运行时间策略</li>
+<li>设计时间策略</li>
+</ul>
+<h1 id="Chapter4-文档"><a href="#Chapter4-文档" class="headerlink" title="Chapter4 文档"></a><em>Chapter4</em> 文档</h1><p>文档的原则：easy to read(容易读懂)</p>
+<h2 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h2><p>记录架构就是记录相关视图，然后添加适用于多个视图的文档。</p>
+<h2 id="选择相关的视图"><a href="#选择相关的视图" class="headerlink" title="选择相关的视图"></a>选择相关的视图</h2><p>不同的视图会突出不同的系统元素或关系</p>
+<ul>
+<li>三个步骤</li>
+</ul>
+<ol>
+<li>Produce a candidate view list.</li>
+<li>Combine views</li>
+<li>Prioritize</li>
+</ol>
+<h2 id="将视图写入文档"><a href="#将视图写入文档" class="headerlink" title="将视图写入文档"></a>将视图写入文档</h2><ol>
+<li>Primary presentation<pre class="highlight"><span class="line">通常是图形化的，有时也可以使用表格</span><br></pre></li>
+<li>Element catalog<pre class="highlight"><span class="line">说明主要视图中描述的元素和关系</span><br></pre></li>
+<li>Context diagram<pre class="highlight"><span class="line">上下文图显示了视图中描述的系统如何与视图词汇表中的环境相关。</span><br></pre></li>
+<li>Variability guide<pre class="highlight"><span class="line">可变性指南应该包括关于架构中每个变化点的文档，包括：</span><br><span class="line">要从中做出选择的选项。</span><br><span class="line">选项的绑定时间。</span><br></pre></li>
+<li>Architecture background<pre class="highlight"><span class="line">基本原理:解释为什么做出了在视图中反映的决定以及为什么替代方案被拒绝。</span><br><span class="line">分析结果:证明设计的合理性或解释面对修改时必须改变的内容。</span><br><span class="line">设计中反映的假设。</span><br></pre></li>
+<li>Glossary of terms<pre class="highlight"><span class="line">术语词汇表，对每个术语进行简要说明</span><br></pre></li>
+<li>Other information</li>
+</ol>
+<h2 id="围绕视图编写文档"><a href="#围绕视图编写文档" class="headerlink" title="围绕视图编写文档"></a>围绕视图编写文档</h2><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p>架构描述图：多层交互关系，描述接口、部署、测试、优化、运维升级</p>
 
   </div>
   <div>
@@ -436,7 +520,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter1"><span class="toc-text">Chapter1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2"><span class="toc-text">Chapter2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-text">软件架构的基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-text">质量属性详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A1%E9%87%8F%E8%B4%A8%E9%87%8F"><span class="toc-text">衡量质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter4-%E6%96%87%E6%A1%A3"><span class="toc-text">Chapter4 文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%85%B3%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="toc-text">选择相关的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A7%86%E5%9B%BE%E5%86%99%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">将视图写入文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%B4%E7%BB%95%E8%A7%86%E5%9B%BE%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3"><span class="toc-text">围绕视图编写文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -453,7 +537,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>39</span>
+    <span>48</span>
     <span>Posts</span>
   </a>
   <a 
@@ -465,7 +549,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>19</span>
+    <span>25</span>
     <span>Tags</span>
   </a>
 </div>
@@ -482,7 +566,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter1"><span class="toc-text">Chapter1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2"><span class="toc-text">Chapter2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-text">软件架构的基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-text">质量属性详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A1%E9%87%8F%E8%B4%A8%E9%87%8F"><span class="toc-text">衡量质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter4-%E6%96%87%E6%A1%A3"><span class="toc-text">Chapter4 文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%85%B3%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="toc-text">选择相关的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A7%86%E5%9B%BE%E5%86%99%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">将视图写入文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%B4%E7%BB%95%E8%A7%86%E5%9B%BE%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3"><span class="toc-text">围绕视图编写文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -512,15 +596,21 @@
   <div class="tags-list">
     
       <a 
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
+      </a>
+    
+      <a 
         href="/tags/AJAX/" 
         title="AJAX">
         <div class="tags-list-item">AJAX</div>
       </a>
     
       <a 
-        href="/tags/Git/" 
-        title="Git">
-        <div class="tags-list-item">Git</div>
+        href="/tags/CORS/" 
+        title="CORS">
+        <div class="tags-list-item">CORS</div>
       </a>
     
       <a 
@@ -536,15 +626,15 @@
       </a>
     
       <a 
-        href="/tags/uni-app/" 
-        title="uni-app">
-        <div class="tags-list-item">uni-app</div>
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
       </a>
     
       <a 
-        href="/tags/ES6/" 
-        title="ES6">
-        <div class="tags-list-item">ES6</div>
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
       </a>
     
       <a 
@@ -554,9 +644,27 @@
       </a>
     
       <a 
+        href="/tags/ES6/" 
+        title="ES6">
+        <div class="tags-list-item">ES6</div>
+      </a>
+    
+      <a 
+        href="/tags/JAVA/" 
+        title="JAVA">
+        <div class="tags-list-item">JAVA</div>
+      </a>
+    
+      <a 
         href="/tags/JSON/" 
         title="JSON">
         <div class="tags-list-item">JSON</div>
+      </a>
+    
+      <a 
+        href="/tags/NodeJs/" 
+        title="NodeJs">
+        <div class="tags-list-item">NodeJs</div>
       </a>
     
       <a 
@@ -572,39 +680,15 @@
       </a>
     
       <a 
-        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-        title="微信小程序">
-        <div class="tags-list-item">微信小程序</div>
-      </a>
-    
-      <a 
         href="/tags/Vue/" 
         title="Vue">
         <div class="tags-list-item">Vue</div>
       </a>
     
       <a 
-        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
-        title="服务器">
-        <div class="tags-list-item">服务器</div>
-      </a>
-    
-      <a 
-        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
-        title="偷懒用">
-        <div class="tags-list-item">偷懒用</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%95%B0%E5%AD%97%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86/" 
-        title="数字通信原理">
-        <div class="tags-list-item">数字通信原理</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
-        title="树莓派">
-        <div class="tags-list-item">树莓派</div>
+        href="/tags/%E9%AB%98%E5%BE%B7%E5%AE%9A%E4%BD%8D/" 
+        title="高德定位">
+        <div class="tags-list-item">高德定位</div>
       </a>
     
   </div>
@@ -625,7 +709,7 @@
     style="padding-right: 2px;">
   </i>TOC
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter1"><span class="toc-text">Chapter1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98"><span class="toc-text">软件架构系统成员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E8%80%83%E8%99%91"><span class="toc-text">架构考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SA-VS-SE"><span class="toc-text">SA VS SE</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2"><span class="toc-text">Chapter2</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-text">软件架构的基本属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7%E8%AF%A6%E8%A7%A3"><span class="toc-text">质量属性详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A1%E9%87%8F%E8%B4%A8%E9%87%8F"><span class="toc-text">衡量质量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter4-%E6%96%87%E6%A1%A3"><span class="toc-text">Chapter4 文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE"><span class="toc-text">视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E7%9B%B8%E5%85%B3%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="toc-text">选择相关的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%A7%86%E5%9B%BE%E5%86%99%E5%85%A5%E6%96%87%E6%A1%A3"><span class="toc-text">将视图写入文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%B4%E7%BB%95%E8%A7%86%E5%9B%BE%E7%BC%96%E5%86%99%E6%96%87%E6%A1%A3"><span class="toc-text">围绕视图编写文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A"><span class="toc-text">作业</span></a></li></ol></li></ol>
     </article>
   
   
@@ -640,23 +724,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/JS%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAnormalize%E7%AE%97%E6%B3%95/"><div class="recent-posts-item-content">实现一个normalize算法</div></a>
+        <div class="recent-posts-item-title">2021-09-22</div>
+        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"><div class="recent-posts-item-content">软件设计</div></a>
+        <div class="recent-posts-item-title">2021-09-21</div>
+        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-06</div>
-        <a href="/2021/09/06/uni-app-unicloud%E8%BD%AC%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%97%B6%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"><div class="recent-posts-item-content">uni-app+unicloud转微信小程序时跨域配置注意事项</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-03</div>
-        <a href="/2021/09/03/%E8%A7%A3%E5%86%B3MangoDB%E6%8A%A5%E9%94%99-errMsg-FailedOperation-multiple-write-errors-write-errors-is-empty-You-must-specify-a-field-like-so-set-field-nil/"><div class="recent-posts-item-content">解决MangoDB报错 errMsg: [FailedOperation] multiple write errors: [{write errors: [{ is empty. You must specify a field like so: {$set: {&lt;field&gt;: ...}}}]}, {&lt;nil&gt;}];</div></a>
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
       </div>
     
   </div>

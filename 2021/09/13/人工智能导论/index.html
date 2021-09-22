@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="Hexo">
+  <link 
+    rel="icon" 
+    href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
+  <title>人工智能导论</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="人工智能导论">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://sc-wskun.github.io/2021/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2021-09-13">
+      <meta 
+        property="og:article:modified_time" 
+        content="2021-09-15">
+      <meta 
+        property="og:article:author" 
+        content="SC-WSKun">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="人工智能">
+        
+      
+    
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+    
+    <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+        <img 
+          class="navbar-logo-img" 
+          src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">KunKun的博客小屋</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          Friends
+        
+      </a>
+    
+      <a 
+        href="/null" 
+        class="navbar-menu-item">
+        
+          artitalk
+        
+      </a>
+    
+    <a 
+      class="navbar-menu-item darknavbar" 
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </a>
+    <a 
+      class="navbar-menu-item searchnavbar" 
+      id="search">
+      <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i>
+    </a>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      人工智能导论
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-09-13T02:28:31.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2021-09-13</span>
+    </time>
+    
+    
+      <span class="dot"></span>
+      <span>1.8k words</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" 
+            class="post-meta-link">
+            人工智能
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h1 id="Chapter2-知识工程"><a href="#Chapter2-知识工程" class="headerlink" title="Chapter2 知识工程"></a><em>Chapter2</em> 知识工程</h1><h2 id="知识的定义"><a href="#知识的定义" class="headerlink" title="知识的定义"></a>知识的定义</h2><ul>
+<li>一般来说，把有关信息关联在一起所形成的信息结构称为知识</li>
+<li>知识反映了客观世界中事物之间的关系，不同事物或者相同事物间的不同关系形成了不同的知识</li>
+</ul>
+<h2 id="知识的特性"><a href="#知识的特性" class="headerlink" title="知识的特性"></a>知识的特性</h2><ul>
+<li>相对正确性</li>
+<li>不确定性</li>
+<li>可表示性与可利用性</li>
+</ul>
+<h2 id="知识表示分类"><a href="#知识表示分类" class="headerlink" title="知识表示分类"></a>知识表示分类</h2><ul>
+<li>过程性知识表示</li>
+<li>陈述性知识表示</li>
+</ul>
+<h2 id="知识表示方法"><a href="#知识表示方法" class="headerlink" title="知识表示方法"></a>知识表示方法</h2><h3 id="经典逻辑表示法"><a href="#经典逻辑表示法" class="headerlink" title="经典逻辑表示法"></a>经典逻辑表示法</h3><ul>
+<li>一阶谓词逻辑表示法</li>
+</ul>
+<h3 id="产生式表示法"><a href="#产生式表示法" class="headerlink" title="产生式表示法"></a>产生式表示法</h3><pre class="highlight"><span class="line">产生式系统由三部分组成：规则集、全局数据库、控制策略</span><br></pre>
+
+<h4 id="正向推理的一般步骤"><a href="#正向推理的一般步骤" class="headerlink" title="正向推理的一般步骤"></a>正向推理的一般步骤</h4><ol>
+<li>用数据库的事实与可用规则集中所有规则的前件进行匹配，得到匹配的规则集合</li>
+<li>从匹配规则集合中选择一条规则作为使用规则</li>
+<li>执行使用规则，将该使用规则后件的执行结果送入数据库；并将已执行规则从可用规则集中删除</li>
+<li>重复这个过程，直到达到目标或者无匹配规则为止</li>
+</ol>
+<h4 id="逆向推理的一般步骤"><a href="#逆向推理的一般步骤" class="headerlink" title="逆向推理的一般步骤"></a>逆向推理的一般步骤</h4><ol>
+<li>用假设的目标事实与规则集中的规则后件进行匹配，得到匹配的规则集合。</li>
+<li>从匹配规则集合中选择一条规则作为使用规则。</li>
+<li>将使用规则的前件作为新的假设子目标送入数据库；并将已执行规则从可用规则集中删除。</li>
+<li>重复这个过程，直至各子目标均为已知事实或者无可匹配规则为止。</li>
+</ol>
+<h4 id="规则匹配"><a href="#规则匹配" class="headerlink" title="规则匹配"></a>规则匹配</h4><ul>
+<li>精确匹配</li>
+<li>不精确匹配</li>
+</ul>
+<h4 id="冲突消解"><a href="#冲突消解" class="headerlink" title="冲突消解"></a>冲突消解</h4><ul>
+<li>给所有可用规则排序，然后依次从队列中取出候选规则</li>
+</ul>
+<h3 id="层次结构表示法"><a href="#层次结构表示法" class="headerlink" title="层次结构表示法"></a>层次结构表示法</h3><h4 id="框架结构"><a href="#框架结构" class="headerlink" title="框架结构"></a>框架结构</h4><ul>
+<li>框架是一种描述所论对象属性的数据结构</li>
+<li>一个框架由若干个“槽”组成，一个槽又可划分为若干个“侧面”。一个槽用于描述所论对象某一方面的属性，一个侧面用于描述相应属性的一个方面</li>
+</ul>
+<h4 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h4><ul>
+<li>语义网络</li>
+</ul>
+<h1 id="Chapter3-确定性推理"><a href="#Chapter3-确定性推理" class="headerlink" title="Chapter3 确定性推理"></a><em>Chapter3</em> 确定性推理</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><ul>
+<li>所谓推理就是按某种策略由已知判断退出另一判断的思维过程</li>
+</ul>
+<h2 id="自然演绎推理"><a href="#自然演绎推理" class="headerlink" title="自然演绎推理"></a>自然演绎推理</h2><h2 id="归结演绎推理"><a href="#归结演绎推理" class="headerlink" title="归结演绎推理"></a>归结演绎推理</h2><ul>
+<li><p>海伯伦定理</p>
+<p>子句集不可满足的充要条件是存在一个有限的不可满足的基子句集 S’</p>
+</li>
+<li><p>鲁滨逊归结原理</p>
+<p>子句集中子句之间是合取关系，只要有一个子句不可满足，则子句集就不可满足。而空子句是不可满足的。所以若一个子句集中包含空子句，则这个子句集一定是不可满足的。</p>
+</li>
+<li><p>两个推论</p>
+</li>
+</ul>
+<ol>
+<li>设 C1 与 C2 是子句集 S 中的两个子句，C12 是它们的归结式。若用 C12 代替 C1 和 C2 后得到新子句集 S1，则由 S1 的不可满足性可推出原子句集 S 的不可满足性，即</li>
+</ol>
+<pre class="highlight"><span class="line">S1的不可满足性＝&gt;S的不可满足性</span><br></pre>
+
+<ol start="2">
+<li>设 C1 与 C2 是子句集 S 中的两个子句，C12 是它们的归结式。若把 C12 加入 S 中得到新子句集 S2，则 S 与 S2 在不可满足的意义上是等价的，即</li>
+</ol>
+<pre class="highlight"><span class="line">S2的不可满足性&lt;＝&gt;S的不可满足性</span><br></pre>
+
+<ul>
+<li><p>归结原理的基本思想</p>
+<p>为了要证明子句集 S 的不可满足性，只要对其中可进行归结的子句进行归结，并把归结式加入子句集 S，或者用归结式替换它的亲本子句，然后对新子句集(S1 或者 S2)证明不可满足性就可以了。如果经过归结能得到空子句，则立即可得原子句集 S 是不可满足的结论。</p>
+</li>
+<li><p>谓词逻辑中的归结原理</p>
+<p>在谓词逻辑中，由于子句中含有变元，所以不能像命题逻辑那样直接消去互补文字，而需要先用最一般合一对变元进行代换，然后才能进行归结。</p>
+</li>
+</ul>
+<pre class="highlight"><span class="line">例如,设有两个子句</span><br><span class="line">C1=P(x)∨Q(x), C2= ¬P(a)∨R(y)</span><br><span class="line">由于P(x)与P(a)不同，所以C1与C2不能直接进行归结。但是若用最一般合一</span><br><span class="line">σ=&#123;a/x&#125;</span><br><span class="line">对两个子句分别进行代换：</span><br><span class="line">C1σ =P(a)∨Q(a)</span><br><span class="line">C2σ = ¬P(a)∨R(y)</span><br><span class="line">就可对它们进行归结，得到归结式：</span><br><span class="line">Q(a)∨R(y)</span><br></pre>
+
+<h2 id="使用归结原理"><a href="#使用归结原理" class="headerlink" title="使用归结原理"></a>使用归结原理</h2><ul>
+<li>归结反演</li>
+</ul>
+<pre class="highlight"><span class="line">归结原理给出了证明子句集不可满足性的方法。</span><br><span class="line">	如欲证明Q为P1,P2,…,Pn的逻辑结论，只需证</span><br><span class="line">            (P1∧P2∧…∧Pn)∧¬Q</span><br><span class="line">是不可满足的。根据定理3.1知，在不可满足的意义上，上式与其子句集是等价的。</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">否定Q，得到¬Q；</span><br><span class="line">把¬Q并入到公式集F中，得到&#123;F, ¬Q&#125;;</span><br><span class="line">把公式集&#123;F, ¬Q&#125;化为子句集S；</span><br><span class="line">应用归结原理对子句集S中的子句进行归结，并把每次归结得到的归结式都并入S中。如此反复进行，若出现了空子句，则停止归结，此时就证明了Q为真。</span><br><span class="line"></span><br></pre>
+
+<h2 id="归结策略"><a href="#归结策略" class="headerlink" title="归结策略"></a>归结策略</h2><ul>
+<li><p>删除策略</p>
+<p>删除某些无用的字句来缩小归结的范围</p>
+<ol>
+<li><p>纯文字删除法</p>
+<p>原理：没有可以匹配的互补因子</p>
+</li>
+<li><p>重言式删除法</p>
+<p>原理：永真式对得到结果没有任何作用</p>
+</li>
+<li><p>包孕删除法</p>
+<p>原理：不可满足性，小-&gt;大</p>
+</li>
+</ol>
+</li>
+<li><p>限制策略</p>
+<p>通过对参加归结的子句进行种种限制，尽可能减小归结的盲目性，使其尽快地归结出空子句。</p>
+<ol>
+<li><p>支持集策略</p>
+<p>对参加归结的子句提出如下限制：每一次归结时，亲本子句中至少有一个是由目标公式的否定所得到的子句，或者是它们的后裔。</p>
+</li>
+<li><p>线性输入策略</p>
+<p>参加归结的两个子句中必须至少有一个是初始子句集中的子句</p>
+</li>
+<li><p>祖先过滤策略</p>
+<p>该策略与线性策略比较相似，但放宽了限制。当对两个子句 C1 和 C2 进行归结时，只要它们满足下述任一个条件就可以归结。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="归结原理解决问题"><a href="#归结原理解决问题" class="headerlink" title="归结原理解决问题"></a>归结原理解决问题</h2><ul>
+<li>求解的步骤<ol>
+<li>把已知前提用谓词公式表示出来，并且化为相应的子句集。设该子句集的名字为 S。</li>
+<li>把待求解的问题也用谓词公式表示出来，然后把它否定并与谓词 Answer 构成析取式。Answer 是一个为了求解问题而专设的谓词，其变元必须与问题公式的变元完全一致。</li>
+<li>把此析取式化为子句集，并且把该子句集并入到子句集 S 中，得到子句集 S`。</li>
+<li>对 S`应用归结原理进行归结。</li>
+<li>若得到归结式 Answer，则答案就在 Answer 中。</li>
+</ol>
+</li>
+</ul>
+<h2 id="与或形演绎推理"><a href="#与或形演绎推理" class="headerlink" title="与或形演绎推理"></a>与或形演绎推理</h2><p>与或形演绎推理不再把有关知识转化成子句集，而把领域知识及已知事实分别用蕴含式及与或形表示出来，然后通过运用蕴含式进行演绎推理，从而证明某个目标公式 </p>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            kunkun
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://sc-wskun.github.io/2021/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA/">
+            https://sc-wskun.github.io/2021/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2021/09/13/NodeJs/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">NodeJs </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2021/09/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">计算机图形学与虚拟现实 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+  <div 
+    class="card card-content comment-card" 
+    style="margin-top: 16px;">
+    <div class="comment-card-title">评论</div>
+    
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'GsIdme1Lc6bEEOBn4olNGM5m-MdYXbMMI',
+        appKey: 'romhWo0YYRpU0UfXml2UVUwx',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        
+        
+        enableQQ: 'false',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+  </div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2-%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B"><span class="toc-text">Chapter2 知识工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">知识的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">知识的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E5%88%86%E7%B1%BB"><span class="toc-text">知识表示分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-text">知识表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E9%80%BB%E8%BE%91%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">经典逻辑表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">产生式表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">正向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">逆向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%8C%B9%E9%85%8D"><span class="toc-text">规则匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E6%B6%88%E8%A7%A3"><span class="toc-text">冲突消解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">层次结构表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-text">框架结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">网络结构</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter3-%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%8E%A8%E7%90%86"><span class="toc-text">Chapter3 确定性推理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">自然演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">归结演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86"><span class="toc-text">使用归结原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E7%AD%96%E7%95%A5"><span class="toc-text">归结策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">归结原理解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%88%96%E5%BD%A2%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">与或形演绎推理</span></a></li></ol></li></ol>
+</div></main>
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png" 
+    class="author-img" 
+    alt="author avatar">
+
+<p class="author-name">SC-WSKun</p>
+<p class="author-description">一个不想内卷只想躺平的菜狗</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>48</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>0</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>25</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2-%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B"><span class="toc-text">Chapter2 知识工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">知识的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">知识的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E5%88%86%E7%B1%BB"><span class="toc-text">知识表示分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-text">知识表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E9%80%BB%E8%BE%91%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">经典逻辑表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">产生式表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">正向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">逆向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%8C%B9%E9%85%8D"><span class="toc-text">规则匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E6%B6%88%E8%A7%A3"><span class="toc-text">冲突消解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">层次结构表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-text">框架结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">网络结构</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter3-%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%8E%A8%E7%90%86"><span class="toc-text">Chapter3 确定性推理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">自然演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">归结演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86"><span class="toc-text">使用归结原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E7%AD%96%E7%95%A5"><span class="toc-text">归结策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">归结原理解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%88%96%E5%BD%A2%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">与或形演绎推理</span></a></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
+      </a>
+    
+      <a 
+        href="/tags/AJAX/" 
+        title="AJAX">
+        <div class="tags-list-item">AJAX</div>
+      </a>
+    
+      <a 
+        href="/tags/CORS/" 
+        title="CORS">
+        <div class="tags-list-item">CORS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
+      </a>
+    
+      <a 
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
+      </a>
+    
+      <a 
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
+      </a>
+    
+      <a 
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
+      </a>
+    
+      <a 
+        href="/tags/ES6/" 
+        title="ES6">
+        <div class="tags-list-item">ES6</div>
+      </a>
+    
+      <a 
+        href="/tags/JAVA/" 
+        title="JAVA">
+        <div class="tags-list-item">JAVA</div>
+      </a>
+    
+      <a 
+        href="/tags/JSON/" 
+        title="JSON">
+        <div class="tags-list-item">JSON</div>
+      </a>
+    
+      <a 
+        href="/tags/NodeJs/" 
+        title="NodeJs">
+        <div class="tags-list-item">NodeJs</div>
+      </a>
+    
+      <a 
+        href="/tags/Nodejs/" 
+        title="Nodejs">
+        <div class="tags-list-item">Nodejs</div>
+      </a>
+    
+      <a 
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
+      </a>
+    
+      <a 
+        href="/tags/Vue/" 
+        title="Vue">
+        <div class="tags-list-item">Vue</div>
+      </a>
+    
+      <a 
+        href="/tags/%E9%AB%98%E5%BE%B7%E5%AE%9A%E4%BD%8D/" 
+        title="高德定位">
+        <div class="tags-list-item">高德定位</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2-%E7%9F%A5%E8%AF%86%E5%B7%A5%E7%A8%8B"><span class="toc-text">Chapter2 知识工程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">知识的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-text">知识的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E5%88%86%E7%B1%BB"><span class="toc-text">知识表示分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"><span class="toc-text">知识表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E9%80%BB%E8%BE%91%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">经典逻辑表示法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%BC%8F%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">产生式表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">正向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86%E5%90%91%E6%8E%A8%E7%90%86%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4"><span class="toc-text">逆向推理的一般步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99%E5%8C%B9%E9%85%8D"><span class="toc-text">规则匹配</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E6%B6%88%E8%A7%A3"><span class="toc-text">冲突消解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="toc-text">层次结构表示法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-text">框架结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-text">网络结构</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter3-%E7%A1%AE%E5%AE%9A%E6%80%A7%E6%8E%A8%E7%90%86"><span class="toc-text">Chapter3 确定性推理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E7%84%B6%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">自然演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">归结演绎推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86"><span class="toc-text">使用归结原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E7%AD%96%E7%95%A5"><span class="toc-text">归结策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%92%E7%BB%93%E5%8E%9F%E7%90%86%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="toc-text">归结原理解决问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8E%E6%88%96%E5%BD%A2%E6%BC%94%E7%BB%8E%E6%8E%A8%E7%90%86"><span class="toc-text">与或形演绎推理</span></a></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-22</div>
+        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-21</div>
+        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020 -
+          
+          2021
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          KunKun的博客小屋
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
+    
+</footer> 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton" 
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/js/lib/busuanzi.min.js') 
+      </script>
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+     
+    
+    
+  </body>
+</html>

@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="Hexo">
+  <link 
+    rel="icon" 
+    href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
+  <title>计算机图形学与虚拟现实</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="计算机图形学与虚拟现实">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://sc-wskun.github.io/2021/09/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2021-09-09">
+      <meta 
+        property="og:article:modified_time" 
+        content="2021-09-16">
+      <meta 
+        property="og:article:author" 
+        content="SC-WSKun">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="计算机图形学">
+        
+      
+    
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+    
+    <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+        <img 
+          class="navbar-logo-img" 
+          src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png" 
+          alt="blog logo">
+      
+      <span class="navbar-logo-dsc">KunKun的博客小屋</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          About
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          Friends
+        
+      </a>
+    
+      <a 
+        href="/null" 
+        class="navbar-menu-item">
+        
+          artitalk
+        
+      </a>
+    
+    <a 
+      class="navbar-menu-item darknavbar" 
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </a>
+    <a 
+      class="navbar-menu-item searchnavbar" 
+      id="search">
+      <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i>
+    </a>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      计算机图形学与虚拟现实
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2021-09-09T11:00:31.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2021-09-09</span>
+    </time>
+    
+    
+      <span class="dot"></span>
+      <span>951 words</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
+            class="post-meta-link">
+            计算机图形学
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h1 id="扫描转换"><a href="#扫描转换" class="headerlink" title="扫描转换"></a>扫描转换</h1><h2 id="几何图元的扫描转换"><a href="#几何图元的扫描转换" class="headerlink" title="几何图元的扫描转换"></a>几何图元的扫描转换</h2><p>应用程序—（顶点）—&gt;图形系统—-（像素）—–&gt;帧缓存</p>
+<h2 id="最优点集"><a href="#最优点集" class="headerlink" title="最优点集"></a>最优点集</h2><p>点到直线上距离最小 == 某一行（列）上的点中到直线距离最小的点</p>
+<p>斜率小于 1 按列，大于 1 按行</p>
+<h1 id="线段扫描转换"><a href="#线段扫描转换" class="headerlink" title="线段扫描转换"></a>线段扫描转换</h1><h2 id="DDA-算法"><a href="#DDA-算法" class="headerlink" title="DDA 算法"></a>DDA 算法</h2><h3 id="平凡算法"><a href="#平凡算法" class="headerlink" title="平凡算法"></a>平凡算法</h3><pre class="highlight"><span class="line">x 取固定间隔的点</span><br><span class="line"></span><br><span class="line">y 用 mx+i 计算</span><br><span class="line"></span><br><span class="line">用像素点(x,round(y))逼近上述点(x,y)</span><br></pre>
+
+<h3 id="平凡算法的缺点"><a href="#平凡算法的缺点" class="headerlink" title="平凡算法的缺点"></a>平凡算法的缺点</h3><p>多次乘法运算，取整运算</p>
+<h3 id="平凡算法的优化（DDA-算法）"><a href="#平凡算法的优化（DDA-算法）" class="headerlink" title="平凡算法的优化（DDA 算法）"></a>平凡算法的优化（DDA 算法）</h3><pre class="highlight"><span class="line">yi+1 = yi + 斜率 m</span><br></pre>
+
+<h2 id="Bresenham-算法"><a href="#Bresenham-算法" class="headerlink" title="Bresenham 算法"></a>Bresenham 算法</h2><h3 id="记号"><a href="#记号" class="headerlink" title="记号"></a>记号</h3><pre class="highlight"><span class="line">1. 设线段两个端点，（X0，Y0），（X1，Y1）</span><br><span class="line"></span><br><span class="line">2. 设 x1 - x0 &gt; 0, y1 - y0 &gt; 0</span><br><span class="line"></span><br><span class="line">3. 记斜率 m，约定 m&lt;1</span><br><span class="line"></span><br><span class="line">4. 线段上(xi,yi)的近似点为（上面加横杠）</span><br></pre>
+
+<h3 id="判断准则计算"><a href="#判断准则计算" class="headerlink" title="判断准则计算"></a>判断准则计算</h3><p>计算点到上下点的距离，取距离最小的点</p>
+<p>pi 代表下减上</p>
+<h3 id="p0-的计算"><a href="#p0-的计算" class="headerlink" title="p0 的计算"></a>p0 的计算</h3><ul>
+<li>p0 = 2△y - △x</li>
+</ul>
+<h3 id="pi-的计算-已知-pi-推出-pi-1"><a href="#pi-的计算-已知-pi-推出-pi-1" class="headerlink" title="pi 的计算(已知 pi 推出 pi+1)"></a>pi 的计算(已知 pi 推出 pi+1)</h3><ul>
+<li>pi+1 - pi = 2△y - 2△x（yi+1-yi)</li>
+</ul>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><pre class="highlight"><span class="line">1. 画（x0,y0），计算△x，△y，p0</span><br><span class="line">2. 如果 𝑝𝑖≤0 画(𝑥𝑖+1,𝑦𝑖)</span><br><span class="line">    计算 𝑝(𝑖+1)=𝑝𝑖+𝑎</span><br><span class="line"></span><br></pre>
+
+<p>示例代码：</p>
+<pre class="highlight"><span class="line">void lineBresenham(int x0,int y0,int x1,int y1)</span><br><span class="line">&#123;</span><br><span class="line">    int temp;</span><br><span class="line">    if (x1 &lt; x0)&#123;</span><br><span class="line">         temp = x0;  x0 = x1; x1 = temp;</span><br><span class="line">         temp = y0;  y0 = y1; y1 = temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   int  k, dx = x1-x0 , dy = y1-y0;</span><br><span class="line">    int  Twody = 2*dy, Twody_Twodx = 2*dy-2*dx, p= Twody-dx;</span><br><span class="line">    glPointSize(5); glColor3f(1,0,0);</span><br><span class="line">    glBegin(GL_POINTS);</span><br><span class="line">    for (k = 0; k &lt;= dx; k++)&#123;</span><br><span class="line">          glVertex2i(x+k, y);</span><br><span class="line">          if(p &lt;= 0)</span><br><span class="line">                p += Twody;</span><br><span class="line">          else &#123;</span><br><span class="line">                y++;</span><br><span class="line">                p += Twody_Twodx;</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    glEnd()</span><br><span class="line">&#125;</span><br></pre>
+
+<h2 id="走样与反走样"><a href="#走样与反走样" class="headerlink" title="走样与反走样"></a>走样与反走样</h2><ul>
+<li>给周围的点增加颜色，距离近的比较深</li>
+</ul>
+<h2 id="光栅图形"><a href="#光栅图形" class="headerlink" title="光栅图形"></a>光栅图形</h2><ul>
+<li>光栅图形的本质是点阵表示</li>
+</ul>
+<h3 id="真实感图形"><a href="#真实感图形" class="headerlink" title="真实感图形"></a>真实感图形</h3><ul>
+<li><p>面着色</p>
+</li>
+<li><p>画面明暗自然、色彩丰富</p>
+</li>
+<li><p>比线框图更真实、生动</p>
+</li>
+</ul>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><pre class="highlight"><span class="line">1. 简单多边形（无自相交）</span><br><span class="line">2. 图形学中多边形的两种表示方式</span><br><span class="line">   a. 顶点表示</span><br><span class="line">   优点：直观，有几何意义</span><br><span class="line">   不足：不能直接用于多边形着色</span><br><span class="line">   b. 点阵表示</span><br><span class="line">   优点：可用帧缓冲器表示图形、支持面着色</span><br><span class="line">   不足：无几何信息</span><br></pre>
+
+<h2 id="多边形区域的点阵表示"><a href="#多边形区域的点阵表示" class="headerlink" title="多边形区域的点阵表示"></a>多边形区域的点阵表示</h2><h3 id="内部表示"><a href="#内部表示" class="headerlink" title="内部表示"></a>内部表示</h3><p>由一堆点组成，相邻点颜色相同即视为同意区域</p>
+<h3 id="边界表示"><a href="#边界表示" class="headerlink" title="边界表示"></a>边界表示</h3><p>相同颜色边界点围成的区域，里面视为同一区域</p>
+<h2 id="邻接关系"><a href="#邻接关系" class="headerlink" title="邻接关系"></a>邻接关系</h2><ul>
+<li>四连通邻域：一个像素有四个相邻象素</li>
+<li>八连通邻域：一个像素有八个相邻象素</li>
+<li>四连通区域的边界是八连通区域，八连通区域的边界是四连通区域</li>
+</ul>
+<h2 id="种子填充算法-四连通"><a href="#种子填充算法-四连通" class="headerlink" title="种子填充算法(四连通)"></a>种子填充算法(四连通)</h2><pre class="highlight"><span class="line">Fill_Boundary_4_Connnected(x, y, G0, G1)&#123;</span><br><span class="line">// (x,y) 种子像素的坐标；</span><br><span class="line">// G0 边界像素颜色； G1 需要填充的内部像素颜色</span><br><span class="line">	if(GetPixel(x,y) != G0 &amp;&amp; GetPixel(x,y)!= G1)&#123;</span><br><span class="line">   	 // GetPixel(x,y): 返回像素(x,y)</span><br><span class="line">		SetPixel(x, y, G1); // 将像素(x, y)置成填充颜色</span><br><span class="line">    		Fill_Boundary_4Connnected(x, y+1, G0, G1)；</span><br><span class="line">		Fill_Boundary_4Connnected(x, y-1, G0, G1)；</span><br><span class="line">		Fill_Boundary_4Connnected(x-1, y, G0, G1)；</span><br><span class="line">		Fill_Boundary_4Connnected(x+1, y, G0, G1)；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre>
+
+<h2 id="逐点判断算法"><a href="#逐点判断算法" class="headerlink" title="逐点判断算法"></a>逐点判断算法</h2><p>从点引出一条射线，与区域交点个数为奇数个，则点在区域内；偶数时，在区域外。</p>
+<p>特殊情况：判断边界位于射线的哪一侧</p>
+<h2 id="多边形扫描转换算法"><a href="#多边形扫描转换算法" class="headerlink" title="多边形扫描转换算法"></a>多边形扫描转换算法</h2><h3 id="Brute-force-scan-line-算法"><a href="#Brute-force-scan-line-算法" class="headerlink" title="Brute-force scan-line 算法"></a>Brute-force scan-line 算法</h3><p>利用连贯性优化算法</p>
+<p>连贯性：</p>
+<ul>
+<li>区域连贯性</li>
+<li>扫描线的连贯性</li>
+</ul>
+<p>效率提高：逐点判断-&gt;区间判断</p>
+<h3 id="极值点"><a href="#极值点" class="headerlink" title="极值点"></a>极值点</h3><p>(yi-1 - yi)(yi+1 - yi) &gt; 0</p>
+<h3 id="非极值点"><a href="#非极值点" class="headerlink" title="非极值点"></a>非极值点</h3><p>(yi-1 - yi)(yi+1 - yi) &lt; 0</p>
+<p>扫描线在通过非极值点P时，砍掉一截</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><ul>
+<li>排序的边表ET：记录多边形信息，便于判断是否与扫描线相交</li>
+<li>活化边表AEL：记录当前扫描线信息，便于与扫描线求交<pre class="highlight"><span class="line">struct ET&#123;</span><br><span class="line">    float ymax;</span><br><span class="line">    float x;</span><br><span class="line">    float dx;</span><br><span class="line">    ET *next;</span><br><span class="line">&#125;</span><br></pre></li>
+</ul>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            kunkun
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://sc-wskun.github.io/2021/09/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+            https://sc-wskun.github.io/2021/09/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2021/09/13/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">Prev</div>
+          
+            <div class="nav-title">人工智能导论 </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2021/09/08/uni-app%E8%BD%AC%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A6%82%E4%BD%95%E5%BC%95%E5%85%A5%E9%AB%98%E5%BE%B7%E5%AE%9A%E4%BD%8D/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">uni-app转微信小程序如何引入高德定位 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+  <div 
+    class="card card-content comment-card" 
+    style="margin-top: 16px;">
+    <div class="comment-card-title">评论</div>
+    
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'GsIdme1Lc6bEEOBn4olNGM5m-MdYXbMMI',
+        appKey: 'romhWo0YYRpU0UfXml2UVUwx',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        
+        
+        enableQQ: 'false',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+  </div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+</div></main>
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/71c5d24d-f0d2-4702-a233-b23f93d33320.png" 
+    class="author-img" 
+    alt="author avatar">
+
+<p class="author-name">SC-WSKun</p>
+<p class="author-description">一个不想内卷只想躺平的菜狗</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>48</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>0</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>25</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
+      </a>
+    
+      <a 
+        href="/tags/AJAX/" 
+        title="AJAX">
+        <div class="tags-list-item">AJAX</div>
+      </a>
+    
+      <a 
+        href="/tags/CORS/" 
+        title="CORS">
+        <div class="tags-list-item">CORS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
+      </a>
+    
+      <a 
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
+      </a>
+    
+      <a 
+        href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
+        title="微信小程序">
+        <div class="tags-list-item">微信小程序</div>
+      </a>
+    
+      <a 
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
+      </a>
+    
+      <a 
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
+      </a>
+    
+      <a 
+        href="/tags/ES6/" 
+        title="ES6">
+        <div class="tags-list-item">ES6</div>
+      </a>
+    
+      <a 
+        href="/tags/JAVA/" 
+        title="JAVA">
+        <div class="tags-list-item">JAVA</div>
+      </a>
+    
+      <a 
+        href="/tags/JSON/" 
+        title="JSON">
+        <div class="tags-list-item">JSON</div>
+      </a>
+    
+      <a 
+        href="/tags/NodeJs/" 
+        title="NodeJs">
+        <div class="tags-list-item">NodeJs</div>
+      </a>
+    
+      <a 
+        href="/tags/Nodejs/" 
+        title="Nodejs">
+        <div class="tags-list-item">Nodejs</div>
+      </a>
+    
+      <a 
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
+      </a>
+    
+      <a 
+        href="/tags/Vue/" 
+        title="Vue">
+        <div class="tags-list-item">Vue</div>
+      </a>
+    
+      <a 
+        href="/tags/%E9%AB%98%E5%BE%B7%E5%AE%9A%E4%BD%8D/" 
+        title="高德定位">
+        <div class="tags-list-item">高德定位</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-22</div>
+        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-21</div>
+        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-09-16</div>
+        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020 -
+          
+          2021
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          KunKun的博客小屋
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
+    
+</footer> 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton" 
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/js/lib/busuanzi.min.js') 
+      </script>
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/js/lib/lozad.min.js', addLazyload)
+      </script>
+     
+    
+    
+  </body>
+</html>
