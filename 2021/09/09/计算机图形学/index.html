@@ -45,7 +45,7 @@
         content="2021-09-09">
       <meta 
         property="og:article:modified_time" 
-        content="2021-09-16">
+        content="2021-09-23">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -287,7 +287,7 @@
     
     
       <span class="dot"></span>
-      <span>951 字</span>
+      <span>1.1k 字</span>
     
   </div>
   
@@ -378,7 +378,24 @@
 <li>排序的边表ET：记录多边形信息，便于判断是否与扫描线相交</li>
 <li>活化边表AEL：记录当前扫描线信息，便于与扫描线求交<pre class="highlight"><span class="line">struct ET&#123;</span><br><span class="line">    float ymax;</span><br><span class="line">    float x;</span><br><span class="line">    float dx;</span><br><span class="line">    ET *next;</span><br><span class="line">&#125;</span><br></pre></li>
 </ul>
-
+<h1 id="二维几何变换"><a href="#二维几何变换" class="headerlink" title="二维几何变换"></a>二维几何变换</h1><ul>
+<li>齐次坐标<pre class="highlight"><span class="line">(x,y)=&gt;(x,y,1)</span><br></pre></li>
+<li>基本变换<pre class="highlight"><span class="line">1. 平移</span><br><span class="line">2. 旋转</span><br><span class="line">3. 放缩</span><br></pre></li>
+</ul>
+<h1 id="三维几何变换"><a href="#三维几何变换" class="headerlink" title="三维几何变换"></a>三维几何变换</h1><h2 id="坐标变换流程"><a href="#坐标变换流程" class="headerlink" title="坐标变换流程"></a>坐标变换流程</h2><ul>
+<li>局部坐标系</li>
+<li>造型变换</li>
+<li>世界坐标系</li>
+<li>取景变换</li>
+<li>视点坐标系</li>
+<li>投影变换</li>
+<li>图像坐标系</li>
+<li>设备变换</li>
+<li>规格化设备坐标系</li>
+<li>视窗变换</li>
+<li>屏幕坐标系</li>
+</ul>
+<h2 id="三维旋转变换"><a href="#三维旋转变换" class="headerlink" title="三维旋转变换"></a>三维旋转变换</h2><pre class="highlight"><span class="line">1. 平移</span><br><span class="line">4. 绕任意直线旋转</span><br><span class="line">    1. 作变换让l与z轴重合</span><br><span class="line">    2. 绕z轴旋转</span><br><span class="line">    3. 逆变换使l回原位</span><br></pre>
   </div>
   <div>
     
@@ -484,7 +501,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">二维几何变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">三维几何变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2%E6%B5%81%E7%A8%8B"><span class="toc-text">坐标变换流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2"><span class="toc-text">三维旋转变换</span></a></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -501,7 +518,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>48</span>
+    <span>54</span>
     <span>文章</span>
   </a>
   <a 
@@ -513,7 +530,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>25</span>
+    <span>26</span>
     <span>标签</span>
   </a>
 </div>
@@ -530,7 +547,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">二维几何变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">三维几何变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2%E6%B5%81%E7%A8%8B"><span class="toc-text">坐标变换流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2"><span class="toc-text">三维旋转变换</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -560,33 +577,9 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/AJAX/" 
-        title="AJAX">
-        <div class="tags-list-item">AJAX</div>
-      </a>
-    
-      <a 
-        href="/tags/Git/" 
-        title="Git">
-        <div class="tags-list-item">Git</div>
-      </a>
-    
-      <a 
-        href="/tags/CORS/" 
-        title="CORS">
-        <div class="tags-list-item">CORS</div>
-      </a>
-    
-      <a 
-        href="/tags/CSS/" 
-        title="CSS">
-        <div class="tags-list-item">CSS</div>
-      </a>
-    
-      <a 
-        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
-        title="计算机网络">
-        <div class="tags-list-item">计算机网络</div>
+        href="/tags/JavaScript/" 
+        title="JavaScript">
+        <div class="tags-list-item">JavaScript</div>
       </a>
     
       <a 
@@ -602,45 +595,33 @@
       </a>
     
       <a 
-        href="/tags/JavaScript/" 
-        title="JavaScript">
-        <div class="tags-list-item">JavaScript</div>
-      </a>
-    
-      <a 
         href="/tags/ES6/" 
         title="ES6">
         <div class="tags-list-item">ES6</div>
       </a>
     
       <a 
-        href="/tags/JAVA/" 
-        title="JAVA">
-        <div class="tags-list-item">JAVA</div>
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" 
+        title="计算机网络">
+        <div class="tags-list-item">计算机网络</div>
       </a>
     
       <a 
-        href="/tags/JSON/" 
-        title="JSON">
-        <div class="tags-list-item">JSON</div>
+        href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" 
+        title="树莓派">
+        <div class="tags-list-item">树莓派</div>
       </a>
     
       <a 
-        href="/tags/NodeJs/" 
-        title="NodeJs">
-        <div class="tags-list-item">NodeJs</div>
+        href="/tags/Git/" 
+        title="Git">
+        <div class="tags-list-item">Git</div>
       </a>
     
       <a 
-        href="/tags/Nodejs/" 
-        title="Nodejs">
-        <div class="tags-list-item">Nodejs</div>
-      </a>
-    
-      <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
+        href="/tags/CSS/" 
+        title="CSS">
+        <div class="tags-list-item">CSS</div>
       </a>
     
       <a 
@@ -650,9 +631,45 @@
       </a>
     
       <a 
-        href="/tags/%E9%AB%98%E5%BE%B7%E5%AE%9A%E4%BD%8D/" 
-        title="高德定位">
-        <div class="tags-list-item">高德定位</div>
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
+      </a>
+    
+      <a 
+        href="/tags/Java/" 
+        title="Java">
+        <div class="tags-list-item">Java</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" 
+        title="软件设计">
+        <div class="tags-list-item">软件设计</div>
+      </a>
+    
+      <a 
+        href="/tags/UML/" 
+        title="UML">
+        <div class="tags-list-item">UML</div>
+      </a>
+    
+      <a 
+        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
+        title="计算机图形学">
+        <div class="tags-list-item">计算机图形学</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" 
+        title="服务器">
+        <div class="tags-list-item">服务器</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
+        title="浏览器">
+        <div class="tags-list-item">浏览器</div>
       </a>
     
   </div>
@@ -673,7 +690,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E5%9B%BE%E5%85%83%E7%9A%84%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">几何图元的扫描转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E4%BC%98%E7%82%B9%E9%9B%86"><span class="toc-text">最优点集</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E6%AE%B5%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">线段扫描转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DDA-%E7%AE%97%E6%B3%95"><span class="toc-text">DDA 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95"><span class="toc-text">平凡算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">平凡算法的缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%87%A1%E7%AE%97%E6%B3%95%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%88DDA-%E7%AE%97%E6%B3%95%EF%BC%89"><span class="toc-text">平凡算法的优化（DDA 算法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bresenham-%E7%AE%97%E6%B3%95"><span class="toc-text">Bresenham 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B0%E5%8F%B7"><span class="toc-text">记号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E5%87%86%E5%88%99%E8%AE%A1%E7%AE%97"><span class="toc-text">判断准则计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p0-%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">p0 的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pi-%E7%9A%84%E8%AE%A1%E7%AE%97-%E5%B7%B2%E7%9F%A5-pi-%E6%8E%A8%E5%87%BA-pi-1"><span class="toc-text">pi 的计算(已知 pi 推出 pi+1)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B0%E6%A0%B7%E4%B8%8E%E5%8F%8D%E8%B5%B0%E6%A0%B7"><span class="toc-text">走样与反走样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%9B%BE%E5%BD%A2"><span class="toc-text">光栅图形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9C%9F%E5%AE%9E%E6%84%9F%E5%9B%BE%E5%BD%A2"><span class="toc-text">真实感图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E5%8C%BA%E5%9F%9F%E7%9A%84%E7%82%B9%E9%98%B5%E8%A1%A8%E7%A4%BA"><span class="toc-text">多边形区域的点阵表示</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E8%A1%A8%E7%A4%BA"><span class="toc-text">内部表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA"><span class="toc-text">边界表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95-%E5%9B%9B%E8%BF%9E%E9%80%9A"><span class="toc-text">种子填充算法(四连通)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%90%E7%82%B9%E5%88%A4%E6%96%AD%E7%AE%97%E6%B3%95"><span class="toc-text">逐点判断算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%BE%B9%E5%BD%A2%E6%89%AB%E6%8F%8F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="toc-text">多边形扫描转换算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Brute-force-scan-line-%E7%AE%97%E6%B3%95"><span class="toc-text">Brute-force scan-line 算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E6%9E%81%E5%80%BC%E7%82%B9"><span class="toc-text">非极值点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">数据结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">二维几何变换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="toc-text">三维几何变换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9D%90%E6%A0%87%E5%8F%98%E6%8D%A2%E6%B5%81%E7%A8%8B"><span class="toc-text">坐标变换流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%BB%B4%E6%97%8B%E8%BD%AC%E5%8F%98%E6%8D%A2"><span class="toc-text">三维旋转变换</span></a></li></ol></li></ol>
     </article>
   
   
@@ -688,23 +705,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-22</div>
-        <a href="/2021/09/22/Vue%E5%88%A9%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84%E9%A1%B9%E6%97%B6%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">Vue利用索引直接修改数组项时没有更新的问题</div></a>
+        <div class="recent-posts-item-title">2021-09-28</div>
+        <a href="/2021/09/28/%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><div class="recent-posts-item-content">数据通信学习笔记</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-21</div>
-        <a href="/2021/09/21/CORS/"><div class="recent-posts-item-content">CORS</div></a>
+        <div class="recent-posts-item-title">2021-09-28</div>
+        <a href="/2021/09/28/CSS%E5%AE%9E%E7%8E%B0flex%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E5%B8%83%E5%B1%80/"><div class="recent-posts-item-content">CSS实现flex横向滚动布局</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-16</div>
-        <a href="/2021/09/16/%E7%94%A8%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90url%E5%8F%82%E6%95%B0/"><div class="recent-posts-item-content">用一行代码解析url参数</div></a>
+        <div class="recent-posts-item-title">2021-09-25</div>
+        <a href="/2021/09/25/%E6%A0%91%E8%8E%93%E6%B4%BE-openwrt%E5%88%B6%E4%BD%9C%E8%B7%AF%E7%94%B1/"><div class="recent-posts-item-content">树莓派+openwrt制作路由</div></a>
       </div>
     
       <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-09-16</div>
-        <a href="/2021/09/16/JAVA/"><div class="recent-posts-item-content">JAVA</div></a>
+        <div class="recent-posts-item-title">2021-09-25</div>
+        <a href="/2021/09/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E7%83%A7%E5%BD%95openwrt/"><div class="recent-posts-item-content">树莓派烧录openwrt</div></a>
       </div>
     
   </div>
