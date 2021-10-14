@@ -45,7 +45,7 @@
         content="2021-08-22">
       <meta 
         property="og:article:modified_time" 
-        content="2021-10-06">
+        content="2021-10-13">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -188,7 +188,7 @@
         href="/" 
         class="navbar-menu-item">
         
-          Home
+          首页
         
       </a>
     
@@ -196,7 +196,7 @@
         href="/archives" 
         class="navbar-menu-item">
         
-          Archive
+          归档
         
       </a>
     
@@ -204,7 +204,7 @@
         href="/tags" 
         class="navbar-menu-item">
         
-          Tags
+          标签
         
       </a>
     
@@ -212,7 +212,7 @@
         href="/categories" 
         class="navbar-menu-item">
         
-          Categories
+          分类
         
       </a>
     
@@ -220,7 +220,7 @@
         href="/about" 
         class="navbar-menu-item">
         
-          About
+          关于
         
       </a>
     
@@ -228,7 +228,7 @@
         href="/links" 
         class="navbar-menu-item">
         
-          Friends
+          友链
         
       </a>
     
@@ -236,7 +236,7 @@
         href="/null" 
         class="navbar-menu-item">
         
-          artitalk
+          说说
         
       </a>
     
@@ -287,7 +287,7 @@
     
     
       <span class="dot"></span>
-      <span>1.8k words</span>
+      <span>2.2k 字</span>
     
   </div>
   
@@ -391,7 +391,30 @@
 <h2 id="数据报"><a href="#数据报" class="headerlink" title="数据报"></a>数据报</h2><p>数据报是不可靠的服务传输的分组，对节点间之前的数据交换和传输网络没有任何依赖。</p>
 <h2 id="小-Tip-2"><a href="#小-Tip-2" class="headerlink" title="小 Tip"></a>小 Tip</h2><p>DNS 是 UDP 的经典应用。</p>
 <p>WebRTC（Web Real-Time Communication，Web 实时通信）是一种基于 UDP 实现的原生的语音和视频实时通信。正是 RTC 的出现，使 UDP 的重要传输机制地位得以突显，而且出现了浏览器 API。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="Wi-Fi"><a href="#Wi-Fi" class="headerlink" title="Wi-Fi"></a>Wi-Fi</h1><h2 id="Wi-Fi-是什么"><a href="#Wi-Fi-是什么" class="headerlink" title="Wi-Fi 是什么"></a>Wi-Fi 是什么</h2><p>Wi-Fi 是 Wi-Fi 联盟的注册商标，实践中也用来指称任何基于 IEEE802.11 标准的产品</p>
+<h2 id="UDP的特点"><a href="#UDP的特点" class="headerlink" title="UDP的特点"></a>UDP的特点</h2><p>不保证消息交付</p>
+<p>不保证交付顺序</p>
+<p>不跟踪连接状态</p>
+<p>不需要拥塞控制</p>
+<h2 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h2><p>为什么需要NAT呢，就是因为Ipv4地址即将耗尽，RFC1631建议启用这种IP重用方案</p>
+<ul>
+<li>NAT保留的三短IP地址<blockquote>
+<p>10.0.0.0<del>10.255.255.255<br>172.16.0.0</del>172.31.255.255<br>192.168.0.0~192.168.255.255</p>
+</blockquote>
+<h2 id="NAT带来的问题"><a href="#NAT带来的问题" class="headerlink" title="NAT带来的问题"></a>NAT带来的问题</h2>NAT本身就依赖于连接状态，因此转换器必须保留每个UDP流的状态，但是UDP本身却没有状态，导致了连接状态的不可预测性，最好的办法是引入一个双向keep-alive分组</li>
+</ul>
+<p>NAT还有个问题，内部客户端不知道外网的IP地址，只知道内网IP地址，如果进行P2P通信，则必然失败，这就是NAT穿透问题。</p>
+<h2 id="穿透技术"><a href="#穿透技术" class="headerlink" title="穿透技术"></a>穿透技术</h2><ul>
+<li><p>STUN</p>
+<p>STUN就是客户端向一个STUN服务器发送绑定请求，STUN服务器返回一个响应，告诉客户端你的IP地址和端口号</p>
+</li>
+<li><p>TURN</p>
+<p>TURN就是双方都把数据传到TURN服务器，由TURN服务器负责处理转发，起到一个中介的作用</p>
+</li>
+<li><p>ICE</p>
+<p>ICE是上面两者的结合，规定了一套方法：能直连就直连，必要时使用STUN，不行再用TURN</p>
+</li>
+</ul>
+<h1 id="TLS传输"><a href="#TLS传输" class="headerlink" title="TLS传输"></a>TLS传输</h1><h1 id="Wi-Fi"><a href="#Wi-Fi" class="headerlink" title="Wi-Fi"></a>Wi-Fi</h1><h2 id="Wi-Fi-是什么"><a href="#Wi-Fi-是什么" class="headerlink" title="Wi-Fi 是什么"></a>Wi-Fi 是什么</h2><p>Wi-Fi 是 Wi-Fi 联盟的注册商标，实践中也用来指称任何基于 IEEE802.11 标准的产品</p>
 <h2 id="以太网与无线局域网"><a href="#以太网与无线局域网" class="headerlink" title="以太网与无线局域网"></a>以太网与无线局域网</h2><p>以太网通常被叫做局域网标准，802.11标准族则被称为无线局域网标准。有趣的是，802.11无线标准是按以太网标准的扩展来设计的，但是以太网协议很大程度借鉴了ALOHAnet协议，而ALOHAnet协议是第一个关于无线网络的协议，所以相当于绕了个圈子。因此ALOHAnet协议影响了两者的调度通信的方式</p>
 <ul>
 <li>以太网：CSMA、CSMA/CD</li>
@@ -446,7 +469,7 @@
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
-          <div class="nav-label">Prev</div>
+          <div class="nav-label">上一篇</div>
           
             <div class="nav-title">微信小程序生命周期 </div>
           
@@ -460,7 +483,7 @@
         href="/2021/08/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95%E5%99%A8%E7%A9%BA%E7%99%BD/" 
         class="nav-link">
         <div>
-          <div class="nav-label">Next</div>
+          <div class="nav-label">下一篇</div>
           
             <div class="nav-title">微信小程序调试器空白 </div>
           
@@ -514,9 +537,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">UDP的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT"><span class="toc-text">NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">NAT带来的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BF%E9%80%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">穿透技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TLS%E4%BC%A0%E8%BE%93"><span class="toc-text">TLS传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -533,20 +556,20 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>65</span>
-    <span>Posts</span>
+    <span>68</span>
+    <span>文章</span>
   </a>
   <a 
     class="author-categories-count" 
     href="/categories">
     <span>0</span>
-    <span>Categories</span>
+    <span>分类</span>
   </a>
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>29</span>
-    <span>Tags</span>
+    <span>30</span>
+    <span>标签</span>
   </a>
 </div>
 
@@ -560,9 +583,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">UDP的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT"><span class="toc-text">NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">NAT带来的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BF%E9%80%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">穿透技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TLS%E4%BC%A0%E8%BE%93"><span class="toc-text">TLS传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
       </div>
     </article>
   
@@ -573,7 +596,7 @@
     <i 
       class="iconfont icon-fenlei" 
       style="padding-right: 2px;">
-    </i>Categories
+    </i>分类
   </div>
   <div class="categories-list">
     
@@ -587,7 +610,7 @@
     <i 
       class="iconfont icon-biaoqian" 
       style="padding-right: 2px;">
-    </i>hot tags
+    </i>热门标签
   </div>
   <div class="tags-list">
     
@@ -604,15 +627,15 @@
       </a>
     
       <a 
-        href="/tags/uni-app/" 
-        title="uni-app">
-        <div class="tags-list-item">uni-app</div>
-      </a>
-    
-      <a 
         href="/tags/Java/" 
         title="Java">
         <div class="tags-list-item">Java</div>
+      </a>
+    
+      <a 
+        href="/tags/uni-app/" 
+        title="uni-app">
+        <div class="tags-list-item">uni-app</div>
       </a>
     
       <a 
@@ -670,21 +693,21 @@
       </a>
     
       <a 
-        href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" 
-        title="浏览器">
-        <div class="tags-list-item">浏览器</div>
+        href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" 
+        title="软件设计">
+        <div class="tags-list-item">软件设计</div>
+      </a>
+    
+      <a 
+        href="/tags/UML/" 
+        title="UML">
+        <div class="tags-list-item">UML</div>
       </a>
     
       <a 
         href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
         title="计算机图形学">
         <div class="tags-list-item">计算机图形学</div>
-      </a>
-    
-      <a 
-        href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/" 
-        title="软件设计">
-        <div class="tags-list-item">软件设计</div>
       </a>
     
   </div>
@@ -703,9 +726,9 @@
   <i 
     class="iconfont icon-menu" 
     style="padding-right: 2px;">
-  </i>TOC
+  </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E4%B8%8E%E5%B8%A6%E5%AE%BD"><span class="toc-text">延迟与带宽</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E8%BF%9F%E6%9E%84%E6%88%90"><span class="toc-text">延迟构成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TCP"><span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8-TCP-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-text">经典 TCP 三次握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E7%9A%84%E6%8B%A5%E5%A1%9E%E9%A2%84%E9%98%B2%E5%92%8C%E6%8E%A7%E5%88%B6"><span class="toc-text">TCP 的拥塞预防和控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%A6%E5%AE%BD%E5%BB%B6%E8%BF%9F%E7%A7%AF%EF%BC%88BDP%EF%BC%89"><span class="toc-text">带宽延迟积（BDP）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E9%A6%96%E9%98%BB%E5%A1%9E"><span class="toc-text">队首阻塞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TCP-%E4%BC%98%E5%8C%96"><span class="toc-text">TCP 优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-1"><span class="toc-text">小 Tip</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP"><span class="toc-text">UDP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-text">数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F-Tip-2"><span class="toc-text">小 Tip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-text">UDP的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT"><span class="toc-text">NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">NAT带来的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BF%E9%80%8F%E6%8A%80%E6%9C%AF"><span class="toc-text">穿透技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TLS%E4%BC%A0%E8%BE%93"><span class="toc-text">TLS传输</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Wi-Fi"><span class="toc-text">Wi-Fi</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wi-Fi-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">Wi-Fi 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%B8%8E%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-text">以太网与无线局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E5%92%8C%E4%BC%98%E5%8C%96Wifi%E6%80%A7%E8%83%BD"><span class="toc-text">测量和优化Wifi性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EWi-Fi%E6%80%A7%E8%83%BD"><span class="toc-text">关于Wi-Fi性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8FTip"><span class="toc-text">小Tip</span></a></li></ol></li></ol></li></ol>
     </article>
   
   
@@ -715,28 +738,28 @@
     <i 
       class="iconfont icon-wenzhang_huaban" 
       style="padding-right: 2px;">
-    </i>Recent Posts
+    </i>最近文章
   </div>
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-14</div>
+        <a href="/2021/10/14/%E4%BD%BF%E7%94%A8Typora-PigGo-Github%E5%9B%BE%E5%BA%8A%E5%86%99%E5%8D%9A%E5%AE%A2/"><div class="recent-posts-item-content">使用Typora+PigGo+Github图床写博客</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-13</div>
+        <a href="/2021/10/13/Java%E6%B3%A8%E8%A7%A3/"><div class="recent-posts-item-content">Java注解</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-12</div>
+        <a href="/2021/10/12/%E5%85%B3%E4%BA%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BB%8E%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8D%95%E9%A1%B5%E6%A8%A1%E5%BC%8F%E4%B8%AD%E6%97%A0%E6%B3%95%E8%B0%83%E7%94%A8%E4%BA%91%E8%B5%84%E6%BA%90%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">关于小程序从朋友圈分享跳转到单页模式中无法调用云资源的问题</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-10-11</div>
         <a href="/2021/10/11/SpringBoot%E5%BC%95%E5%85%A5Jpa%E7%AE%A1%E7%90%86MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"><div class="recent-posts-item-content">SpringBoot引入Jpa管理MySQL数据库</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-10-11</div>
-        <a href="/2021/10/11/java-sql-SQLNonTransientConnectionException-Public-Key-Retrieval-is-not-allowed/"><div class="recent-posts-item-content">java.sql.SQLNonTransientConnectionException: Public Key Retrieval is not allowed</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-10-11</div>
-        <a href="/2021/10/11/%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93%E6%97%B6%E6%8A%A5%E9%94%99-The-server-time-zone-value-is-unrecognized-or-represents-more-than-one-time-zone/"><div class="recent-posts-item-content">连接数据库时报错 The server time zone value ... is unrecognized or represents more than one time zone</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-10-11</div>
-        <a href="/2021/10/11/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9B%B4%E6%8D%A2appid%E5%AF%BC%E8%87%B4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E4%BA%91%E5%87%BD%E6%95%B0/"><div class="recent-posts-item-content">微信小程序更换appid导致无法访问云函数</div></a>
       </div>
     
   </div>
