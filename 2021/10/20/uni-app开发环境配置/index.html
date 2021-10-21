@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="https://vkceyugu.cdn.bspapp.com/VKCEYUGU-14c89228-2b3b-4139-8f4f-23f08f8a6bbd/cebc5e28-38ca-4916-ba4b-32606fc5efb8.png">
-  <title>uni-app支付参考</title>
+  <title>uni-app开发环境配置</title>
   
     
       <meta 
         property="og:title" 
-        content="uni-app支付参考">
+        content="uni-app开发环境配置">
     
     
       <meta 
         property="og:url" 
-        content="https://sc-wskun.github.io/2021/08/18/uni-app%E6%94%AF%E4%BB%98%E5%8F%82%E8%80%83/index.html">
+        content="https://sc-wskun.github.io/2021/10/20/uni-app%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2021-08-18">
+        content="2021-10-20">
       <meta 
         property="og:article:modified_time" 
-        content="2021-08-30">
+        content="2021-10-20">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -54,10 +54,6 @@
           <meta 
             property="og:article:tag" 
             content="uni-app">
-        
-          <meta 
-            property="og:article:tag" 
-            content="微信小程序">
         
       
     
@@ -277,21 +273,21 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      uni-app支付参考
+      uni-app开发环境配置
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2021-08-17T16:48:00.000Z">
+    <time datetime="2021-10-20T07:39:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2021-08-18</span>
+      <span>2021-10-20</span>
     </time>
     
     
       <span class="dot"></span>
-      <span>589 字</span>
+      <span>263 字</span>
     
   </div>
   
@@ -311,15 +307,6 @@
             uni-app
           </a>
         
-          
-            <span class="dot"></span>
-          
-          <a 
-            href="/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/" 
-            class="post-meta-link">
-            微信小程序
-          </a>
-        
       </div>
     </div>
   
@@ -327,15 +314,41 @@
   <div 
     id="section" 
     class="post-content">
-    <h1 id="使用-uni-app-开发微信小程序的微信支付"><a href="#使用-uni-app-开发微信小程序的微信支付" class="headerlink" title="使用 uni-app 开发微信小程序的微信支付"></a>使用 uni-app 开发微信小程序的微信支付</h1><p>使用的是 Dcloud 官方给的 uni-pay 插件实现的跨平台统一支付</p>
-<h1 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h1><h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><pre class="highlight"><span class="line">//生成订单，这是我自己定义的云函数，在数据库中生成一条订单记录并获取该记录的_id作为支付请求需要的订单号</span><br><span class="line">uniCloud.callFunction(&#123;</span><br><span class="line">	name: &quot;order_discount_center&quot;,</span><br><span class="line">	data: &#123;action: &quot;add_order&quot;, ... &#125;</span><br><span class="line">&#125;).then(res =&gt; &#123;</span><br><span class="line">	console.log(&quot;order_id&quot;, res)//获取订单号</span><br><span class="line">    //自己定义的云函数，调用了统一订单的接口获取订单信息</span><br><span class="line">	uniCloud.callFunction(&#123;</span><br><span class="line">		name: &quot;order_discount_center&quot;,</span><br><span class="line">		data: &#123;</span><br><span class="line">            action: &quot;wx_pay&quot;,</span><br><span class="line">			totalFee: parseInt(that.money) * 100,   //金额</span><br><span class="line">			outTradeNo: res.result.id,              //订单号</span><br><span class="line">			openid: uni.getStorageSync(&#x27;wx_openid&#x27;) //openid</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;).then(res =&gt; &#123;</span><br><span class="line">		if (res.result.orderInfo) &#123; //获得订单信息参数</span><br><span class="line">		    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">                //使用uni.requestPayment发起支付请求</span><br><span class="line">		        uni.requestPayment(&#123; </span><br><span class="line">		            ...res.result.orderInfo,</span><br><span class="line">		            complete() &#123;</span><br><span class="line">			            resolve(res.result.outTradeNo)</span><br><span class="line">		            &#125;</span><br><span class="line">		        &#125;)</span><br><span class="line">	        &#125;)</span><br><span class="line">		&#125; else &#123;</span><br><span class="line">			throw new Error(res.result.msg)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre>
-
-<h2 id="后端云函数-NodeJS"><a href="#后端云函数-NodeJS" class="headerlink" title="后端云函数(NodeJS)"></a>后端云函数(NodeJS)</h2><pre class="highlight"><span class="line">//action:&quot;wx_pay&quot;,获取统一订单</span><br><span class="line"></span><br><span class="line">//引入uni-pay跟uni-config-center模块</span><br><span class="line">const uniPay = require(&#x27;uni-pay&#x27;)					</span><br><span class="line">const createConfig = require(&#x27;uni-config-center&#x27;)   //注意uni-config-center里的uni-pay的config.js需要配置</span><br><span class="line"></span><br><span class="line">//从uni-config-center的uni-pay文件夹读取config配置</span><br><span class="line">const uniPayConfig = createConfig(&#123; </span><br><span class="line">	pluginId: &#x27;uni-pay&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//读取上一步读取到的config配置中的wxConfigMp的配置</span><br><span class="line">const &#123; wxConfigMp &#125; = uniPayConfig.requireFile(&#x27;config.js&#x27;)    </span><br><span class="line"></span><br><span class="line">const &#123;</span><br><span class="line">	outTradeNo,</span><br><span class="line">	totalFee,</span><br><span class="line">	openid</span><br><span class="line">&#125; = event //读取参数</span><br><span class="line"></span><br><span class="line">let uniPayInstance = uniPay.initWeixin(wxConfigMp) //uni-pay封装的初始化函数</span><br><span class="line">let notifyUrl = ``  //回调函数的url</span><br><span class="line">let tradeType = &#x27;JSAPI&#x27;</span><br><span class="line">let orderInfo</span><br><span class="line">try &#123;</span><br><span class="line">	// 获取支付信息</span><br><span class="line">	orderInfo = await uniPayInstance.getOrderInfo(&#123;</span><br><span class="line">		openid, //小程序支付必须有openid</span><br><span class="line">		outTradeNo, // 订单号</span><br><span class="line">		totalFee,   //金额</span><br><span class="line">		notifyUrl,  //回调函数url</span><br><span class="line">		body: &#x27;&#x27;,   //商品详情</span><br><span class="line">		tradeType</span><br><span class="line">		// attach: &quot;%7B%22type%22%3A%22goods%22%7D&quot;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">	console.log(e.message)</span><br><span class="line">	return &#123;</span><br><span class="line">		code: -3,</span><br><span class="line">		msg: &#x27;获取支付信息失败，请稍后再试&#x27;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">return &#123;</span><br><span class="line">	outTradeNo,</span><br><span class="line">	orderInfo</span><br><span class="line">&#125;</span><br></pre>
-
-<h1 id="问题汇总"><a href="#问题汇总" class="headerlink" title="问题汇总"></a>问题汇总</h1><ol>
-<li>无法将输入源“/body/xml/totalFee”映射到目标字段“标价金额”中，此字段需要一个合法的 64 位有符号整数<pre class="highlight"><span class="line">totalFee要求的数据类型是整形，检查是否传入了字符串，使用parseInt进行类型转换</span><br></pre></li>
-<li>connot find module ‘uni-config-center’或’uni-pay’<pre class="highlight"><span class="line">解决方法就是删掉模块重装，下载uni-pay示例项目直接把uni-config-center跟uni-pay模块复制过来也可以</span><br></pre></li>
-</ol>
+    <h1 id="下载HBuilderX"><a href="#下载HBuilderX" class="headerlink" title="下载HBuilderX"></a>下载HBuilderX</h1><blockquote>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.dcloud.io/hbuilderx.html">https://www.dcloud.io/hbuilderx.html</a></p>
+</blockquote>
+<ul>
+<li><p>关于标准版和APP开发版的选择：</p>
+<p>标准版：纯净版本，没有插件，但是可以通过HBuilderX里面的插件市场安装</p>
+<p>APP开发版：已经集成了一些插件，就一个懒人包</p>
+</li>
+</ul>
+<h1 id="如何安装插件"><a href="#如何安装插件" class="headerlink" title="如何安装插件"></a>如何安装插件</h1><p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020162142432.png" alt="image-20211020162142432" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020162142432.png" class="lozad post-image"></p>
+<p>这些核心插件都可以安装，提升体验：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020162329121.png" alt="image-20211020162329121" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020162329121.png" class="lozad post-image"></p>
+<h1 id="需要在插件市场下载的插件"><a href="#需要在插件市场下载的插件" class="headerlink" title="需要在插件市场下载的插件"></a>需要在插件市场下载的插件</h1><ul>
+<li><p>less编译</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203336349.png" alt="image-20211020203336349" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203336349.png" class="lozad post-image"></p>
+</li>
+<li><p>scss/sass 编译</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203422841.png" alt="image-20211020203422841" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203422841.png" class="lozad post-image"></p>
+</li>
+</ul>
+<h1 id="如何导入uni-app项目"><a href="#如何导入uni-app项目" class="headerlink" title="如何导入uni-app项目"></a>如何导入uni-app项目</h1><p>文件-&gt;导入-&gt;从本地目录导入</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203611708.png" alt="image-20211020203611708" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203611708.png" class="lozad post-image"></p>
+<p>导入后如果文件是下图的类型而不是uni-app图标</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203656617.png" alt="image-20211020203656617" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203656617.png" class="lozad post-image"></p>
+<p>可以右键项目，选择重新识别</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203855487.png" alt="image-20211020203855487" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020203855487.png" class="lozad post-image"></p>
+<h1 id="调试项目"><a href="#调试项目" class="headerlink" title="调试项目"></a>调试项目</h1><p>如果安装了内置浏览器插件，可以点击右上角的预览，可以在内置浏览器看渲染结果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020204303038.png" alt="image-20211020204303038" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020204303038.png" class="lozad post-image"></p>
+<p>也可以点击运行到Chrome浏览器在外部打开</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020204356434.png" alt="image-20211020204356434" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020204356434.png" class="lozad post-image"></p>
+<h1 id="使用Unicloud服务"><a href="#使用Unicloud服务" class="headerlink" title="使用Unicloud服务"></a>使用Unicloud服务</h1><p>首先创建一个启用Unicloud的项目</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020205301121.png" alt="image-20211020205301121" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020205301121.png" class="lozad post-image"></p>
+<p>在HBuilderX的左下角登录账户</p>
+<p>右键uniCloud文件夹，可以进入Web控制台界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020210449394.png" alt="image-20211020210449394" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020210449394.png" class="lozad post-image"></p>
 
   </div>
   <div>
@@ -355,8 +368,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sc-wskun.github.io/2021/08/18/uni-app%E6%94%AF%E4%BB%98%E5%8F%82%E8%80%83/">
-            https://sc-wskun.github.io/2021/08/18/uni-app%E6%94%AF%E4%BB%98%E5%8F%82%E8%80%83/
+            href="https://sc-wskun.github.io/2021/10/20/uni-app%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
+            https://sc-wskun.github.io/2021/10/20/uni-app%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -366,29 +379,15 @@
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2021/08/18/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8Fnpm%E6%9E%84%E5%BB%BA/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">微信小程序npm构建 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2021/08/18/DCloud%E7%9F%AD%E4%BF%A1%E6%9C%8D%E5%8A%A1%E5%8F%82%E8%80%83/" 
+        href="/2021/10/18/vcpkg%E7%AE%A1%E7%90%86C-C-%E5%BA%93%E6%96%87%E4%BB%B6/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">DCloud短信服务参考 </div>
+            <div class="nav-title">vcpkg管理C/C++库文件 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -442,7 +441,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-uni-app-%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="toc-text">使用 uni-app 开发微信小程序的微信支付</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">代码示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF"><span class="toc-text">前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E4%BA%91%E5%87%BD%E6%95%B0-NodeJS"><span class="toc-text">后端云函数(NodeJS)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-text">问题汇总</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDHBuilderX"><span class="toc-text">下载HBuilderX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">如何安装插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%9C%A8%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">需要在插件市场下载的插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5uni-app%E9%A1%B9%E7%9B%AE"><span class="toc-text">如何导入uni-app项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="toc-text">调试项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Unicloud%E6%9C%8D%E5%8A%A1"><span class="toc-text">使用Unicloud服务</span></a></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -488,7 +487,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-uni-app-%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="toc-text">使用 uni-app 开发微信小程序的微信支付</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">代码示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF"><span class="toc-text">前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E4%BA%91%E5%87%BD%E6%95%B0-NodeJS"><span class="toc-text">后端云函数(NodeJS)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-text">问题汇总</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDHBuilderX"><span class="toc-text">下载HBuilderX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">如何安装插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%9C%A8%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">需要在插件市场下载的插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5uni-app%E9%A1%B9%E7%9B%AE"><span class="toc-text">如何导入uni-app项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="toc-text">调试项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Unicloud%E6%9C%8D%E5%8A%A1"><span class="toc-text">使用Unicloud服务</span></a></li></ol>
       </div>
     </article>
   
@@ -631,7 +630,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-uni-app-%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98"><span class="toc-text">使用 uni-app 开发微信小程序的微信支付</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">代码示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF"><span class="toc-text">前端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E7%AB%AF%E4%BA%91%E5%87%BD%E6%95%B0-NodeJS"><span class="toc-text">后端云函数(NodeJS)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB"><span class="toc-text">问题汇总</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDHBuilderX"><span class="toc-text">下载HBuilderX</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="toc-text">如何安装插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%9C%A8%E6%8F%92%E4%BB%B6%E5%B8%82%E5%9C%BA%E4%B8%8B%E8%BD%BD%E7%9A%84%E6%8F%92%E4%BB%B6"><span class="toc-text">需要在插件市场下载的插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5uni-app%E9%A1%B9%E7%9B%AE"><span class="toc-text">如何导入uni-app项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE"><span class="toc-text">调试项目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Unicloud%E6%9C%8D%E5%8A%A1"><span class="toc-text">使用Unicloud服务</span></a></li></ol>
     </article>
   
   

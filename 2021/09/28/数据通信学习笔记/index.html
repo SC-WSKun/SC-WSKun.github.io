@@ -45,7 +45,7 @@
         content="2021-09-28">
       <meta 
         property="og:article:modified_time" 
-        content="2021-10-11">
+        content="2021-10-21">
       <meta 
         property="og:article:author" 
         content="SC-WSKun">
@@ -287,7 +287,7 @@
     
     
       <span class="dot"></span>
-      <span>2.7k 字</span>
+      <span>7.2k 字</span>
     
   </div>
   
@@ -445,17 +445,637 @@
 </ul>
 <hr>
 <ul>
-<li>配置命令等级：<code>command-privilege level ... view ... ...</code></li>
-<li>配置用户通过Password方式登录设备：<pre class="highlight"><span class="line">user-interface vty 0 4</span><br><span class="line">set authentication password cipher information</span><br></pre></li>
-<li>配置用户界面参数</li>
-<li>配置接口IP地址：<pre class="highlight"><span class="line">interface &#x27;interface-number&#x27;</span><br><span class="line">  ip address &#x27;ip&#x27; &#x27;address&#x27;</span><br></pre></li>
-<li>查看当前运行的配置文件：<code>display current-configuration</code></li>
-<li>配置文件保存：<code>save</code></li>
-<li>查看保存的配置：<code>display saved-configuration</code></li>
-<li>清除保存的配置：<code>reset saved-configuration</code></li>
-<li>查看系统启动配置参数：<code>display startup</code></li>
-<li>重启：<code>reboot</code></li>
+<li><p>配置命令等级：<code>command-privilege level ... view ... ...</code></p>
+</li>
+<li><p>配置用户通过Password方式登录设备：</p>
+<pre class="highlight"><span class="line">user-interface vty 0 4</span><br><span class="line">set authentication password cipher information</span><br></pre></li>
+<li><p>配置用户界面参数</p>
+</li>
+<li><p>配置接口IP地址：</p>
+<pre class="highlight"><span class="line">interface &#x27;interface-number&#x27;</span><br><span class="line">  ip address &#x27;ip&#x27; &#x27;address&#x27;</span><br></pre></li>
+<li><p>查看当前运行的配置文件：<code>display current-configuration</code></p>
+</li>
+<li><p>配置文件保存：<code>save</code></p>
+</li>
+<li><p>查看保存的配置：<code>display saved-configuration</code></p>
+</li>
+<li><p>清除保存的配置：<code>reset saved-configuration</code></p>
+</li>
+<li><p>查看系统启动配置参数：<code>display startup</code></p>
+</li>
+<li><p>重启：<code>reboot</code></p>
+<h1 id="以太网"><a href="#以太网" class="headerlink" title="以太网"></a>以太网</h1><h2 id="以太网协议"><a href="#以太网协议" class="headerlink" title="以太网协议"></a>以太网协议</h2><blockquote>
+<p>以太网是当今现有局域网采用的最通用的通信协议标准，定义了局域网中采用的电缆类型和信号处理方法</p>
+</blockquote>
+<p>以太网是建立在CSMA/CD机制上的广播型网络</p>
+<p>早期的以太网</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211015155303482.png" alt="image-20211015155303482" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211015155303482.png" class="lozad post-image"></p>
+</li>
 </ul>
+<p>交换器组网（增加了交换机来隔离冲突域，但是无法隔离广播域）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211015155443758.png" alt="image-20211015155443758" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211015155443758.png" class="lozad post-image"></p>
+<h2 id="冲突域"><a href="#冲突域" class="headerlink" title="冲突域"></a>冲突域</h2><blockquote>
+<p>冲突域是指连接在同一共享介质上所有节点的集合</p>
+</blockquote>
+<p>解决方法：CSMA/CD、隔离冲突域</p>
+<h2 id="广播域"><a href="#广播域" class="headerlink" title="广播域"></a>广播域</h2><blockquote>
+<p>广播报文所能到达的整个访问范围称为二层广播域，简称广播域</p>
+</blockquote>
+<h2 id="以太网卡"><a href="#以太网卡" class="headerlink" title="以太网卡"></a>以太网卡</h2><blockquote>
+<p>网络接口卡（Network Interface Card，NIC）也称为网卡</p>
+</blockquote>
+<p>计算机的网卡：作用于数据链路层，为网络层提供服务，同时将报文转成01数据流</p>
+<p>交换机网卡：根据数据帧中的报文地址进行转发</p>
+<p>每个网络接口对应一个网卡</p>
+<h2 id="以太网帧"><a href="#以太网帧" class="headerlink" title="以太网帧"></a>以太网帧</h2><p>两个标准：</p>
+<ol>
+<li>Ethernet_II格式</li>
+<li>IEEE 802.3格式</li>
+</ol>
+<h3 id="单播以太帧"><a href="#单播以太帧" class="headerlink" title="单播以太帧"></a>单播以太帧</h3><blockquote>
+<p>目的MAC地址为单播MAC地址的帧</p>
+</blockquote>
+<h3 id="广播以太帧"><a href="#广播以太帧" class="headerlink" title="广播以太帧"></a>广播以太帧</h3><blockquote>
+<p>目的MAC地址为广播MAC地址的帧</p>
+</blockquote>
+<h3 id="组播以太帧"><a href="#组播以太帧" class="headerlink" title="组播以太帧"></a>组播以太帧</h3><blockquote>
+<p>目的MAC地址为组播MAC地址的帧</p>
+</blockquote>
+<h2 id="MAC地址"><a href="#MAC地址" class="headerlink" title="MAC地址"></a>MAC地址</h2><blockquote>
+<p>MAC地址在网络中唯一标识一个网卡，具有全球唯一性</p>
+</blockquote>
+<h3 id="与IP地址的区别"><a href="#与IP地址的区别" class="headerlink" title="与IP地址的区别"></a>与IP地址的区别</h3><p>IP地址特点：</p>
+<ol>
+<li>IP地址是唯一的</li>
+<li>IP地址可变</li>
+<li>基于网络拓扑进行IP地址分配</li>
+</ol>
+<p>MAC地址特点：</p>
+<ol>
+<li>MAC地址是唯一的</li>
+<li>MAC地址不可变</li>
+<li>基于制造商进行MAC地址分配</li>
+</ol>
+<h3 id="MAC地址表示"><a href="#MAC地址表示" class="headerlink" title="MAC地址表示"></a>MAC地址表示</h3><blockquote>
+<p>一个MAC地址有48bit，6byte，一般使用十六进制表示</p>
+</blockquote>
+<h3 id="MAC地址构成"><a href="#MAC地址构成" class="headerlink" title="MAC地址构成"></a>MAC地址构成</h3><p>OUI：厂商代码，一般同一个厂商生产的网卡的OUI相同，3Byte，24Bit</p>
+<p>制造商分配：3Byte，24bit</p>
+<h3 id="MAC地址分类"><a href="#MAC地址分类" class="headerlink" title="MAC地址分类"></a>MAC地址分类</h3><p>单播MAC地址：XXXXXXX0-…</p>
+<p>组播MAC地址：XXXXXXX1-…</p>
+<p>广播MAC地址：全为1</p>
+<h2 id="以太网交换机"><a href="#以太网交换机" class="headerlink" title="以太网交换机"></a>以太网交换机</h2><p>以太网二层交换机转发数据的端口都是以太端口，并且只能够针对数据的二层头部中的MAC地址进行寻址并转发数据</p>
+<h2 id="交换机的工作原理"><a href="#交换机的工作原理" class="headerlink" title="交换机的工作原理"></a>交换机的工作原理</h2><p><strong>学习</strong>帧的源MAC地址，然后在MAC地址表中查询该帧的目的MAC地址<strong>转发</strong></p>
+<p>表中没有源MAC记录：添加源MAC地址信息</p>
+<p>广播帧、表中没有目的MAC记录（未知单播帧）：除源端口外向外发送请求，<strong>泛洪</strong></p>
+<p>源端口与目的端口相同：<strong>丢弃</strong>报文</p>
+<h2 id="MAC地址表"><a href="#MAC地址表" class="headerlink" title="MAC地址表"></a>MAC地址表</h2><blockquote>
+<p>存放了MAC地址与交换机端口编号之间的映射关系</p>
+</blockquote>
+<h1 id="VLAN（虚拟局域网）"><a href="#VLAN（虚拟局域网）" class="headerlink" title="VLAN（虚拟局域网）"></a>VLAN（虚拟局域网）</h1><blockquote>
+<p>用于解决隔离广播域的问题</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211016164804454.png" alt="image-20211016164804454" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211016164804454.png" class="lozad post-image"></p>
+<h2 id="VLAN标签（802-1QTag）"><a href="#VLAN标签（802-1QTag）" class="headerlink" title="VLAN标签（802.1QTag）"></a>VLAN标签（802.1QTag）</h2><p>报文中添加表示VLAN信息的字段使交换机能识别不同的VLAN的报文</p>
+<p>打上标签由交换机完成，发出时由交换机添加，接受时由交换机去掉，通常用户无法察觉这一过程</p>
+<p>格式：</p>
+<table>
+<thead>
+<tr>
+<th>TPID（0x8100）</th>
+<th>PRI</th>
+<th>CFI</th>
+<th>VLAN ID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>16bit</td>
+<td>3bit</td>
+<td>1bit</td>
+<td>12bit</td>
+</tr>
+</tbody></table>
+<ul>
+<li>TPID：标签协议标识符</li>
+<li>PRI：优先级</li>
+<li>CFI：标准格式指示符</li>
+<li>VLAN ID：1~4094，0跟4095保留</li>
+</ul>
+<h1 id="VLAN的规划"><a href="#VLAN的规划" class="headerlink" title="VLAN的规划"></a>VLAN的规划</h1><h2 id="VLAN分配原则"><a href="#VLAN分配原则" class="headerlink" title="VLAN分配原则"></a>VLAN分配原则</h2><ul>
+<li>按业务规划</li>
+<li>按部门规划</li>
+<li>按应用规划</li>
+</ul>
+<h2 id="VLAN分配技巧"><a href="#VLAN分配技巧" class="headerlink" title="VLAN分配技巧"></a>VLAN分配技巧</h2><p>为了提高VLAN ID的连续性，可以采用VLAN ID的连续性，可以采用VLAN ID和子网关联的方式进行分配    </p>
+<h2 id="VLAN的基础命令"><a href="#VLAN的基础命令" class="headerlink" title="VLAN的基础命令"></a>VLAN的基础命令</h2><ol>
+<li>创建VLAN：<code>vlan vlan-id</code></li>
+<li>批量创建VLAN：<code>vlan batch &#123;vlan-id1 [to vlan-id2]&#125;</code></li>
+</ol>
+<ul>
+<li><p>Access接口的基础配置命令</p>
+<ul>
+<li><p>配置接口类型：<code>port link-type access</code></p>
+</li>
+<li><p>配置Access接口的缺省VLAN：<code>port default vlan vlan-id</code></p>
+</li>
+</ul>
+</li>
+<li><p>Trunk接口的基础配置命令</p>
+<ul>
+<li><p>配置接口类型：<code>port link-type trunk</code></p>
+</li>
+<li><p>配置Access接口的缺省VLAN：<code>port trunk pvid  vlan vlan-id</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="生成树"><a href="#生成树" class="headerlink" title="生成树"></a>生成树</h1><blockquote>
+<p>用来解决环路问题</p>
+</blockquote>
+<h2 id="二层环路问题"><a href="#二层环路问题" class="headerlink" title="二层环路问题"></a>二层环路问题</h2><blockquote>
+<p>常见产生原因：二层冗余环境</p>
+<p>解决方案：生成树协议</p>
+</blockquote>
+<ul>
+<li>广播风暴</li>
+<li>MAC地址漂移</li>
+</ul>
+<h2 id="三层环路问题"><a href="#三层环路问题" class="headerlink" title="三层环路问题"></a>三层环路问题</h2><blockquote>
+<p>常见原因：路由环路</p>
+<p>解决方法：</p>
+<ul>
+<li><p>动态路由协议有一定的防环能力</p>
+</li>
+<li><p>IP报文头部中的TTL字段可以防止报文被无尽转发</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h2><ul>
+<li>能够动态响应网络拓扑变化调整阻塞接口</li>
+</ul>
+<h2 id="STP"><a href="#STP" class="headerlink" title="STP"></a>STP</h2><h3 id="桥ID"><a href="#桥ID" class="headerlink" title="桥ID"></a>桥ID</h3><p>桥ID是每个交换机特有的编号，用来确定优先级，先比较前16个bit，再比较后面的mac地址</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>MAC地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>16bit</td>
+<td>48bit</td>
+</tr>
+</tbody></table>
+<p>优先级越小越优</p>
+<h3 id="Cost"><a href="#Cost" class="headerlink" title="Cost"></a>Cost</h3><blockquote>
+<p>每条链路的开销，用于计算根路径开销，即到达根的开销</p>
+</blockquote>
+<p>接口开销与速率、工作模式和STP Cost计算方法有关</p>
+<p>接口带宽越大，Cost值越小</p>
+<p>用户也可以通过命令调整接口的Cost</p>
+<p>开销值最小值为1，只能取整数</p>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><blockquote>
+<p>根路径开销，一台设备从某个接口到达根桥的RPC等于从根桥到该设备沿途所有入方向开销之和。</p>
+</blockquote>
+<h3 id="Port-ID"><a href="#Port-ID" class="headerlink" title="Port ID"></a>Port ID</h3><table>
+<thead>
+<tr>
+<th>接口优先级</th>
+<th>接口编号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>4bit</td>
+<td>12bit</td>
+</tr>
+</tbody></table>
+<h3 id="BPDU"><a href="#BPDU" class="headerlink" title="BPDU"></a>BPDU</h3><blockquote>
+<p>桥协议数据单元，是STP的协议报文，用于确定根桥</p>
+</blockquote>
+<p>分类：</p>
+<ul>
+<li>配置BPDU：确定初始的根桥，是STP进行网络拓扑的关键</li>
+<li>TCN NPDU：只在网络拓扑发生变更时才会触发</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>PID</th>
+<th>PVI</th>
+<th>BPDU Type</th>
+<th>Flags</th>
+<th>Root ID</th>
+<th>RPC</th>
+<th>Bridge ID</th>
+<th>Port ID</th>
+<th>Message Age</th>
+<th>Max Age</th>
+<th>Hello Time</th>
+<th>Forward Delay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>根桥ID</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="配置BPDU的比较原则"><a href="#配置BPDU的比较原则" class="headerlink" title="配置BPDU的比较原则"></a>配置BPDU的比较原则</h3><ul>
+<li><p>STP操作：</p>
+<ol>
+<li><p>选举一个根桥</p>
+</li>
+<li><p>每个非根交换机选举一个根端口</p>
+</li>
+<li><p>每个网段选举一个指定端口</p>
+</li>
+<li><p>阻塞非根、非指定端口</p>
+</li>
+</ol>
+</li>
+<li><p>STP端口角色</p>
+<ol>
+<li>指定端口</li>
+<li>根端口</li>
+<li>预备端口</li>
+</ol>
+</li>
+<li><p>STP配置BPDU规则</p>
+<ol>
+<li>最小的根桥ID</li>
+<li>最小的RPC</li>
+<li>最小的网桥ID</li>
+<li>最小的接口ID</li>
+</ol>
+</li>
+</ul>
+<h3 id="STP的计算过程"><a href="#STP的计算过程" class="headerlink" title="STP的计算过程"></a>STP的计算过程</h3><ol>
+<li><p>根桥选举：</p>
+<ul>
+<li><p>配置BPDU只有根桥可以发送，初始时，所有交换机都认为自己是根桥，因此每个交换机都会发送配置BPDU里面携带自己的桥ID。网络中最小桥ID的交换机成为根桥</p>
+</li>
+<li><p>根桥是可以抢占的</p>
+</li>
+<li><p>为了确保交换网络的稳定，应该提前规划好STP组网，并将根桥优先级设为0，防止抢占</p>
+</li>
+</ul>
+</li>
+<li><p>根接口选举</p>
+<ul>
+<li><p>根接口是收到最优BPDU的接口</p>
+</li>
+<li><p>根接口是每台非根桥上“朝向”根桥的接口</p>
+</li>
+</ul>
+</li>
+<li><p>指定接口选举</p>
+<ul>
+<li>非根桥会使用在根接口上收到的最优BPDU进行计算，然后将计算得到的配置BPDU与除了根接口之外的其他所有接口所收到的配置BPDU进行比较：如果根接口更优则为指定接口，反之为非指定接口</li>
+<li>根桥上的接口一般均为指定接口</li>
+</ul>
+</li>
+<li><p>阻塞非指定接口</p>
+</li>
+</ol>
+<h3 id="STP的接口状态"><a href="#STP的接口状态" class="headerlink" title="STP的接口状态"></a>STP的接口状态</h3><ul>
+<li>禁用：不能收发BPDU，也不能收发业务数据帧</li>
+<li>阻塞：不能发送BPDU，但是会持续侦听BPDU，而且不能收发业务数据帧，也不会进行MAC地址学习</li>
+<li>侦听：表明该接口为根接口或者指定接口，但接口依然处于STP计算的过程中，此时可以收发BPDU，但是不能收发业务数据流或者MAC地址学习</li>
+<li>学习：可以侦听业务数据帧但是不能转发，可以进行MAC地址学习</li>
+<li>转发：可以正常收发业务数据流，也可以处理BPDU</li>
+</ul>
+<h2 id="拓扑变化"><a href="#拓扑变化" class="headerlink" title="拓扑变化"></a>拓扑变化</h2><h3 id="根桥故障"><a href="#根桥故障" class="headerlink" title="根桥故障"></a>根桥故障</h3><p>根桥每两秒会发送一次配置BPDU，交换机有一个Max Age计时器（20s），如果超时即得知根桥发生故障。</p>
+<p>此时重新选举根桥，非根桥互相发送配置BPDU，选举后需要30s时间恢复转发状态</p>
+<h3 id="直连链路故障"><a href="#直连链路故障" class="headerlink" title="直连链路故障"></a>直连链路故障</h3><p>无需重新选举根桥，只需要经过30s启用备用端口进入转发状态</p>
+<h3 id="非直连链路发生故障"><a href="#非直连链路发生故障" class="headerlink" title="非直连链路发生故障"></a>非直连链路发生故障</h3><p>因为无法直接得知链路故障，需要等老化（20s）后才能重新选举，所以需要50s</p>
+<h3 id="拓扑改变导致MAC地址表错误"><a href="#拓扑改变导致MAC地址表错误" class="headerlink" title="拓扑改变导致MAC地址表错误"></a>拓扑改变导致MAC地址表错误</h3><blockquote>
+<p>TCN BPDU会在拓扑变化时产生，用于缩短MAC老化时间</p>
+</blockquote>
+<p>拓扑变化时还会有两种特殊的配置BPDU，配置BPDU有两个flag：</p>
+<ul>
+<li>TCA：通知目的交换机已接收目的交换机所发的TCN BPDU，而且会保留根桥的BPDU，通知目的交换机重新计算</li>
+<li>TC：通知交换机刷新MAC地址表</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211018161719420.png" alt="image-20211018161719420" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211018161719420.png" class="lozad post-image"></p>
+<h2 id="配置STP"><a href="#配置STP" class="headerlink" title="配置STP"></a>配置STP</h2><ol>
+<li>配置生成树工作模式：<code>stp mode &#123;stp|rstp|mstp&#125;</code></li>
+<li>（可选）配置根桥：</li>
+<li>（可选）备份根桥：</li>
+<li>（可选）配置交换机的STP优先级：</li>
+<li>（可选）配置接口路径开销：</li>
+</ol>
+<h2 id="RSTP"><a href="#RSTP" class="headerlink" title="RSTP"></a>RSTP</h2><blockquote>
+<p>对STP的角色进行了扩充，缩减了STP的状态，收敛速度更快，可以兼容STP</p>
+</blockquote>
+<p>状态规范–3种状态</p>
+<p>RSTP对于STP的改进：</p>
+<ul>
+<li>所有交换机都可以发送配置BPDU</li>
+<li>BPDU老化时间从20秒改为6秒</li>
+<li>端口角色不同：<ul>
+<li>根端口</li>
+<li>指定端口</li>
+<li>预备端口</li>
+<li>备份端口</li>
+<li>边缘端口：处于整个域的边缘，不再与任何交换设备连接，直到这个端口收到配置BPDU</li>
+</ul>
+</li>
+<li>端口状态不同：<ul>
+<li>Forwarding</li>
+<li>Learning</li>
+<li>Discarding</li>
+</ul>
+</li>
+</ul>
+<h2 id="MSTP"><a href="#MSTP" class="headerlink" title="MSTP"></a>MSTP</h2><blockquote>
+<p>STP与RSTP的所有VLAN共享一棵生成树，无法实现流量负载均衡，MSTP基于实例阻塞接口（不是基于VLAN）</p>
+</blockquote>
+<ul>
+<li>MSTP把一个交换网络划分成多个域，域内形成多棵生成树，生成树之间彼此独立</li>
+<li>每棵生成树叫做一个多生成树实例</li>
+<li>生成树实例其实就是多个VLAN集合组成的</li>
+<li>通过将多个VLAN绑定到一个实例，可以节省通信开销和资源占用率</li>
+<li>可以把相同拓扑结构的VLAN映射到一个实例里，这些VLAN在接口上的转发状态取决于接口在对应实例中的状态</li>
+</ul>
+<h2 id="VBST"><a href="#VBST" class="headerlink" title="VBST"></a>VBST</h2><blockquote>
+<p>分奇偶路线，一个VLAN一棵树</p>
+</blockquote>
+<h2 id="一些进阶技术"><a href="#一些进阶技术" class="headerlink" title="一些进阶技术"></a>一些进阶技术</h2><h3 id="交换机堆叠"><a href="#交换机堆叠" class="headerlink" title="交换机堆叠"></a>交换机堆叠</h3><blockquote>
+<p>实现链路聚合，可以将拓扑简化为树形结构，消除二层环路，提高资源利用率</p>
+</blockquote>
+<h3 id="Smart-Link"><a href="#Smart-Link" class="headerlink" title="Smart Link"></a>Smart Link</h3><blockquote>
+<p>对双上行组网的解决方案，可以在毫秒级切换主端口到备份端口</p>
+</blockquote>
+<h1 id="IP路由基础"><a href="#IP路由基础" class="headerlink" title="IP路由基础"></a>IP路由基础</h1><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><blockquote>
+<p>路由是指导报文转发的路径信息，通过路由可以确认转发IP报文的路径。</p>
+</blockquote>
+<ul>
+<li>路由设备是依据路由转发报文到目的网段的网络设备，最常见的路由设备：路由器</li>
+<li>路由设备维护着一张表，保存着路由信息</li>
+</ul>
+<h3 id="IP路由"><a href="#IP路由" class="headerlink" title="IP路由"></a>IP路由</h3><table>
+<thead>
+<tr>
+<th>目的网络/掩码</th>
+<th>出接口</th>
+<th>下一跳</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10.1.1.0/24</td>
+<td>GE0/0/0</td>
+<td>1.1.1.2</td>
+</tr>
+</tbody></table>
+<ul>
+<li>目的网络：标识目的网段</li>
+<li>掩码：与目的地址共同标识一个网段</li>
+<li>出接口：数据包被路由后离开本路由器的接口</li>
+<li>下一跳：路由器转发到达目的网段的数据包所在的下一跳地址</li>
+</ul>
+<h3 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h3><ul>
+<li>路由器通过各种方式发现路由</li>
+<li>路由器选择最优的路由条目放入路由表中</li>
+<li>路由表指导设备对IP报文的转发</li>
+<li>路由器通过对路由表的管理实现对路由消息的管理</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Destination/Mask</th>
+<th>Proto</th>
+<th>Pre</th>
+<th>Cost</th>
+<th>flags</th>
+<th>NextHop</th>
+<th>Interface</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="路由信息获取方式"><a href="#路由信息获取方式" class="headerlink" title="路由信息获取方式"></a>路由信息获取方式</h2><ul>
+<li><p>直连路由：</p>
+<blockquote>
+<p>由设备自动生成指向本地直连网络</p>
+</blockquote>
+<ul>
+<li>一般当路由器为路由转发的最后一跳路由器时，IP报文匹配直连路由，路由器转发IP到目的主机</li>
+<li>使用直连路由时，报文的目的IP与路由器接口IP在同一个网段</li>
+<li>直连路由不一定会出现在路由表中，出现的前提是接口的物理状态、协议状态均为UP</li>
+</ul>
+</li>
+<li><p>静态路由：由网络管理员手工配置的路由条目</p>
+</li>
+<li><p>动态路由：路由器运行动态路由协议学到的路由</p>
+</li>
+</ul>
+<h2 id="路由优先级"><a href="#路由优先级" class="headerlink" title="路由优先级"></a>路由优先级</h2><p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020113829947.png" alt="image-20211020113829947" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020113829947.png" class="lozad post-image"></p>
+<p>默认优先级：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020114005555.png" alt="image-20211020114005555" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020114005555.png" class="lozad post-image"></p>
+<p>优先级相同时比较度量值：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020114846923.png" alt="image-20211020114846923" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020114846923.png" class="lozad post-image"></p>
+<h2 id="路由转发"><a href="#路由转发" class="headerlink" title="路由转发"></a>路由转发</h2><h3 id="最长匹配原则"><a href="#最长匹配原则" class="headerlink" title="最长匹配原则"></a>最长匹配原则</h3><blockquote>
+<p>当路由器收到一个IP数据包时，会将数据包的目的IP地址与自己本地路由表中的所有路由表项进行逐位（Bit-By-Bit）比对，直到找到匹配度最长的条目</p>
+</blockquote>
+<h2 id="缺省路由"><a href="#缺省路由" class="headerlink" title="缺省路由"></a>缺省路由</h2><blockquote>
+<p>也叫默认路由，当报文没有再路由表中找到匹配的具体路由表项时才使用的路由</p>
+</blockquote>
+<ul>
+<li>缺省路由在路由表中的形式为0.0.0.0/0</li>
+</ul>
+<h2 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h2><blockquote>
+<p>可以自动发现、学习路由，感知拓扑变更</p>
+</blockquote>
+<ul>
+<li>按工作区域分类:<ul>
+<li>IGP(内部网关协议)：<ol>
+<li>RIP</li>
+<li>OSPF</li>
+<li>IS-IS</li>
+</ol>
+</li>
+<li>EGP(外部网关协议)：<ol>
+<li>BGP</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>按工作机制及算法分类<ul>
+<li><p>距离矢量路由协议</p>
+<blockquote>
+<p>运行距离矢量路由协议的路由器周期性的泛洪自己的路由表</p>
+<p>对于网络中的所有路由器而言，路由器并不清楚网络的拓扑，只知道目的地址的下一跳在哪里，有多远</p>
+</blockquote>
+<ol>
+<li>RIP</li>
+</ol>
+</li>
+<li><p>链路状态路由协议</p>
+<blockquote>
+<p>不再通告路由，而是LSA，LSA描述了路由器接口的状态信息，例如接口的开销、连接的对象等</p>
+</blockquote>
+<ol>
+<li>OSPF</li>
+<li>IS-IS</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="路由高级特性"><a href="#路由高级特性" class="headerlink" title="路由高级特性"></a>路由高级特性</h2><h3 id="路由递归"><a href="#路由递归" class="headerlink" title="路由递归"></a>路由递归</h3><p>非本地直连网络，如果路由表没有去往20.1.1.3的路由，该静态路由将不会生效，无法作为有效路由条目</p>
+<h3 id="等价路由"><a href="#等价路由" class="headerlink" title="等价路由"></a>等价路由</h3><blockquote>
+<p>两个路由条目指向的目的网段相同，但是具有不同的下一跳地址</p>
+</blockquote>
+<p>路由转发会将流量分布到多条路径上</p>
+<table>
+    <tr>
+        <td>目的网络/掩码</td>
+        <td>下一跳</td>
+    </tr>
+    <tr>
+    <td rowspan="2">10.0.0.0/30</td>           <td>20.1.1.2</td>
+    </tr>
+    <tr>
+        <td>30.1.1.2</td>
+    </tr>
+</table>
+
+<p>路由表中存在等价路由之后，前往该目的网段的IP报文路由器会通过所有有效的接口、下一跳转发，这种转发行为被称为<strong>负载分担</strong></p>
+<h3 id="浮动路由"><a href="#浮动路由" class="headerlink" title="浮动路由"></a>浮动路由</h3><blockquote>
+<p>有点像做了一个备份，故障时将路由表上的记录切换成备份的。使用优先级来将正常路由与备用路由区分开。</p>
+</blockquote>
+<p>配置命令：</p>
+<pre class="highlight"><span class="line">ip route-static 20.0.0.0 30 10.1.1.2</span><br><span class="line">ip route-static 20.0.0.0 30 10.1.2.2 preference 70</span><br></pre>
+
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020143042842.png" alt="image-20211020143042842" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020143042842.png" class="lozad post-image"></p>
+<h3 id="路由汇总"><a href="#路由汇总" class="headerlink" title="路由汇总"></a>路由汇总</h3><blockquote>
+<p>路由汇总采用了CIDR的思想，将一组具有相同前缀的路由汇聚成一条路由，从而达到减小路由表规模以及优化设备资源利用率的目的。</p>
+</blockquote>
+<ul>
+<li><p>CIDR</p>
+<blockquote>
+<p>CIDR（无类别域间路由）采用IP地址加掩码长度来表示网络和子网</p>
+</blockquote>
+<p>CIDR容许任意长的掩码长度，可以使用任意长度的前缀分配，该特性可以有效减少路由表条目数量</p>
+</li>
+</ul>
+<h4 id="汇总引发的问题"><a href="#汇总引发的问题" class="headerlink" title="汇总引发的问题"></a>汇总引发的问题</h4><ol>
+<li><p>环路问题</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020152908499.png" alt="image-20211020152908499" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211020152908499.png" class="lozad post-image"></p>
+<p>解决方法：增加指向Null0的路由</p>
+</li>
+</ol>
+<h1 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h1><blockquote>
+<p>为了解决静态路由无法适应规模较大的网络，无法动态响应网络变化</p>
+</blockquote>
+<h2 id="LSA"><a href="#LSA" class="headerlink" title="LSA"></a>LSA</h2><blockquote>
+<p>LSA描述了路由器接口的状态信息，例如接口的开销、连接的对象等</p>
+</blockquote>
+<h2 id="LSDB"><a href="#LSDB" class="headerlink" title="LSDB"></a>LSDB</h2><blockquote>
+<p>路由器将LSA存放在LSDB中，LSDB汇总了网络中路由器对于自己接口的描述</p>
+<p>LSDB包含全网拓扑的描述，有点像一份地图</p>
+</blockquote>
+<h2 id="SPF计算"><a href="#SPF计算" class="headerlink" title="SPF计算"></a>SPF计算</h2><blockquote>
+<p>每台路由器都可以根据LSDB计算出一棵以自己为根的、无环的、拥有最短路径的树，接着根据结果将路由加载入路由表</p>
+</blockquote>
+<h2 id="区域（Area-ID）"><a href="#区域（Area-ID）" class="headerlink" title="区域（Area ID）"></a>区域（Area ID）</h2><blockquote>
+<p>OSPF Area用于表示一个OSPF的区域，每个区域用一个区域号（Area ID）来标识</p>
+</blockquote>
+<h2 id="路由ID（Route-r-ID）"><a href="#路由ID（Route-r-ID）" class="headerlink" title="路由ID（Route r-ID）"></a>路由ID（Route r-ID）</h2><blockquote>
+<p>用于在一个OSPF域中唯一地标识一台路由器，可以手动配置也可以自动配置</p>
+</blockquote>
+<h2 id="OSPF应用"><a href="#OSPF应用" class="headerlink" title="OSPF应用"></a>OSPF应用</h2><blockquote>
+<p>一般用于在核心交换机与汇聚交换机上运行OSPF，可以实现园区内的路由可达</p>
+</blockquote>
+<h2 id="COST"><a href="#COST" class="headerlink" title="COST"></a>COST</h2><blockquote>
+<p>OSPF使用Cost（开销）作为路由的度量值</p>
+</blockquote>
+<h2 id="OSPF协议报文类型"><a href="#OSPF协议报文类型" class="headerlink" title="OSPF协议报文类型"></a>OSPF协议报文类型</h2><ul>
+<li>Hello：周期性发送，用来发现和维护OSPF邻居关系</li>
+<li>Database Description：描述本地LSDB的摘要信息，用于两台设备进行数据库同步</li>
+<li>Link State Request：用于向对方请求所需要的LSA。设备只有在OSPF邻居双方成功交换DD报文后才会向对方发送LSR报文</li>
+<li>Link State Update：用于向对方发送其所需要的LSA</li>
+<li>Link State ACK：用来对收到的LSA进行确认</li>
+</ul>
+<h2 id="OSPF三大表"><a href="#OSPF三大表" class="headerlink" title="OSPF三大表"></a>OSPF三大表</h2><h3 id="邻居表"><a href="#邻居表" class="headerlink" title="邻居表"></a>邻居表</h3><blockquote>
+<ul>
+<li>OSPF在传递链路状态信息前，需先建立OSPF邻居关系</li>
+<li>OSPF的邻居关系靠Hello报文建立</li>
+<li>OSPF邻居表显示了OSPF路由器之间的邻居状态</li>
+</ul>
+</blockquote>
+<p>查看邻居表的命令：</p>
+<pre class="highlight"><span class="line">display ospf peer</span><br></pre>
+
+<h3 id="LSDB表"><a href="#LSDB表" class="headerlink" title="LSDB表"></a>LSDB表</h3><blockquote>
+<ul>
+<li>LSDB会保存自己产生的及从邻居收到的LSA信息</li>
+<li>Type标识LSA的类型，AdvRouter标识发送LSA的路由器</li>
+</ul>
+</blockquote>
+<p>查看LSDB表的命令：</p>
+<pre class="highlight"><span class="line">display ospf lsdb</span><br></pre>
+
+<h3 id="OSPF路由表"><a href="#OSPF路由表" class="headerlink" title="OSPF路由表"></a>OSPF路由表</h3><blockquote>
+<ul>
+<li>OSPF路由表与IP路由表是不同的表</li>
+<li>OSPF路由表包含Destination、Cost和NextHop等指导转发的信息</li>
+</ul>
+</blockquote>
+<p>查看OSPF路由表的命令：</p>
+<pre class="highlight"><span class="line">display ospf routing</span><br></pre>
+
+<h2 id="OSPF建立邻接关系"><a href="#OSPF建立邻接关系" class="headerlink" title="OSPF建立邻接关系"></a>OSPF建立邻接关系</h2><ul>
+<li>建立邻居关系</li>
+<li>协商主/从</li>
+<li>交互LSDB信息</li>
+<li>同步LSDB</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021122942499.png" alt="image-20211021122942499" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021122942499.png" class="lozad post-image"></p>
+<h2 id="OSPF建立路由表"><a href="#OSPF建立路由表" class="headerlink" title="OSPF建立路由表"></a>OSPF建立路由表</h2><h3 id="OSPF网络类型"><a href="#OSPF网络类型" class="headerlink" title="OSPF网络类型"></a>OSPF网络类型</h3><ul>
+<li><p>Broadcast/BMA（广播式多路访问）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021125935522.png" alt="image-20211021125935522" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021125935522.png" class="lozad post-image"></p>
+</li>
+<li><p>NBMA（非广播式多路访问）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021130138051.png" alt="image-20211021130138051" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021130138051.png" class="lozad post-image"></p>
+</li>
+<li><p>P2MP（点到多点）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021131250248.png" alt="image-20211021131250248" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021131250248.png" class="lozad post-image"></p>
+</li>
+<li><p>P2P（点对点）：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021125959036.png" alt="image-20211021125959036" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://cdn.jsdelivr.net/gh/SC-WSKun/HexoStaticFile/img/image-20211021125959036.png" class="lozad post-image"></p>
+</li>
+</ul>
+<h3 id="三种路由器身份"><a href="#三种路由器身份" class="headerlink" title="三种路由器身份"></a>三种路由器身份</h3><blockquote>
+<p>用于优化MA网络中OSPF邻接关系，解决LSA泛洪时产生的带宽浪费和设备资源损耗问题</p>
+</blockquote>
+<ul>
+<li><p>DR：指定路由器</p>
+</li>
+<li><p>BDR：备用指定路由器</p>
+</li>
+<li><p>DRother路由器</p>
+</li>
+</ul>
+<p>只允许DR、BDR与其他OSPF路由器建立邻接关系。DRother之间不会建立全毗邻的OSPF邻接关系，双方停滞在2-way状态</p>
+<p>BDR会监控DR的状态，并在DR故障时接替位置</p>
 
   </div>
   <div>
@@ -562,7 +1182,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">以太网协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%9F%9F"><span class="toc-text">冲突域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E5%9F%9F"><span class="toc-text">广播域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%A1"><span class="toc-text">以太网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7"><span class="toc-text">以太网帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">单播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">广播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">组播以太帧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80"><span class="toc-text">MAC地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8EIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与IP地址的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E7%A4%BA"><span class="toc-text">MAC地址表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E6%9E%84%E6%88%90"><span class="toc-text">MAC地址构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-text">MAC地址分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">以太网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">交换机的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8"><span class="toc-text">MAC地址表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%EF%BC%88%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%89"><span class="toc-text">VLAN（虚拟局域网）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E6%A0%87%E7%AD%BE%EF%BC%88802-1QTag%EF%BC%89"><span class="toc-text">VLAN标签（802.1QTag）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%E7%9A%84%E8%A7%84%E5%88%92"><span class="toc-text">VLAN的规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">VLAN分配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E6%8A%80%E5%B7%A7"><span class="toc-text">VLAN分配技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text">VLAN的基础命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">二层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">三层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STP"><span class="toc-text">STP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%A5ID"><span class="toc-text">桥ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost"><span class="toc-text">Cost</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC"><span class="toc-text">RPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Port-ID"><span class="toc-text">Port ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BPDU"><span class="toc-text">BPDU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEBPDU%E7%9A%84%E6%AF%94%E8%BE%83%E5%8E%9F%E5%88%99"><span class="toc-text">配置BPDU的比较原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-text">STP的计算过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E6%8E%A5%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">STP的接口状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E5%8F%98%E5%8C%96"><span class="toc-text">拓扑变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C"><span class="toc-text">根桥故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C"><span class="toc-text">直连链路故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E5%8F%91%E7%94%9F%E6%95%85%E9%9A%9C"><span class="toc-text">非直连链路发生故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%94%B9%E5%8F%98%E5%AF%BC%E8%87%B4MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E9%94%99%E8%AF%AF"><span class="toc-text">拓扑改变导致MAC地址表错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESTP"><span class="toc-text">配置STP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSTP"><span class="toc-text">RSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSTP"><span class="toc-text">MSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VBST"><span class="toc-text">VBST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%BF%9B%E9%98%B6%E6%8A%80%E6%9C%AF"><span class="toc-text">一些进阶技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%A0%86%E5%8F%A0"><span class="toc-text">交换机堆叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Smart-Link"><span class="toc-text">Smart Link</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80"><span class="toc-text">IP路由基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1"><span class="toc-text">IP路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F"><span class="toc-text">路由信息获取方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">路由优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91"><span class="toc-text">路由转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">最长匹配原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E7%9C%81%E8%B7%AF%E7%94%B1"><span class="toc-text">缺省路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">动态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="toc-text">路由高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%80%92%E5%BD%92"><span class="toc-text">路由递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E8%B7%AF%E7%94%B1"><span class="toc-text">等价路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1"><span class="toc-text">浮动路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">路由汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E6%80%BB%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">汇总引发的问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF"><span class="toc-text">OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LSA"><span class="toc-text">LSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSDB"><span class="toc-text">LSDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPF%E8%AE%A1%E7%AE%97"><span class="toc-text">SPF计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9F%9F%EF%BC%88Area-ID%EF%BC%89"><span class="toc-text">区域（Area ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1ID%EF%BC%88Route-r-ID%EF%BC%89"><span class="toc-text">路由ID（Route r-ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BA%94%E7%94%A8"><span class="toc-text">OSPF应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COST"><span class="toc-text">COST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF协议报文类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E4%B8%89%E5%A4%A7%E8%A1%A8"><span class="toc-text">OSPF三大表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E5%B1%85%E8%A1%A8"><span class="toc-text">邻居表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LSDB%E8%A1%A8"><span class="toc-text">LSDB表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">OSPF建立邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF建立路由表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BA%AB%E4%BB%BD"><span class="toc-text">三种路由器身份</span></a></li></ol></li></ol></li></ol>
 </div></main>
             <aside class="left-column">
               
@@ -579,7 +1199,7 @@
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>68</span>
+    <span>70</span>
     <span>文章</span>
   </a>
   <a 
@@ -608,7 +1228,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">以太网协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%9F%9F"><span class="toc-text">冲突域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E5%9F%9F"><span class="toc-text">广播域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%A1"><span class="toc-text">以太网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7"><span class="toc-text">以太网帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">单播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">广播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">组播以太帧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80"><span class="toc-text">MAC地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8EIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与IP地址的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E7%A4%BA"><span class="toc-text">MAC地址表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E6%9E%84%E6%88%90"><span class="toc-text">MAC地址构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-text">MAC地址分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">以太网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">交换机的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8"><span class="toc-text">MAC地址表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%EF%BC%88%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%89"><span class="toc-text">VLAN（虚拟局域网）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E6%A0%87%E7%AD%BE%EF%BC%88802-1QTag%EF%BC%89"><span class="toc-text">VLAN标签（802.1QTag）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%E7%9A%84%E8%A7%84%E5%88%92"><span class="toc-text">VLAN的规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">VLAN分配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E6%8A%80%E5%B7%A7"><span class="toc-text">VLAN分配技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text">VLAN的基础命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">二层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">三层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STP"><span class="toc-text">STP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%A5ID"><span class="toc-text">桥ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost"><span class="toc-text">Cost</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC"><span class="toc-text">RPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Port-ID"><span class="toc-text">Port ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BPDU"><span class="toc-text">BPDU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEBPDU%E7%9A%84%E6%AF%94%E8%BE%83%E5%8E%9F%E5%88%99"><span class="toc-text">配置BPDU的比较原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-text">STP的计算过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E6%8E%A5%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">STP的接口状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E5%8F%98%E5%8C%96"><span class="toc-text">拓扑变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C"><span class="toc-text">根桥故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C"><span class="toc-text">直连链路故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E5%8F%91%E7%94%9F%E6%95%85%E9%9A%9C"><span class="toc-text">非直连链路发生故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%94%B9%E5%8F%98%E5%AF%BC%E8%87%B4MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E9%94%99%E8%AF%AF"><span class="toc-text">拓扑改变导致MAC地址表错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESTP"><span class="toc-text">配置STP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSTP"><span class="toc-text">RSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSTP"><span class="toc-text">MSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VBST"><span class="toc-text">VBST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%BF%9B%E9%98%B6%E6%8A%80%E6%9C%AF"><span class="toc-text">一些进阶技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%A0%86%E5%8F%A0"><span class="toc-text">交换机堆叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Smart-Link"><span class="toc-text">Smart Link</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80"><span class="toc-text">IP路由基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1"><span class="toc-text">IP路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F"><span class="toc-text">路由信息获取方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">路由优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91"><span class="toc-text">路由转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">最长匹配原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E7%9C%81%E8%B7%AF%E7%94%B1"><span class="toc-text">缺省路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">动态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="toc-text">路由高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%80%92%E5%BD%92"><span class="toc-text">路由递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E8%B7%AF%E7%94%B1"><span class="toc-text">等价路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1"><span class="toc-text">浮动路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">路由汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E6%80%BB%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">汇总引发的问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF"><span class="toc-text">OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LSA"><span class="toc-text">LSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSDB"><span class="toc-text">LSDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPF%E8%AE%A1%E7%AE%97"><span class="toc-text">SPF计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9F%9F%EF%BC%88Area-ID%EF%BC%89"><span class="toc-text">区域（Area ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1ID%EF%BC%88Route-r-ID%EF%BC%89"><span class="toc-text">路由ID（Route r-ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BA%94%E7%94%A8"><span class="toc-text">OSPF应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COST"><span class="toc-text">COST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF协议报文类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E4%B8%89%E5%A4%A7%E8%A1%A8"><span class="toc-text">OSPF三大表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E5%B1%85%E8%A1%A8"><span class="toc-text">邻居表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LSDB%E8%A1%A8"><span class="toc-text">LSDB表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">OSPF建立邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF建立路由表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BA%AB%E4%BB%BD"><span class="toc-text">三种路由器身份</span></a></li></ol></li></ol></li></ol>
       </div>
     </article>
   
@@ -650,15 +1270,15 @@
       </a>
     
       <a 
-        href="/tags/Java/" 
-        title="Java">
-        <div class="tags-list-item">Java</div>
-      </a>
-    
-      <a 
         href="/tags/uni-app/" 
         title="uni-app">
         <div class="tags-list-item">uni-app</div>
+      </a>
+    
+      <a 
+        href="/tags/Java/" 
+        title="Java">
+        <div class="tags-list-item">Java</div>
       </a>
     
       <a 
@@ -692,6 +1312,12 @@
       </a>
     
       <a 
+        href="/tags/%E5%81%B7%E6%87%92%E7%94%A8/" 
+        title="偷懒用">
+        <div class="tags-list-item">偷懒用</div>
+      </a>
+    
+      <a 
         href="/tags/Vue/" 
         title="Vue">
         <div class="tags-list-item">Vue</div>
@@ -704,15 +1330,15 @@
       </a>
     
       <a 
-        href="/tags/React/" 
-        title="React">
-        <div class="tags-list-item">React</div>
-      </a>
-    
-      <a 
         href="/tags/PHP/" 
         title="PHP">
         <div class="tags-list-item">PHP</div>
+      </a>
+    
+      <a 
+        href="/tags/React/" 
+        title="React">
+        <div class="tags-list-item">React</div>
       </a>
     
       <a 
@@ -725,12 +1351,6 @@
         href="/tags/UML/" 
         title="UML">
         <div class="tags-list-item">UML</div>
-      </a>
-    
-      <a 
-        href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" 
-        title="计算机图形学">
-        <div class="tags-list-item">计算机图形学</div>
       </a>
     
   </div>
@@ -751,7 +1371,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-text">数据通信网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E4%BF%A1%E4%B8%8E%E7%BD%91%E7%BB%9C"><span class="toc-text">通信与网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络类型与网络拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91"><span class="toc-text">网络拓扑</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E4%B8%8E%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程与网络工程师</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B"><span class="toc-text">网络工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="toc-text">网络工程师</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">网络参考模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%8E%E6%95%B0%E6%8D%AE"><span class="toc-text">应用与数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B-1"><span class="toc-text">网络参考模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B"><span class="toc-text">数据通信过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%8E%E4%B8%BA-VRP-%E7%B3%BB%E7%BB%9F"><span class="toc-text">华为 VRP 系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%EF%BC%9A"><span class="toc-text">功能：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-text">文件系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">存储设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="toc-text">设备管理方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-text">VRP 用户界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VRP-%E7%94%A8%E6%88%B7%E7%BA%A7%E5%88%AB"><span class="toc-text">VRP 用户级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-%E7%99%BB%E5%BD%95"><span class="toc-text">Web 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Putty-%E7%99%BB%E5%BD%95"><span class="toc-text">Putty 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2-CLI"><span class="toc-text">命令行界面 CLI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9F%BA%E7%A1%80"><span class="toc-text">命令行基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E7%BB%93%E6%9E%84"><span class="toc-text">基本命令结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%86%E5%9B%BE"><span class="toc-text">命令行视图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4%E8%A1%8C"><span class="toc-text">编辑命令行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">常见文件系统操作命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE%E5%91%BD%E4%BB%A4"><span class="toc-text">基本配置命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-text">以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">以太网协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%9F%9F"><span class="toc-text">冲突域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E5%9F%9F"><span class="toc-text">广播域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%8D%A1"><span class="toc-text">以太网卡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E5%B8%A7"><span class="toc-text">以太网帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">单播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">广播以太帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E6%92%AD%E4%BB%A5%E5%A4%AA%E5%B8%A7"><span class="toc-text">组播以太帧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80"><span class="toc-text">MAC地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8EIP%E5%9C%B0%E5%9D%80%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">与IP地址的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E7%A4%BA"><span class="toc-text">MAC地址表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E6%9E%84%E6%88%90"><span class="toc-text">MAC地址构成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-text">MAC地址分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="toc-text">以太网交换机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-text">交换机的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%9C%B0%E5%9D%80%E8%A1%A8"><span class="toc-text">MAC地址表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%EF%BC%88%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%EF%BC%89"><span class="toc-text">VLAN（虚拟局域网）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E6%A0%87%E7%AD%BE%EF%BC%88802-1QTag%EF%BC%89"><span class="toc-text">VLAN标签（802.1QTag）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VLAN%E7%9A%84%E8%A7%84%E5%88%92"><span class="toc-text">VLAN的规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">VLAN分配原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E5%88%86%E9%85%8D%E6%8A%80%E5%B7%A7"><span class="toc-text">VLAN分配技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text">VLAN的基础命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91"><span class="toc-text">生成树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">二层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%B1%82%E7%8E%AF%E8%B7%AF%E9%97%AE%E9%A2%98"><span class="toc-text">三层环路问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STP"><span class="toc-text">STP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%A5ID"><span class="toc-text">桥ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost"><span class="toc-text">Cost</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RPC"><span class="toc-text">RPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Port-ID"><span class="toc-text">Port ID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BPDU"><span class="toc-text">BPDU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEBPDU%E7%9A%84%E6%AF%94%E8%BE%83%E5%8E%9F%E5%88%99"><span class="toc-text">配置BPDU的比较原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="toc-text">STP的计算过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STP%E7%9A%84%E6%8E%A5%E5%8F%A3%E7%8A%B6%E6%80%81"><span class="toc-text">STP的接口状态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E5%8F%98%E5%8C%96"><span class="toc-text">拓扑变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%A1%A5%E6%95%85%E9%9A%9C"><span class="toc-text">根桥故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E6%95%85%E9%9A%9C"><span class="toc-text">直连链路故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E7%9B%B4%E8%BF%9E%E9%93%BE%E8%B7%AF%E5%8F%91%E7%94%9F%E6%95%85%E9%9A%9C"><span class="toc-text">非直连链路发生故障</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%93%E6%89%91%E6%94%B9%E5%8F%98%E5%AF%BC%E8%87%B4MAC%E5%9C%B0%E5%9D%80%E8%A1%A8%E9%94%99%E8%AF%AF"><span class="toc-text">拓扑改变导致MAC地址表错误</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AESTP"><span class="toc-text">配置STP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSTP"><span class="toc-text">RSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MSTP"><span class="toc-text">MSTP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VBST"><span class="toc-text">VBST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E8%BF%9B%E9%98%B6%E6%8A%80%E6%9C%AF"><span class="toc-text">一些进阶技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%A0%86%E5%8F%A0"><span class="toc-text">交换机堆叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Smart-Link"><span class="toc-text">Smart Link</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80"><span class="toc-text">IP路由基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E8%B7%AF%E7%94%B1"><span class="toc-text">IP路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F"><span class="toc-text">路由信息获取方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">路由优先级</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%BD%AC%E5%8F%91"><span class="toc-text">路由转发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E5%8C%B9%E9%85%8D%E5%8E%9F%E5%88%99"><span class="toc-text">最长匹配原则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%BA%E7%9C%81%E8%B7%AF%E7%94%B1"><span class="toc-text">缺省路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-text">动态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="toc-text">路由高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%80%92%E5%BD%92"><span class="toc-text">路由递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7%E8%B7%AF%E7%94%B1"><span class="toc-text">等价路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%B7%AF%E7%94%B1"><span class="toc-text">浮动路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%B1%87%E6%80%BB"><span class="toc-text">路由汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B1%87%E6%80%BB%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">汇总引发的问题</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF"><span class="toc-text">OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LSA"><span class="toc-text">LSA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSDB"><span class="toc-text">LSDB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPF%E8%AE%A1%E7%AE%97"><span class="toc-text">SPF计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%9F%9F%EF%BC%88Area-ID%EF%BC%89"><span class="toc-text">区域（Area ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1ID%EF%BC%88Route-r-ID%EF%BC%89"><span class="toc-text">路由ID（Route r-ID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BA%94%E7%94%A8"><span class="toc-text">OSPF应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#COST"><span class="toc-text">COST</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF协议报文类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E4%B8%89%E5%A4%A7%E8%A1%A8"><span class="toc-text">OSPF三大表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%BB%E5%B1%85%E8%A1%A8"><span class="toc-text">邻居表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LSDB%E8%A1%A8"><span class="toc-text">LSDB表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF路由表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E9%82%BB%E6%8E%A5%E5%85%B3%E7%B3%BB"><span class="toc-text">OSPF建立邻接关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%BB%BA%E7%AB%8B%E8%B7%AF%E7%94%B1%E8%A1%A8"><span class="toc-text">OSPF建立路由表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSPF%E7%BD%91%E7%BB%9C%E7%B1%BB%E5%9E%8B"><span class="toc-text">OSPF网络类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E8%B7%AF%E7%94%B1%E5%99%A8%E8%BA%AB%E4%BB%BD"><span class="toc-text">三种路由器身份</span></a></li></ol></li></ol></li></ol>
     </article>
   
   
@@ -766,6 +1386,16 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-20</div>
+        <a href="/2021/10/20/uni-app%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><div class="recent-posts-item-content">uni-app开发环境配置</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2021-10-18</div>
+        <a href="/2021/10/18/vcpkg%E7%AE%A1%E7%90%86C-C-%E5%BA%93%E6%96%87%E4%BB%B6/"><div class="recent-posts-item-content">vcpkg管理C/C++库文件</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-10-14</div>
         <a href="/2021/10/14/%E4%BD%BF%E7%94%A8Typora-PigGo-Github%E5%9B%BE%E5%BA%8A%E5%86%99%E5%8D%9A%E5%AE%A2/"><div class="recent-posts-item-content">使用Typora+PigGo+Github图床写博客</div></a>
       </div>
@@ -773,16 +1403,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2021-10-13</div>
         <a href="/2021/10/13/Java%E6%B3%A8%E8%A7%A3/"><div class="recent-posts-item-content">Java注解</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-10-12</div>
-        <a href="/2021/10/12/%E5%85%B3%E4%BA%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BB%8E%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%88%86%E4%BA%AB%E8%B7%B3%E8%BD%AC%E5%88%B0%E5%8D%95%E9%A1%B5%E6%A8%A1%E5%BC%8F%E4%B8%AD%E6%97%A0%E6%B3%95%E8%B0%83%E7%94%A8%E4%BA%91%E8%B5%84%E6%BA%90%E7%9A%84%E9%97%AE%E9%A2%98/"><div class="recent-posts-item-content">关于小程序从朋友圈分享跳转到单页模式中无法调用云资源的问题</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2021-10-11</div>
-        <a href="/2021/10/11/SpringBoot%E5%BC%95%E5%85%A5Jpa%E7%AE%A1%E7%90%86MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"><div class="recent-posts-item-content">SpringBoot引入Jpa管理MySQL数据库</div></a>
       </div>
     
   </div>
